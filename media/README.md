@@ -45,4 +45,4 @@ npx playwright test --config e2e/playwright.config.ts --project=media
 
 Then convert the tour webm under `apps/ui/test-results/` with ffmpeg to
 `media/omni-demo.mp4` + `media/omni-demo.gif`, and copy PNGs into
-`assets/readme/` for the root README.
+`assets/readme/daylight/` for the root README (new folder names bust GitHub Camo cache).

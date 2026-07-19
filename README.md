@@ -39,21 +39,21 @@ Capture dual audio streams on your machine. Transcribe on-device. Turn rough not
 > Screenshots and the demo are the **current Omni Steroid app** (Daylight UI) running against the **real Python engine** with seeded synthetic meetings — not mockups, not the legacy monochrome Omni build. Capture notes: [`media/README.md`](media/README.md).
 
 <p align="center">
-  <img src="assets/readme/hero-poster.webp" width="880" alt="Omni Steroid Home — Welcome back with Record, Ask, Voice notes, and Import cards"/>
+  <img src="assets/readme/daylight/hero.webp" width="880" alt="Omni Steroid Home — Welcome back with Record, Ask, Voice notes, and Import cards"/>
 </p>
 
 <p align="center">
-  <img src="assets/readme/demo.gif" width="880" alt="Omni Steroid product tour — Home, Meetings, meeting detail, Ask, Settings, Voice notes"/>
+  <img src="assets/readme/daylight/demo.gif" width="880" alt="Omni Steroid product tour — Home, Meetings, meeting detail, Ask, Settings, Voice notes"/>
 </p>
 
 <p align="center">
-  <sub>Recorded product tour · also as <a href="assets/readme/demo.mp4"><code>assets/readme/demo.mp4</code></a></sub>
+  <sub>Recorded product tour · also as <a href="assets/readme/daylight/demo.mp4"><code>assets/readme/daylight/demo.mp4</code></a></sub>
 </p>
 
 ### Home
 
 <p align="center">
-  <img src="assets/readme/00-home.png" width="880" alt="Omni Steroid Home dashboard with Record Meeting, Keyboard Voice Replacement, Ask Across Notes, and Import Audio File"/>
+  <img src="assets/readme/daylight/home.png" width="880" alt="Omni Steroid Home dashboard with Record Meeting, Keyboard Voice Replacement, Ask Across Notes, and Import Audio File"/>
 </p>
 
 <p align="center"><em>Home — one place to record, dictate, ask, and import. Data stays on this device.</em></p>
@@ -63,10 +63,10 @@ Capture dual audio streams on your machine. Transcribe on-device. Turn rough not
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="assets/readme/01-library.png" width="100%" alt="Omni Steroid Meetings library grouped by day"/>
+      <img src="assets/readme/daylight/meetings.png" width="100%" alt="Omni Steroid Meetings library grouped by day"/>
     </td>
     <td width="50%" align="center">
-      <img src="assets/readme/02-meeting-detail.png" width="100%" alt="Meeting detail with enhanced notes, commitments, and transcript"/>
+      <img src="assets/readme/daylight/meeting-detail.png" width="100%" alt="Meeting detail with enhanced notes, commitments, and transcript"/>
     </td>
   </tr>
   <tr>
@@ -78,7 +78,7 @@ Capture dual audio streams on your machine. Transcribe on-device. Turn rough not
 ### Ask across your vault
 
 <p align="center">
-  <img src="assets/readme/03-ask-answer.png" width="880" alt="Omni Steroid Ask screen querying Northwind renewal"/>
+  <img src="assets/readme/daylight/ask.png" width="880" alt="Omni Steroid Ask screen querying Northwind renewal"/>
 </p>
 
 <p align="center"><em>Ask — natural-language questions over meetings and notes (live synthesis uses your BYOK keys)</em></p>
@@ -88,10 +88,10 @@ Capture dual audio streams on your machine. Transcribe on-device. Turn rough not
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="assets/readme/04-settings-router.png" width="100%" alt="Omni Steroid Settings screen"/>
+      <img src="assets/readme/daylight/settings.png" width="100%" alt="Omni Steroid Settings screen"/>
     </td>
     <td width="50%" align="center">
-      <img src="assets/readme/05-settings-ledger-keys.png" width="100%" alt="Omni Steroid Settings privacy and advanced controls"/>
+      <img src="assets/readme/daylight/settings-privacy.png" width="100%" alt="Omni Steroid Settings privacy and advanced controls"/>
     </td>
   </tr>
   <tr>
@@ -103,7 +103,7 @@ Capture dual audio streams on your machine. Transcribe on-device. Turn rough not
 ### Voice notes
 
 <p align="center">
-  <img src="assets/readme/06-naomi-pool.png" width="880" alt="Omni Steroid Voice notes screen"/>
+  <img src="assets/readme/daylight/voice-notes.png" width="880" alt="Omni Steroid Voice notes screen"/>
 </p>
 
 <p align="center"><em>Global dictation history — push-to-talk, cleanup styles, searchable notes</em></p>
@@ -112,10 +112,10 @@ Capture dual audio streams on your machine. Transcribe on-device. Turn rough not
 
 <table>
   <tr>
-    <td width="25%" align="center"><img src="assets/readme/07-onboarding-welcome.png" width="100%" alt="Welcome to Omni Steroid"/></td>
-    <td width="25%" align="center"><img src="assets/readme/08-onboarding-vault.png" width="100%" alt="Onboarding vault step"/></td>
-    <td width="25%" align="center"><img src="assets/readme/09-onboarding-keys.png" width="100%" alt="Onboarding keys step"/></td>
-    <td width="25%" align="center"><img src="assets/readme/10-onboarding-models.png" width="100%" alt="Onboarding models step"/></td>
+    <td width="25%" align="center"><img src="assets/readme/daylight/onboarding-welcome.png" width="100%" alt="Welcome to Omni Steroid"/></td>
+    <td width="25%" align="center"><img src="assets/readme/daylight/onboarding-vault.png" width="100%" alt="Onboarding vault step"/></td>
+    <td width="25%" align="center"><img src="assets/readme/daylight/onboarding-keys.png" width="100%" alt="Onboarding keys step"/></td>
+    <td width="25%" align="center"><img src="assets/readme/daylight/onboarding-models.png" width="100%" alt="Onboarding models step"/></td>
   </tr>
   <tr>
     <td align="center"><sub>Welcome</sub></td>
@@ -252,7 +252,7 @@ Threat model: [`docs/threat-model.md`](docs/threat-model.md).
 |------|------------------|
 | `apps/ui/` | Tauri shell + React UI |
 | `engine/` | Capture, STT, index/RAG, router, agents, vault, Naomi, dictation |
-| `assets/readme/` | Product images used on this page (current Daylight UI) |
+| `assets/readme/daylight/` | Product images used on this page (current Daylight UI) |
 | `media/` | Full showcase media + capture notes |
 | `docs/` | Architecture, features, design, plans |
 | `evidence/` | Measured benchmarks and diagrams |
