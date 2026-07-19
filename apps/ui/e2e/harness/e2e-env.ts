@@ -39,11 +39,16 @@ export const MIGRATIONS_DIR = path.join(WORKTREE_ROOT, "migrations");
 export const MEDIA_DIR = path.join(WORKTREE_ROOT, "media");
 export const SCREENSHOTS_DIR = path.join(MEDIA_DIR, "screenshots");
 
-/** The engine runs on the main checkout's venv (worktrees share no venv). */
+/** The engine runs on the checkout's venv (worktrees share no venv). */
 export const VENV_PYTHON =
-  process.env.OMNI_VENV_PYTHON ?? "C:/dev/Omni/.venv/Scripts/python.exe";
-/** Provider keys live in the main checkout's .env (gitignored, per CLAUDE.md). */
-export const ENV_FILE = process.env.OMNI_ENV_FILE ?? "C:/dev/Omni/.env";
+  process.env.OMNI_VENV_PYTHON ??
+  path.join(WORKTREE_ROOT, ".venv", "Scripts", "python.exe");
+/**
+ * Optional provider keys file (gitignored). When absent, the engine still
+ * boots offline; Ask synthesis needs GEMINI_API_KEY in env or DPAPI store.
+ */
+export const ENV_FILE =
+  process.env.OMNI_ENV_FILE ?? path.join(WORKTREE_ROOT, ".env");
 
 export const HARNESS_DIR = here;
 export const SEED_SCRIPT = path.join(here, "seed_engine.py");
@@ -56,30 +61,40 @@ const KEY_NAMES = [
   "ANTHROPIC_API_KEY",
 ] as const;
 
-/** Parse the required provider keys out of the .env file (values never logged). */
+/**
+ * Parse provider keys from the .env file (values never logged).
+ * Also accepts keys already present in the process environment.
+ * Missing GEMINI is allowed when OMNI_E2E_ALLOW_NO_KEYS=1 (offline media /
+ * shell-only runs); the ask health-gate then skips instead of inventing answers.
+ */
 export function loadProviderKeys(): Record<string, string> {
   const out: Record<string, string> = {};
-  if (!existsSync(ENV_FILE)) {
-    throw new Error(`E2E: .env not found at ${ENV_FILE} — cannot supply real provider keys`);
+  for (const name of KEY_NAMES) {
+    const fromEnv = process.env[name]?.trim();
+    if (fromEnv) out[name] = fromEnv;
   }
-  const text = readFileSync(ENV_FILE, "utf8");
-  for (const line of text.split(/\r?\n/)) {
-    const m = /^([A-Z0-9_]+)\s*=\s*(.*)$/.exec(line.trim());
-    if (m === null) continue;
-    const name = m[1];
-    if (!(KEY_NAMES as readonly string[]).includes(name)) continue;
-    let value = m[2].trim();
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
-      value = value.slice(1, -1);
+  if (existsSync(ENV_FILE)) {
+    const text = readFileSync(ENV_FILE, "utf8");
+    for (const line of text.split(/\r?\n/)) {
+      const m = /^([A-Z0-9_]+)\s*=\s*(.*)$/.exec(line.trim());
+      if (m === null) continue;
+      const name = m[1];
+      if (!(KEY_NAMES as readonly string[]).includes(name as (typeof KEY_NAMES)[number])) continue;
+      let value = m[2].trim();
+      if (
+        (value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1);
+      }
+      if (value.length > 0) out[name] = value;
     }
-    if (value.length > 0) out[name] = value;
   }
-  if (!out["GEMINI_API_KEY"]) {
+  if (!out["GEMINI_API_KEY"] && process.env.OMNI_E2E_ALLOW_NO_KEYS !== "1") {
     // ask_synthesis routes to Gemini — without it a REAL ask.query is impossible.
-    throw new Error("E2E: GEMINI_API_KEY missing from .env — the real ask.query gate needs it");
+    throw new Error(
+      `E2E: GEMINI_API_KEY missing (env or ${ENV_FILE}). Set OMNI_E2E_ALLOW_NO_KEYS=1 for offline shell/media capture.`,
+    );
   }
   return out;
 }

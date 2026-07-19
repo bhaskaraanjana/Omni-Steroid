@@ -35,79 +35,87 @@ Capture dual audio streams on your machine. Transcribe on-device. Turn rough not
 
 ## ✨ See it in action
 
+> [!NOTE]
+> Screenshots and the demo are the **current Omni Steroid app** (Daylight UI) running against the **real Python engine** with seeded synthetic meetings — not mockups, not the legacy monochrome Omni build. Capture notes: [`media/README.md`](media/README.md).
+
 <p align="center">
-  <img src="assets/readme/hero-poster.webp" width="880" alt="Omni Steroid — Library with meeting detail open, enhanced notes and transcript"/>
+  <img src="assets/readme/hero-poster.webp" width="880" alt="Omni Steroid Home — Welcome back with Record, Ask, Voice notes, and Import cards"/>
 </p>
 
 <p align="center">
-  <img src="assets/readme/demo.gif" width="880" alt="Omni Steroid product tour GIF — library, meeting, Ask with citations, settings, Naomi"/>
+  <img src="assets/readme/demo.gif" width="880" alt="Omni Steroid product tour — Home, Meetings, meeting detail, Ask, Settings, Voice notes"/>
 </p>
 
 <p align="center">
   <sub>Recorded product tour · also as <a href="assets/readme/demo.mp4"><code>assets/readme/demo.mp4</code></a></sub>
 </p>
 
-> [!NOTE]
-> Screenshots and the demo are the **real desktop app** running against the **real engine** — not mockups. Capture notes: [`media/README.md`](media/README.md).
+### Home
 
-### Library & meetings
+<p align="center">
+  <img src="assets/readme/00-home.png" width="880" alt="Omni Steroid Home dashboard with Record Meeting, Keyboard Voice Replacement, Ask Across Notes, and Import Audio File"/>
+</p>
+
+<p align="center"><em>Home — one place to record, dictate, ask, and import. Data stays on this device.</em></p>
+
+### Meetings library & detail
 
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="assets/readme/01-library.png" width="100%" alt="Meeting library grouped by day"/>
+      <img src="assets/readme/01-library.png" width="100%" alt="Omni Steroid Meetings library grouped by day"/>
     </td>
     <td width="50%" align="center">
-      <img src="assets/readme/02-meeting-detail.png" width="100%" alt="Meeting detail with enhanced notes and transcript"/>
+      <img src="assets/readme/02-meeting-detail.png" width="100%" alt="Meeting detail with enhanced notes, commitments, and transcript"/>
     </td>
   </tr>
   <tr>
-    <td align="center"><em>Library — meetings by day, search, one-click capture</em></td>
-    <td align="center"><em>Meeting — enhanced notes around your words, transcript, approvals</em></td>
+    <td align="center"><em>Meetings — search, import, record</em></td>
+    <td align="center"><em>Detail — enhanced notes around your words</em></td>
   </tr>
 </table>
 
-### Ask with citations
+### Ask across your vault
 
 <p align="center">
-  <img src="assets/readme/03-ask-answer.png" width="880" alt="Ask answer with inline citations and source list"/>
+  <img src="assets/readme/03-ask-answer.png" width="880" alt="Omni Steroid Ask screen querying Northwind renewal"/>
 </p>
 
-<p align="center"><em>Answers over your vault and past meetings — every claim cites a note path and line range</em></p>
+<p align="center"><em>Ask — natural-language questions over meetings and notes (live synthesis uses your BYOK keys)</em></p>
 
-### Your keys, your router
+### Settings
 
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="assets/readme/04-settings-router.png" width="100%" alt="AI router matrix in Settings"/>
+      <img src="assets/readme/04-settings-router.png" width="100%" alt="Omni Steroid Settings screen"/>
     </td>
     <td width="50%" align="center">
-      <img src="assets/readme/05-settings-ledger-keys.png" width="100%" alt="Privacy toggles, cost ledger, and API keys"/>
+      <img src="assets/readme/05-settings-ledger-keys.png" width="100%" alt="Omni Steroid Settings privacy and advanced controls"/>
     </td>
   </tr>
   <tr>
-    <td align="center"><em>Bring-your-own keys · per-task provider chains</em></td>
-    <td align="center"><em>Privacy controls · cost ledger · DPAPI-protected keys</em></td>
+    <td align="center"><em>Essentials &amp; Advanced — devices, quality, providers</em></td>
+    <td align="center"><em>Privacy, ledger, and key custody</em></td>
   </tr>
 </table>
 
-### Naomi voice mode
+### Voice notes
 
 <p align="center">
-  <img src="assets/readme/06-naomi-pool.png" width="880" alt="Naomi living-water voice interface"/>
+  <img src="assets/readme/06-naomi-pool.png" width="880" alt="Omni Steroid Voice notes screen"/>
 </p>
 
-<p align="center"><em>Hands-free vault Q&amp;A and action prep — same approval rules as the rest of the app</em></p>
+<p align="center"><em>Global dictation history — push-to-talk, cleanup styles, searchable notes</em></p>
 
 ### First run
 
 <table>
   <tr>
-    <td width="25%" align="center"><img src="assets/readme/07-onboarding-welcome.png" width="100%" alt="Welcome"/></td>
-    <td width="25%" align="center"><img src="assets/readme/08-onboarding-vault.png" width="100%" alt="Vault"/></td>
-    <td width="25%" align="center"><img src="assets/readme/09-onboarding-keys.png" width="100%" alt="Keys"/></td>
-    <td width="25%" align="center"><img src="assets/readme/10-onboarding-models.png" width="100%" alt="Models"/></td>
+    <td width="25%" align="center"><img src="assets/readme/07-onboarding-welcome.png" width="100%" alt="Welcome to Omni Steroid"/></td>
+    <td width="25%" align="center"><img src="assets/readme/08-onboarding-vault.png" width="100%" alt="Onboarding vault step"/></td>
+    <td width="25%" align="center"><img src="assets/readme/09-onboarding-keys.png" width="100%" alt="Onboarding keys step"/></td>
+    <td width="25%" align="center"><img src="assets/readme/10-onboarding-models.png" width="100%" alt="Onboarding models step"/></td>
   </tr>
   <tr>
     <td align="center"><sub>Welcome</sub></td>
@@ -126,14 +134,14 @@ Capture dual audio streams on your machine. Transcribe on-device. Turn rough not
 | 🎧 | **Bot-free capture** | Dual labelled streams — system audio (`them`) + mic (`me`). Works with headphones on Windows (WASAPI). macOS/Linux via monitor devices (BlackHole / PipeWire). |
 | 🧠 | **On-device STT** | Silero VAD + streaming transcription (Parakeet-TDT live; Whisper / BYOK cloud for import & retranscribe). Audio stays as local MP3 by default. |
 | 📝 | **Enhanced notes** | Your rough notes stay primary. AI fills structure *around* them in clearly marked managed regions. |
-| 🔍 | **Ask + citations** | Local RAG over Obsidian vault + transcripts. Inline citations to exact note + line range — never floating claims. |
+| 🔍 | **Ask + citations** | Local RAG over Obsidian vault + transcripts. Inline citations to exact note + line range when synthesis keys are configured. |
 | ✅ | **Approval cards** | Calendar, contacts, vault writes, **Gmail drafts only (never send)**. Nothing executes without you. |
-| 🎙️ | **Global dictation** | Push-to-talk pill, locked recording, cleanup styles, inject into any app (Windows), searchable history. Raw text always kept. |
+| 🎙️ | **Global dictation** | Push-to-talk, locked recording, cleanup styles, inject into any app (Windows), searchable history. Raw text always kept. |
 | 📦 | **Export & import** | Markdown, PDF, DOCX, SRT, VTT. Import audio/video; optional speaker identity. |
-| 🌊 | **Naomi** | Voice agent over the same vault and approval path — hands-free between meetings. |
+| 🌊 | **Naomi** | Optional voice agent over the same vault and approval path (when a voice provider is configured). |
 
 > [!TIP]
-> **Privacy is the product.** Zero telemetry. Transcripts, embeddings, and keys stay on your machine except the minimum excerpt you send to a model you configured. One kill-switch pauses all cloud AI; capture and vault keep working offline.
+> **Privacy is the product.** Zero telemetry. Transcripts, embeddings, and keys stay on your machine except the minimum excerpt you send to a model you configured. One control pauses all cloud AI; capture and vault keep working offline.
 
 Full catalog: [`docs/features.md`](docs/features.md).
 
@@ -244,7 +252,7 @@ Threat model: [`docs/threat-model.md`](docs/threat-model.md).
 |------|------------------|
 | `apps/ui/` | Tauri shell + React UI |
 | `engine/` | Capture, STT, index/RAG, router, agents, vault, Naomi, dictation |
-| `assets/readme/` | Product images used on this page |
+| `assets/readme/` | Product images used on this page (current Daylight UI) |
 | `media/` | Full showcase media + capture notes |
 | `docs/` | Architecture, features, design, plans |
 | `evidence/` | Measured benchmarks and diagrams |

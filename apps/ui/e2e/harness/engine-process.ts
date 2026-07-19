@@ -90,6 +90,12 @@ async function waitForHealth(timeoutMs: number): Promise<void> {
 
 /** Health-gate a REAL ask.query success — never record against a broken stack. */
 export function assertRealAskWorks(): void {
+  if (process.env.OMNI_E2E_ALLOW_NO_KEYS === "1" && !process.env.GEMINI_API_KEY) {
+    // Offline media/shell runs: capture UI against a real seeded engine without
+    // inventing cloud answers. Specs that need Ask must still assert success.
+    console.log("[e2e:ask-gate] skipped (OMNI_E2E_ALLOW_NO_KEYS=1, no GEMINI_API_KEY)");
+    return;
+  }
   const res = spawnSync(VENV_PYTHON, [ASK_PROBE_SCRIPT, "--url", `ws://127.0.0.1:${ENGINE_PORT}/ws`], {
     cwd: WORKTREE_ROOT,
     env: engineSpawnEnv(),
