@@ -316,3 +316,43 @@ def test_signal_confidence_validation_fails_closed() -> None:
             confidence=float("nan"),
             evidence="process",
         )
+
+
+@pytest.mark.parametrize(
+    ("exe_name", "expected_source"),
+    [
+        ("BlueJeans.exe", "bluejeans"),
+        ("g2mcomm.exe", "gotomeeting"),
+        ("RingCentral.exe", "ringcentral"),
+        ("Chime.exe", "chime"),
+        ("WhatsApp.exe", "whatsapp"),
+        ("Telegram.exe", "telegram"),
+        ("ZoomRooms.exe", SOURCE_ZOOM),
+    ],
+)
+def test_additional_meeting_apps_match(exe_name: str, expected_source: str) -> None:
+    signals = classify_desktop_snapshot(snap(processes=[(42, exe_name)]))
+    assert len(signals) == 1
+    assert signals[0].source == expected_source
+
+
+def test_whatsapp_call_title_requires_whatsapp_owner() -> None:
+    owned = classify_desktop_snapshot(
+        snap(processes=[(7, "WhatsApp.exe")], windows=[(7, "WhatsApp Call")])
+    )
+    assert by_source(owned)["whatsapp"].evidence == "window_title"
+    unowned = classify_desktop_snapshot(snap(windows=[(1, "WhatsApp Call")]))
+    assert "whatsapp" not in by_source(unowned)
+
+
+def test_default_auto_start_sources_cover_meeting_apps_not_adhoc() -> None:
+    from engine.detect.detection_signal_types import (
+        DEFAULT_AUTO_START_SOURCES,
+        KNOWN_DETECTION_SOURCES,
+        SOURCE_ADHOC_LOOPBACK,
+    )
+
+    assert SOURCE_ADHOC_LOOPBACK not in DEFAULT_AUTO_START_SOURCES
+    assert DEFAULT_AUTO_START_SOURCES < KNOWN_DETECTION_SOURCES
+    assert SOURCE_ZOOM in DEFAULT_AUTO_START_SOURCES
+    assert "bluejeans" in DEFAULT_AUTO_START_SOURCES

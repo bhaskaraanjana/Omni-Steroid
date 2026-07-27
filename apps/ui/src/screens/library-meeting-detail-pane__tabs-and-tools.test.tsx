@@ -105,10 +105,10 @@ describe("library detail Meetily parity tabs", () => {
     await act(async () => {
       renderReady();
     });
-    expect(screen.getByRole("button", { name: "Summary" })).toBeTruthy();
-    expect(screen.getByRole("button", { name: "Transcript" })).toBeTruthy();
-    expect(screen.getByRole("button", { name: "Chat" })).toBeTruthy();
-    expect(screen.getByRole("button", { name: "Export" })).toBeTruthy();
+    expect(screen.getByRole("tab", { name: "Summary" })).toBeTruthy();
+    expect(screen.getByRole("tab", { name: "Transcript" })).toBeTruthy();
+    expect(screen.getByRole("tab", { name: "Chat" })).toBeTruthy();
+    expect(screen.getByRole("tab", { name: "Export" })).toBeTruthy();
   });
 
   it("Chat tab asks about this meeting", async () => {
@@ -116,7 +116,7 @@ describe("library detail Meetily parity tabs", () => {
       renderReady();
     });
     await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: "Chat" }));
+      fireEvent.click(screen.getByRole("tab", { name: "Chat" }));
     });
     const input = screen.getByLabelText("Ask about this meeting");
     fireEvent.change(input, { target: { value: "What was agreed?" } });
@@ -132,7 +132,7 @@ describe("library detail Meetily parity tabs", () => {
       renderReady();
     });
     await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: "Export" }));
+      fireEvent.click(screen.getByRole("tab", { name: "Export" }));
     });
     await act(async () => {
       fireEvent.click(screen.getByRole("button", { name: "Copy transcript" }));
@@ -152,7 +152,7 @@ describe("library detail Meetily parity tabs", () => {
       renderReady();
     });
     await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: "Export" }));
+      fireEvent.click(screen.getByRole("tab", { name: "Export" }));
     });
     await act(async () => {
       fireEvent.click(screen.getByRole("button", { name: "Download MD" }));
@@ -174,7 +174,7 @@ describe("library detail Meetily parity tabs", () => {
       );
     });
     await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: "Export" }));
+      fireEvent.click(screen.getByRole("tab", { name: "Export" }));
     });
     expect(screen.queryByRole("button", { name: "Retranscribe" })).toBeNull();
   });
@@ -187,7 +187,7 @@ describe("library detail Meetily parity tabs", () => {
       renderReady();
     });
     await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: "Export" }));
+      fireEvent.click(screen.getByRole("tab", { name: "Export" }));
     });
     await act(async () => {
       fireEvent.click(screen.getByRole("button", { name: "Download SRT" }));
@@ -216,7 +216,7 @@ describe("library detail Meetily parity tabs", () => {
       );
     });
     await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: "Export" }));
+      fireEvent.click(screen.getByRole("tab", { name: "Export" }));
     });
     await act(async () => {
       fireEvent.click(screen.getByRole("button", { name: "Delete meeting" }));

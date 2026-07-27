@@ -300,6 +300,7 @@ export function DictationPillView({
         <OmniMark size={20} />
         {state.phase === "idle" && (
           <span className="pill-idle-hint">
+            <span className="pill-idle-dot" aria-hidden="true" />
             {holdLabel}
           </span>
         )}

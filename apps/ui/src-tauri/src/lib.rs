@@ -25,6 +25,7 @@ pub mod dictation_clipboard_win32;
 pub mod dictation_hotkey_accelerator;
 pub mod dictation_injection_win32;
 mod captions_overlay_window;
+mod capture_status_bar_window;
 mod dictation_pill_window;
 mod meeting_toast_window;
 pub mod dictation_text_injection;
@@ -165,6 +166,8 @@ pub fn run() {
             dictation_text_injection::inject_dictation_text,
             dictation_pill_window::set_dictation_hotkey,
             captions_overlay_window::set_captions_overlay_visible,
+            capture_status_bar_window::set_capture_status_bar_visible,
+            capture_status_bar_window::capture_status_bar_stop_capture,
             meeting_toast_window::set_meeting_toast_visible,
             meeting_toast_window::meeting_toast_start_capture,
             meeting_toast_window::meeting_toast_dismiss,
@@ -208,6 +211,9 @@ pub fn run() {
             }
             if let Err(e) = meeting_toast_window::setup_meeting_toast(app.handle()) {
                 log::warn!("meeting toast setup skipped: {e}");
+            }
+            if let Err(e) = capture_status_bar_window::setup_capture_status_bar(app.handle()) {
+                log::warn!("capture status bar setup skipped: {e}");
             }
             // Start supervising the engine sidecar immediately; the supervisor
             // tolerates the engine being absent (retry loop, never a crash)

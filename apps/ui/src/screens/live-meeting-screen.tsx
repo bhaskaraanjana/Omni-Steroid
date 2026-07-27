@@ -22,7 +22,7 @@ import { CaptureBar } from "../components/live/capture-bar";
 import { FinalizeMeetingPanel } from "../components/live/finalize-meeting-panel";
 import { NotepadPane } from "../components/live/notepad-pane";
 import { TranscriptStream } from "../components/live/transcript-stream";
-import { requestCaptureStart } from "../lib/capture-commands";
+import { cancelCaptureStart, requestCaptureStart } from "../lib/capture-commands";
 import { useEngineStatus } from "../lib/engine-status-store";
 import { bindNotepadToMeeting, notepadStore } from "../lib/notepad-store";
 import { useTranscript } from "../lib/transcript-store";
@@ -117,9 +117,11 @@ function PreCaptureState({
   readonly children?: ReactNode;
 }) {
   const engineStatus = useEngineStatus((s) => s.status);
+  const sttReady = useEngineStatus((s) => s.sttReady);
   const captureStatus = useTranscript((s) => s.captureStatus);
   const engineDown = engineStatus !== "connected";
   const starting = captureStatus === "starting";
+  const modelsLoading = !engineDown && !sttReady;
 
   return (
     <div className="flex h-full items-center justify-center">
@@ -148,21 +150,42 @@ function PreCaptureState({
 
         <OmniButton
           variant="primary"
-          disabled={engineDown || starting}
+          disabled={engineDown || starting || modelsLoading}
           onClick={() => {
             const mic = appSettingsStore.getState().microphone;
             requestCaptureStart(undefined, mic ? { micDeviceId: mic } : undefined);
           }}
           className="w-full justify-center"
         >
-          {starting ? "Starting capture" : "Start capture"}
+          {starting
+            ? "Starting capture…"
+            : modelsLoading
+              ? "Loading speech models…"
+              : "Start capture"}
         </OmniButton>
+        {starting && (
+          <OmniButton
+            variant="secondary"
+            onClick={() => cancelCaptureStart()}
+            className="w-full justify-center"
+          >
+            Cancel
+          </OmniButton>
+        )}
         {engineDown && (
           <div
             className="w-full text-center px-[var(--space-4)] py-[var(--space-3)] border border-solid border-[var(--warning)] bg-[var(--warning-bg)] text-[var(--warning-text)] rounded-[var(--radius-control)]"
             style={{ fontSize: 13 }}
           >
             The engine is offline — capture needs the engine running on this device.
+          </div>
+        )}
+        {modelsLoading && !starting && (
+          <div
+            className="w-full text-center px-[var(--space-4)] py-[var(--space-3)] border border-solid border-[var(--warning)] bg-[var(--warning-bg)] text-[var(--warning-text)] rounded-[var(--radius-control)]"
+            style={{ fontSize: 13 }}
+          >
+            Speech models are still loading. Wait until this clears, then start.
           </div>
         )}
         {errorMessage !== null && (

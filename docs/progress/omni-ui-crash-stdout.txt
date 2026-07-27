@@ -1,0 +1,233 @@
+[2026-07-20][16:33:58][engine][INFO] engine sidecar started (pid 25268)
+[2026-07-20][16:33:58][engine][WARN] DEBUG uv 0.11.2 (02036a8ba 2026-03-26 x86_64-pc-windows-msvc)
+[2026-07-20][16:33:58][engine][WARN] DEBUG Found project root: `C:\DEV\Omni Steroid`
+[2026-07-20][16:33:58][engine][WARN] DEBUG No workspace root found, using project root
+[2026-07-20][16:33:58][engine][WARN] DEBUG Discovered project `omni-engine` at: C:\DEV\Omni Steroid
+[2026-07-20][16:33:58][engine][WARN] DEBUG No Python version file found in workspace: C:\DEV\Omni Steroid
+[2026-07-20][16:33:58][engine][WARN] DEBUG Using Python request `==3.11.*` from `requires-python` metadata
+[2026-07-20][16:33:58][engine][WARN] DEBUG Checking for Python environment at: `.venv`
+[2026-07-20][16:33:58][engine][WARN] DEBUG The project environment's Python version satisfies the request: `Python ==3.11.*`
+[2026-07-20][16:33:58][engine][WARN] DEBUG Using request connect timeout of 10s and read timeout of 30s
+[2026-07-20][16:33:58][engine][WARN] DEBUG Found static `pyproject.toml` for: omni-engine @ file:///C:/DEV/Omni%20Steroid
+[2026-07-20][16:33:58][engine][WARN] DEBUG No workspace root found, using project root
+[2026-07-20][16:33:58][engine][WARN] DEBUG Existing `uv.lock` satisfies workspace requirements
+[2026-07-20][16:33:58][engine][WARN] DEBUG Using request connect timeout of 10s and read timeout of 30s
+[2026-07-20][16:33:58][engine][WARN] DEBUG Computed cache info: Timestamp(SystemTime { intervals: 134290309338994080 }), None, None, {}, {"src": None}. Most recently modified: pyproject.toml
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: omni-engine==0.1.0 (from file:///C:/DEV/Omni%20Steroid)
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: mypy==2.1.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pytest==9.1.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pytest-asyncio==1.4.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: ruff==0.15.20
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: aiosqlite==0.22.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: anthropic==0.116.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: fastapi==0.139.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: fpdf2==2.8.7
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: google-genai==2.10.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: groq==1.5.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: httpx==0.28.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: numpy==2.4.6
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: onnxruntime==1.27.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: openai==2.44.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pyaudiowpatch==0.2.12.8
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pydantic==2.13.4
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pydantic-settings==2.14.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: python-docx==1.2.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: soxr==1.1.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: sqlite-vec==0.1.9
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: tokenizers==0.22.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: uvicorn==0.50.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: watchdog==6.0.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: websockets==16.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: ast-serialize==0.6.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: librt==0.12.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: mypy-extensions==1.1.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pathspec==1.1.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: typing-extensions==4.16.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: colorama==0.4.6
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: iniconfig==2.3.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: packaging==24.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pluggy==1.6.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pygments==2.20.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: anyio==4.14.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: distro==1.9.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: docstring-parser==0.18.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: jiter==0.16.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: sniffio==1.3.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: annotated-doc==0.0.4
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: starlette==1.3.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: typing-inspection==0.4.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: defusedxml==0.7.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: fonttools==4.63.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pillow==12.3.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: google-auth==2.55.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: requests==2.34.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: tenacity==9.1.4
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: certifi==2026.6.17
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: httpcore==1.0.9
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: idna==3.18
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: flatbuffers==25.12.19
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: protobuf==5.29.6
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: tqdm==4.68.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: annotated-types==0.7.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pydantic-core==2.46.4
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: python-dotenv==1.2.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: lxml==6.1.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: huggingface-hub==0.36.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: click==8.4.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: h11==0.16.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: httptools==0.8.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pyyaml==6.0.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: watchfiles==1.2.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: cryptography==49.0.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pyasn1-modules==0.4.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: charset-normalizer==3.4.8
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: urllib3==2.7.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: filelock==3.29.5
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: fsspec==2024.12.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: cffi==2.0.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pyasn1==0.6.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Requirement already installed: pycparser==3.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: strenum==0.4.15
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: absl-py==2.5.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: accelerate==1.14.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: aiohappyeyeballs==2.7.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: aiohttp==3.14.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: aiosignal==1.4.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: alembic==1.18.5
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: antlr4-python3-runtime==4.9.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: asttokens==3.0.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: attrs==26.1.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: audioread==3.1.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: braceexpand==0.1.7
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: cloudpickle==3.1.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: colorlog==6.10.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: contourpy==1.3.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: cuda-bindings==13.3.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: cuda-pathfinder==1.5.6
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: cycler==0.12.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: cytoolz==1.1.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: datasets==5.0.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: decorator==5.3.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: dill==0.4.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: editdistance==0.8.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: einops==0.8.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: executing==2.2.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: fiddle==0.3.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: frozenlist==1.8.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: gitdb==4.0.12
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: gitpython==3.1.50
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: graphviz==0.21
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: greenlet==3.5.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: grpcio==1.82.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: hydra-core==1.3.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: indic-numtowords==1.1.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: inflect==7.5.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: intervaltree==3.2.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: ipython==9.15.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: ipython-pygments-lexers==1.1.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: jedi==0.20.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: jinja2==3.1.6
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: jiwer==3.1.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: joblib==1.5.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: kaldi-python-io==1.2.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: kaldialign==0.9.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: kiwisolver==1.5.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: lazy-loader==0.5
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: lhotse==1.33.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: libcst==1.8.6
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: librosa==0.11.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: lightning==2.4.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: lightning-utilities==0.15.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: llvmlite==0.48.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: mako==1.3.12
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: markdown==3.10.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: markupsafe==3.0.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: marshmallow==4.3.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: matplotlib==3.11.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: matplotlib-inline==0.2.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: mediapy==1.1.6
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: ml-dtypes==0.5.4
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: more-itertools==11.1.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: mpmath==1.3.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: msgpack==1.2.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: multidict==6.7.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: multiprocess==0.70.19
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: narwhals==2.23.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: nemo-toolkit==2.7.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: networkx==3.6.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: numba==0.66.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: numexpr==2.13.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: nv-one-logger-core==2.3.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: nv-one-logger-pytorch-lightning-integration==2.3.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: nv-one-logger-training-telemetry==2.3.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: omegaconf==2.3.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: onnx==1.22.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: optuna==4.9.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: overrides==7.7.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pandas==3.0.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: parso==0.8.7
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: peft==0.19.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: platformdirs==4.10.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pooch==1.9.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: portalocker==3.2.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: prompt-toolkit==3.0.52
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: propcache==0.5.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: psutil==7.2.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pure-eval==0.2.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pyannote-core==6.0.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pyannote-database==6.1.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pyannote-metrics==4.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pyarrow==24.0.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pydub==0.25.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pyloudnorm==0.2.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pyparsing==3.3.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: python-dateutil==2.9.0.post0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pytorch-lightning==2.6.5
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: pywin32==312
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: rapidfuzz==3.14.5
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: regex==2026.6.28
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: resampy==0.4.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: ruamel-yaml==0.19.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: sacrebleu==2.6.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: sacremoses==0.1.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: safetensors==0.8.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: scikit-learn==1.9.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: scipy==1.17.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: sentencepiece==0.2.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: sentry-sdk==2.64.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: setuptools==81.0.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: six==1.17.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: smmap==5.0.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: sortedcontainers==2.4.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: soundfile==0.14.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: sox==1.5.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: sqlalchemy==2.0.51
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: stack-data==0.6.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: sympy==1.14.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: tabulate==0.10.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: tensorboard==2.20.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: tensorboard-data-server==0.7.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: text-unidecode==1.3
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: threadpoolctl==3.6.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: toml==0.10.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: toolz==1.1.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: torch==2.11.0+cu128
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: torchmetrics==1.9.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: traitlets==5.15.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: transformers==4.57.6
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: typeguard==4.5.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: tzdata==2026.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: wandb==0.28.0
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: wcwidth==0.8.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: webdataset==1.0.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: werkzeug==3.1.8
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: wget==3.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: whisper-normalizer==0.1.12
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: wrapt==2.2.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: xxhash==3.8.1
+[2026-07-20][16:33:58][engine][WARN] DEBUG Unnecessary package: yarl==1.24.2
+[2026-07-20][16:33:58][engine][WARN] DEBUG Using Python 3.11.15 interpreter at: C:\DEV\Omni Steroid\.venv\Scripts\python.exe
+[2026-07-20][16:33:58][engine][WARN] DEBUG Running `python -m engine.server`
+[2026-07-20][16:34:00][engine][WARN] INFO:     Started server process [10020]
+[2026-07-20][16:34:00][engine][WARN] INFO:     Waiting for application startup.
+[2026-07-20][16:34:00][engine][WARN] 2026-07-20 14:04:00,046 INFO engine.wiring.vault_watchdog_server_wiring: vault watcher ON over C:\ (500 ms debounce)

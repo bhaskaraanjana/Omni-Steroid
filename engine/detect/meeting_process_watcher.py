@@ -33,15 +33,21 @@ import logging
 from collections.abc import Callable
 
 from engine.detect.detection_signal_types import (
+    SOURCE_BLUEJEANS,
     SOURCE_BROWSER_MEET,
     SOURCE_BROWSER_TEAMS,
     SOURCE_BROWSER_WEBEX,
     SOURCE_BROWSER_WHEREBY,
     SOURCE_BROWSER_ZOOM,
+    SOURCE_CHIME,
     SOURCE_DISCORD,
+    SOURCE_GOTO,
+    SOURCE_RINGCENTRAL,
     SOURCE_SKYPE,
     SOURCE_SLACK,
     SOURCE_TEAMS,
+    SOURCE_TELEGRAM,
+    SOURCE_WHATSAPP,
     SOURCE_ZOOM,
     DesktopSnapshot,
     MeetingAppDetected,
@@ -57,15 +63,28 @@ logger = logging.getLogger(__name__)
 _PROCESS_SIGNATURES: dict[str, tuple[str, float]] = {
     "zoom.exe": (SOURCE_ZOOM, 0.3),
     "zoomhybridconf.exe": (SOURCE_ZOOM, 0.7),  # Zoom's in-call helper
+    "zoomrooms.exe": (SOURCE_ZOOM, 0.65),
     "ms-teams.exe": (SOURCE_TEAMS, 0.3),
     "teams.exe": (SOURCE_TEAMS, 0.3),
     "cpthost.exe": (SOURCE_TEAMS, 0.55),  # call host — needs mic to clear 0.6 alone
     "discord.exe": (SOURCE_DISCORD, 0.3),
     "slack.exe": (SOURCE_SLACK, 0.2),
     "skype.exe": (SOURCE_SKYPE, 0.3),
+    "skypeapp.exe": (SOURCE_SKYPE, 0.3),
     "webexhost.exe": (SOURCE_BROWSER_WEBEX, 0.65),
     "ciscocollabhost.exe": (SOURCE_BROWSER_WEBEX, 0.65),
     "webex.exe": (SOURCE_BROWSER_WEBEX, 0.3),
+    "bluejeans.exe": (SOURCE_BLUEJEANS, 0.35),
+    "bluejeans.desktop.exe": (SOURCE_BLUEJEANS, 0.35),
+    "g2mcomm.exe": (SOURCE_GOTO, 0.55),
+    "g2mlauncher.exe": (SOURCE_GOTO, 0.3),
+    "gotomeeting.exe": (SOURCE_GOTO, 0.35),
+    "goto.exe": (SOURCE_GOTO, 0.3),
+    "ringcentral.exe": (SOURCE_RINGCENTRAL, 0.35),
+    "softphoneclient.exe": (SOURCE_RINGCENTRAL, 0.55),
+    "chime.exe": (SOURCE_CHIME, 0.35),
+    "whatsapp.exe": (SOURCE_WHATSAPP, 0.25),
+    "telegram.exe": (SOURCE_TELEGRAM, 0.25),
 }
 
 # Case-folded substrings of window titles that mark an in-meeting NATIVE app
@@ -82,6 +101,13 @@ _TEAMS_MEETING_WORDS = ("meeting", "call", "compact view", "| meeting")
 _SLACK_HUDDLE_MARKER = "huddle"
 _SKYPE_CALL_MARKERS = ("call with", "skype call", " - skype")
 _WEBEX_TITLE_MARKERS = ("cisco webex", "webex meeting", "webex |")
+_DISCORD_CALL_MARKERS = ("voice connected", "streaming", "discord overlay")
+_BLUEJEANS_TITLE_MARKERS = ("bluejeans", "blue jeans")
+_GOTO_TITLE_MARKERS = ("gotomeeting", "goto meeting", "goto webinar")
+_RINGCENTRAL_TITLE_MARKERS = ("ringcentral", "ring central")
+_CHIME_TITLE_MARKERS = ("amazon chime", "chime meeting")
+_WHATSAPP_CALL_MARKERS = ("whatsapp call", "voice call", "video call")
+_TELEGRAM_CALL_MARKERS = ("telegram call", "voice chat", "video chat")
 
 # Browser-tab title substrings (case-folded) -> source. A tab title normally
 # embeds the page title and often the domain; these are the patterns the
@@ -91,9 +117,16 @@ _BROWSER_TITLE_SIGNATURES: tuple[tuple[str, str], ...] = (
     ("google meet", SOURCE_BROWSER_MEET),
     ("zoom.us", SOURCE_BROWSER_ZOOM),
     ("zoom.com/j/", SOURCE_BROWSER_ZOOM),
+    ("app.zoom.us", SOURCE_BROWSER_ZOOM),
     ("teams.microsoft.com", SOURCE_BROWSER_TEAMS),
+    ("teams.live.com", SOURCE_BROWSER_TEAMS),
     ("whereby", SOURCE_BROWSER_WHEREBY),
     ("webex", SOURCE_BROWSER_WEBEX),
+    ("bluejeans.com", SOURCE_BLUEJEANS),
+    ("gotomeeting.com", SOURCE_GOTO),
+    ("meet.goto.com", SOURCE_GOTO),
+    ("ringcentral.com", SOURCE_RINGCENTRAL),
+    ("chime.aws", SOURCE_CHIME),
 )
 
 _WINDOW_TITLE_CONFIDENCE_ZOOM = 0.9
@@ -101,6 +134,8 @@ _WINDOW_TITLE_CONFIDENCE_TEAMS = 0.75
 _WINDOW_TITLE_CONFIDENCE_SLACK_HUDDLE = 0.85
 _WINDOW_TITLE_CONFIDENCE_SKYPE = 0.8
 _WINDOW_TITLE_CONFIDENCE_WEBEX = 0.8
+_WINDOW_TITLE_CONFIDENCE_DISCORD = 0.8
+_WINDOW_TITLE_CONFIDENCE_GENERIC = 0.8
 _BROWSER_TAB_CONFIDENCE = 0.65
 
 
@@ -189,6 +224,16 @@ def classify_desktop_snapshot(snapshot: DesktopSnapshot) -> tuple[MeetingAppDete
                     evidence="window_title",
                 )
             )
+        if owner_exe == "discord.exe" and any(m in title_cf for m in _DISCORD_CALL_MARKERS):
+            offer(
+                MeetingAppDetected(
+                    source=SOURCE_DISCORD,
+                    app="discord.exe",
+                    window_title_hint=window.title,
+                    confidence=_WINDOW_TITLE_CONFIDENCE_DISCORD,
+                    evidence="window_title",
+                )
+            )
         if any(m in title_cf for m in _WEBEX_TITLE_MARKERS) and (
             owner_exe in {"webexhost.exe", "webex.exe", "ciscocollabhost.exe"}
             or owner_exe.startswith("webex")
@@ -199,6 +244,72 @@ def classify_desktop_snapshot(snapshot: DesktopSnapshot) -> tuple[MeetingAppDete
                     app=owner_exe or "webex",
                     window_title_hint=window.title,
                     confidence=_WINDOW_TITLE_CONFIDENCE_WEBEX,
+                    evidence="window_title",
+                )
+            )
+        if owner_exe.startswith("bluejeans") and any(
+            m in title_cf for m in _BLUEJEANS_TITLE_MARKERS
+        ):
+            offer(
+                MeetingAppDetected(
+                    source=SOURCE_BLUEJEANS,
+                    app=owner_exe,
+                    window_title_hint=window.title,
+                    confidence=_WINDOW_TITLE_CONFIDENCE_GENERIC,
+                    evidence="window_title",
+                )
+            )
+        if owner_exe in {"g2mcomm.exe", "g2mlauncher.exe", "gotomeeting.exe", "goto.exe"} and any(
+            m in title_cf for m in _GOTO_TITLE_MARKERS
+        ):
+            offer(
+                MeetingAppDetected(
+                    source=SOURCE_GOTO,
+                    app=owner_exe,
+                    window_title_hint=window.title,
+                    confidence=_WINDOW_TITLE_CONFIDENCE_GENERIC,
+                    evidence="window_title",
+                )
+            )
+        if (
+            "ringcentral" in owner_exe or owner_exe == "softphoneclient.exe"
+        ) and any(m in title_cf for m in _RINGCENTRAL_TITLE_MARKERS):
+            offer(
+                MeetingAppDetected(
+                    source=SOURCE_RINGCENTRAL,
+                    app=owner_exe,
+                    window_title_hint=window.title,
+                    confidence=_WINDOW_TITLE_CONFIDENCE_GENERIC,
+                    evidence="window_title",
+                )
+            )
+        if "chime" in owner_exe and any(m in title_cf for m in _CHIME_TITLE_MARKERS):
+            offer(
+                MeetingAppDetected(
+                    source=SOURCE_CHIME,
+                    app=owner_exe,
+                    window_title_hint=window.title,
+                    confidence=_WINDOW_TITLE_CONFIDENCE_GENERIC,
+                    evidence="window_title",
+                )
+            )
+        if owner_exe == "whatsapp.exe" and any(m in title_cf for m in _WHATSAPP_CALL_MARKERS):
+            offer(
+                MeetingAppDetected(
+                    source=SOURCE_WHATSAPP,
+                    app="whatsapp.exe",
+                    window_title_hint=window.title,
+                    confidence=_WINDOW_TITLE_CONFIDENCE_GENERIC,
+                    evidence="window_title",
+                )
+            )
+        if owner_exe == "telegram.exe" and any(m in title_cf for m in _TELEGRAM_CALL_MARKERS):
+            offer(
+                MeetingAppDetected(
+                    source=SOURCE_TELEGRAM,
+                    app="telegram.exe",
+                    window_title_hint=window.title,
+                    confidence=_WINDOW_TITLE_CONFIDENCE_GENERIC,
                     evidence="window_title",
                 )
             )

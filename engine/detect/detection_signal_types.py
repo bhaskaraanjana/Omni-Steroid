@@ -33,6 +33,12 @@ SOURCE_BROWSER_ZOOM = "browser_zoom"
 SOURCE_BROWSER_TEAMS = "browser_teams"
 SOURCE_BROWSER_WHEREBY = "browser_whereby"
 SOURCE_BROWSER_WEBEX = "browser_webex"
+SOURCE_BLUEJEANS = "bluejeans"
+SOURCE_GOTO = "gotomeeting"
+SOURCE_RINGCENTRAL = "ringcentral"
+SOURCE_CHIME = "chime"
+SOURCE_WHATSAPP = "whatsapp"
+SOURCE_TELEGRAM = "telegram"
 SOURCE_ADHOC_LOOPBACK = "adhoc_loopback"
 
 # Deny-by-default: only these sources may EVER auto-start (and then only if
@@ -49,8 +55,21 @@ KNOWN_DETECTION_SOURCES: frozenset[str] = frozenset(
         SOURCE_BROWSER_TEAMS,
         SOURCE_BROWSER_WHEREBY,
         SOURCE_BROWSER_WEBEX,
+        SOURCE_BLUEJEANS,
+        SOURCE_GOTO,
+        SOURCE_RINGCENTRAL,
+        SOURCE_CHIME,
+        SOURCE_WHATSAPP,
+        SOURCE_TELEGRAM,
         SOURCE_ADHOC_LOOPBACK,
     }
+)
+
+# Product default: auto-start every known *meeting app* source. Ad-hoc
+# loopback stays opt-in — sustained speaker audio alone is too easy to
+# confuse with YouTube / music.
+DEFAULT_AUTO_START_SOURCES: frozenset[str] = frozenset(
+    source for source in KNOWN_DETECTION_SOURCES if source != SOURCE_ADHOC_LOOPBACK
 )
 
 

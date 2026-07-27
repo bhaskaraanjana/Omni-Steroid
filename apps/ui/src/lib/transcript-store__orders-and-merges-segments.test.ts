@@ -154,6 +154,14 @@ describe("capture lifecycle", () => {
     expect(store.getState().errorMessage).not.toBeNull();
   });
 
+  it("a silence stop explains muted mic / headphones / auto-stop", () => {
+    const store = createTranscriptStore();
+    applyCaptureStarted(store, "m1", 0);
+    applyCaptureStopped(store, "m1", "silence");
+    expect(store.getState().captureStatus).toBe("stopped");
+    expect(store.getState().errorMessage ?? "").toMatch(/muted mic|headphones|Silence auto-stop/i);
+  });
+
   it("a stop for a DIFFERENT meeting id is ignored (stale event)", () => {
     const store = createTranscriptStore();
     applyCaptureStarted(store, "m2", 0);

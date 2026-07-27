@@ -7,9 +7,15 @@ export const DETECTION_SOURCE_OPTIONS = [
   { id: "browser_teams", label: "Teams (browser)" },
   { id: "browser_webex", label: "Webex" },
   { id: "browser_whereby", label: "Whereby (browser)" },
+  { id: "bluejeans", label: "BlueJeans" },
+  { id: "gotomeeting", label: "GoTo Meeting" },
+  { id: "ringcentral", label: "RingCentral" },
+  { id: "chime", label: "Amazon Chime" },
   { id: "slack", label: "Slack" },
   { id: "discord", label: "Discord" },
   { id: "skype", label: "Skype" },
+  { id: "whatsapp", label: "WhatsApp calls" },
+  { id: "telegram", label: "Telegram calls" },
   { id: "adhoc_loopback", label: "Any app with sustained audio" },
 ] as const;
 
@@ -22,9 +28,15 @@ export const MEETING_SOURCE_TOAST_LABELS: Readonly<Record<string, string>> = {
   browser_teams: "Microsoft Teams",
   browser_webex: "Webex",
   browser_whereby: "Whereby",
+  bluejeans: "BlueJeans",
+  gotomeeting: "GoTo Meeting",
+  ringcentral: "RingCentral",
+  chime: "Amazon Chime",
   slack: "Slack",
   discord: "Discord",
   skype: "Skype",
+  whatsapp: "WhatsApp",
+  telegram: "Telegram",
   adhoc_loopback: "A call",
 };
 

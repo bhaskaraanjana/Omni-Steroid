@@ -124,6 +124,10 @@ fn create_pill_window(app: &AppHandle) -> tauri::Result<()> {
         .inner_size(PILL_WIDTH, PILL_HEIGHT)
         .decorations(false)
         .transparent(true)
+        // Windows: native shadow on undecorated windows draws a 1px white
+        // frame around the whole transparent bounds — the "weird border".
+        // Elevation comes from CSS --shadow-float on the pill/popover.
+        .shadow(false)
         .always_on_top(true)
         .skip_taskbar(true)
         .resizable(false)

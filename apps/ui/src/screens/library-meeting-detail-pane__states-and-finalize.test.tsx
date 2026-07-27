@@ -92,7 +92,7 @@ describe("states", () => {
     expect(screen.getByText("Vendor sync")).toBeTruthy();
   });
 
-  it("READY: renders enhanced notes (markdown), verbatim My Notes, collapsed transcript", async () => {
+  it("READY: renders enhanced notes (markdown), verbatim My Notes, expanded transcript", async () => {
     let container: HTMLElement;
     await act(async () => {
       container = renderPane().container;
@@ -103,17 +103,14 @@ describe("states", () => {
     // My Notes: verbatim, whitespace preserved via <pre>.
     const pre = container!.querySelector("pre");
     expect(pre!.textContent).toBe("my raw notes\n  with exact   spacing");
-    // Transcript: switch to the Transcript tab, then expand the disclosure.
+    // Summary surfaces a transcript preview with a jump control.
+    expect(screen.getByText(/2 segments captured/i)).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Open transcript" })).toBeTruthy();
+    // Transcript tab shows lines expanded (no collapsed disclosure).
     await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: "Transcript" }));
+      fireEvent.click(screen.getByRole("tab", { name: "Transcript" }));
     });
-    const details = container!.querySelector("details");
-    expect(details).not.toBeNull();
-    expect(details!.hasAttribute("open")).toBe(false);
-    expect(screen.getByText("2 segments — click to expand")).toBeTruthy();
-    await act(async () => {
-      fireEvent.click(screen.getByText("2 segments — click to expand"));
-    });
+    expect(container!.querySelector("details")).toBeNull();
     expect(screen.getByText("hello there")).toBeTruthy();
     // Finalized meeting: no Enhance-now button.
     expect(screen.queryByRole("button", { name: "Enhance now" })).toBeNull();

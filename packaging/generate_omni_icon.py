@@ -1,34 +1,31 @@
 """Render the Omni logo mark into the app icon set (.ico + PNG sizes).
 
-Purpose: turns the committed logo geometry (apps/ui/src/components/
-omni-mark.tsx — one ring, six segments: r=38, stroke 11, dasharray
-29.8/9.99, rotated -8deg, ink #0A0A0A) into the icon files Tauri and
-PyInstaller consume. Build-time tool only — Pillow is an analysis/build
-dependency, never a runtime one (run via `uv run --no-project --with
-pillow python packaging/generate_omni_icon.py`).
+Purpose: turns the in-app brand mark (apps/ui/src/components/omni-mark.tsx —
+overlapping fluid wave rings + ink core on Daylight teal/cyan/indigo) into
+the static icon files Tauri and PyInstaller consume. Build-time tool only —
+Pillow is an analysis/build dependency, never a runtime one (run via
+`uv run --no-project --with pillow python packaging/generate_omni_icon.py`).
 Pipeline position: run manually (or in CI) before `tauri build` /
 `pyinstaller`; outputs land in apps/ui/src-tauri/icons/ and packaging/.
 
 No security surface: pure local rendering, no input, no network.
 """
 
-import math
+from __future__ import annotations
+
 from pathlib import Path
 
 from PIL import Image, ImageDraw
 
-# --- Exact geometry from omni-mark.tsx (viewBox 0 0 100 100) ----------------
-VIEWBOX = 100.0
-CENTER = 50.0
-RADIUS = 38.0
-STROKE = 11.0
-DASH_ON = 29.8
-DASH_OFF = 9.99
-ROTATION_DEG = -8.0
-INK = (10, 10, 10, 255)  # --ink: #0A0A0A
-SEGMENTS = 6
+# Daylight brand colours (tokens.css --accent family + omni-mark accents).
+CANVAS = (247, 245, 240, 255)  # soft paper — readable on Windows taskbar
+ACCENT = (0, 104, 85, 200)  # --accent ≈ #006855
+CYAN = (6, 182, 212, 170)  # #06b6d4
+INDIGO = (99, 102, 241, 150)  # #6366f1
+RING = (214, 212, 206, 255)  # grey-200-ish boundary
+CORE = (28, 27, 24, 255)  # --ink
 
-# Render supersampled then downscale for clean anti-aliased arcs.
+VIEWBOX = 100.0
 SUPERSAMPLE = 1024
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -37,29 +34,42 @@ PACKAGING_DIR = REPO_ROOT / "packaging"
 
 
 def render_mark(canvas_px: int) -> Image.Image:
-    """Render the six-segment ring at `canvas_px` square, transparent bg."""
+    """Static wave-ring mark at `canvas_px` square on a soft Daylight tile."""
     scale = SUPERSAMPLE / VIEWBOX
     image = Image.new("RGBA", (SUPERSAMPLE, SUPERSAMPLE), (0, 0, 0, 0))
-    draw = ImageDraw.Draw(image)
+    draw = ImageDraw.Draw(image, "RGBA")
 
-    # SVG dasharray walks the circumference from angle 0 (3 o'clock, going
-    # clockwise in screen coords) with the whole circle rotated -8deg.
-    circumference = 2.0 * math.pi * RADIUS
-    dash_angle_on = (DASH_ON / circumference) * 360.0
-    dash_angle_off = (DASH_OFF / circumference) * 360.0
+    # Rounded square tile so the taskbar icon is not a floating blob.
+    pad = 4 * scale
+    radius = 22 * scale
+    draw.rounded_rectangle(
+        (pad, pad, SUPERSAMPLE - pad, SUPERSAMPLE - pad),
+        radius=radius,
+        fill=CANVAS,
+    )
 
-    # PIL arcs: bounding box of the CENTERLINE circle; width strokes evenly
-    # about it only if we use the outer circle box and matching width.
-    outer_r = (RADIUS + STROKE / 2.0) * scale
-    inner_r = (RADIUS - STROKE / 2.0) * scale
-    center = CENTER * scale
-    box = (center - outer_r, center - outer_r, center + outer_r, center + outer_r)
-    width_px = round(outer_r - inner_r)
+    # Soft outer ring.
+    ring_pad = 14 * scale
+    draw.ellipse(
+        (ring_pad, ring_pad, SUPERSAMPLE - ring_pad, SUPERSAMPLE - ring_pad),
+        outline=RING,
+        width=max(2, round(1.5 * scale)),
+    )
 
-    start = ROTATION_DEG
-    for _ in range(SEGMENTS):
-        draw.arc(box, start=start, end=start + dash_angle_on, fill=INK, width=width_px)
-        start += dash_angle_on + dash_angle_off
+    # Three translucent overlapping ellipses — static stand-in for the waves.
+    layers = (
+        (ACCENT, (18, 16, 82, 84)),
+        (CYAN, (22, 20, 78, 80)),
+        (INDIGO, (26, 24, 74, 76)),
+    )
+    for fill, box in layers:
+        x0, y0, x1, y1 = (v * scale for v in box)
+        draw.ellipse((x0, y0, x1, y1), fill=fill)
+
+    # Central ink core.
+    cx = cy = 50.0 * scale
+    r = 7.0 * scale
+    draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=CORE)
 
     return image.resize((canvas_px, canvas_px), Image.LANCZOS)
 
@@ -68,13 +78,11 @@ def main() -> None:
     """Write the Tauri icon set + the PyInstaller .ico."""
     TAURI_ICONS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Tauri PNG set (transparent background, per Tauri icon conventions).
     render_mark(32).save(TAURI_ICONS_DIR / "32x32.png")
     render_mark(128).save(TAURI_ICONS_DIR / "128x128.png")
     render_mark(256).save(TAURI_ICONS_DIR / "128x128@2x.png")
     render_mark(512).save(TAURI_ICONS_DIR / "icon.png")
 
-    # Multi-size .ico shared by the Tauri bundle and the engine exe resource.
     ico_sizes = [(16, 16), (24, 24), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)]
     base = render_mark(256)
     base.save(TAURI_ICONS_DIR / "icon.ico", sizes=ico_sizes)

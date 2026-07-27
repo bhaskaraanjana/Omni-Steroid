@@ -1,14 +1,17 @@
 /**
  * Tests for the capture command layer: correct wire commands when the socket
  * is up, and FAIL-CLOSED honesty when it is not — no engine, no capture, and
- * the UI is told the truth.
+ * the UI is told the truth. Error replies must unwedge "starting".
  */
 import { describe, expect, it, vi } from "vitest";
 import {
+  cancelCaptureStart,
   ENGINE_OFFLINE_MESSAGE,
   requestCaptureStart,
   requestCaptureStop,
+  type CaptureCommandTransport,
 } from "./capture-commands";
+import { PROTOCOL_VERSION, type Envelope } from "./protocol";
 import { createTranscriptStore } from "./transcript-store";
 
 describe("requestCaptureStart", () => {
@@ -47,8 +50,48 @@ describe("requestCaptureStart", () => {
     expect(store.getState().captureStatus).toBe("idle");
     expect(store.getState().errorMessage).toBe(ENGINE_OFFLINE_MESSAGE);
   });
+
+  it("FAIL CLOSED: engine error reply unwedes starting with the engine message", () => {
+    const store = createTranscriptStore();
+    let listener: ((data: unknown) => void) | null = null;
+    let sent: Envelope | null = null;
+    const transport: CaptureCommandTransport = {
+      sendEnvelope: (envelope) => {
+        sent = envelope;
+        return true;
+      },
+      subscribeFrames: (fn) => {
+        listener = fn;
+        return () => {
+          listener = null;
+        };
+      },
+    };
+    expect(requestCaptureStart(undefined, undefined, store, transport)).toBe(true);
+    expect(store.getState().captureStatus).toBe("starting");
+    expect(sent).not.toBeNull();
+    listener?.(
+      JSON.stringify({
+        v: PROTOCOL_VERSION,
+        kind: "reply",
+        name: "error",
+        id: sent!.id,
+        payload: { code: "capture_error", message: "could not start capture: no mic" },
+      }),
+    );
+    expect(store.getState().captureStatus).toBe("idle");
+    expect(store.getState().errorMessage).toBe("could not start capture: no mic");
+  });
 });
 
+describe("cancelCaptureStart", () => {
+  it("clears a wedged starting status so the user can retry", () => {
+    const store = createTranscriptStore();
+    store.setState({ captureStatus: "starting", errorMessage: null });
+    cancelCaptureStart(store);
+    expect(store.getState().captureStatus).toBe("idle");
+  });
+});
 
 describe("requestCaptureStop", () => {
   it("sends capture.stop and marks stopping while awaiting the engine event", () => {

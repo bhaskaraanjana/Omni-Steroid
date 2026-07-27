@@ -50,10 +50,18 @@ describe("idle (pre-capture) state", () => {
   });
 
   it("engine connected -> Start capture is enabled", () => {
-    engineStatusStore.setState({ status: "connected" });
+    engineStatusStore.setState({ status: "connected", sttReady: true });
     render(<LiveMeetingScreen />);
     const start = screen.getByRole("button", { name: "Start capture" });
     expect((start as HTMLButtonElement).disabled).toBe(false);
+  });
+
+  it("engine connected but STT not ready -> Start disabled with loading copy", () => {
+    engineStatusStore.setState({ status: "connected", sttReady: false });
+    render(<LiveMeetingScreen />);
+    const start = screen.getByRole("button", { name: "Loading speech models…" });
+    expect((start as HTMLButtonElement).disabled).toBe(true);
+    expect(screen.getByText(/Speech models are still loading/)).toBeTruthy();
   });
 });
 

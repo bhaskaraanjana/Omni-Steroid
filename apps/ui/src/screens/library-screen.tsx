@@ -125,12 +125,10 @@ export function LibraryScreen({
   repository = defaultRepository,
   detailLoader = defaultDetailLoader,
   finalizer = defaultFinalizer,
-  onStartCapture,
 }: {
   readonly repository?: MeetingsRepository;
   readonly detailLoader?: DetailLoader;
   readonly finalizer?: MeetingFinalizer;
-  readonly onStartCapture: () => void;
 }) {
   const status = useMeetings((s) => s.status);
   const meetings = useMeetings((s) => s.meetings);
@@ -264,7 +262,6 @@ export function LibraryScreen({
             />
             <span>Identify speakers (slower)</span>
           </div>
-          <div className="flex gap-2">
           <OmniButton variant="secondary" disabled={importBusy} onClick={() => void importMedia()}>
             {importBusy
               ? importProgress !== null
@@ -272,10 +269,6 @@ export function LibraryScreen({
                 : "Importing…"
               : "Import media"}
           </OmniButton>
-          <OmniButton variant="primary" onClick={onStartCapture}>
-            Record a meeting
-          </OmniButton>
-          </div>
         </div>
       </header>
       {importMessage !== null && (
@@ -350,12 +343,9 @@ export function LibraryScreen({
               No meetings yet
             </h2>
             <p className="m-0 text-[var(--grey-600)]" style={{ fontSize: "var(--text-body-size)", lineHeight: "var(--text-body-lh)" }}>
-              Start a capture and the meeting appears here with its two labelled transcript streams
-              and your notes. No bot joins your calls — audio is captured on this machine only.
+              Use Record Meeting in the sidebar (or Home) to start a capture. Meetings appear
+              here with labelled transcript streams and your notes — no bot joins the call.
             </p>
-            <OmniButton variant="secondary" onClick={onStartCapture}>
-              Record a meeting
-            </OmniButton>
           </div>
         )}
 

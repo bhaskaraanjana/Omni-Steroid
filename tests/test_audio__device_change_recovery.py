@@ -273,7 +273,8 @@ async def test_preferred_me_watchdog_reprobes_preferred_not_default() -> None:
         await controller.stop()
 
 
-async def test_preferred_me_unknown_key_fails_closed_at_start() -> None:
+async def test_preferred_me_unknown_key_falls_back_to_default_mic() -> None:
+    """Stale Settings mic id must not block capture — use Windows default ME."""
     backend = FakeBackend()
     controller = DualStreamCaptureController(
         backend,
@@ -281,7 +282,31 @@ async def test_preferred_me_unknown_key_fails_closed_at_start() -> None:
         poll_interval_s=FAST_POLL_S,
         preferred_me_device_key="99:Missing Mic",
     )
-    with pytest.raises(LookupError, match="unknown input device"):
-        await controller.start()
-    assert all(handle.closed for handle in backend.open_handles)
+    await controller.start()
+    try:
+        assert controller.device_names["me"] == "Mic"
+        assert "99:Missing Mic" in backend.resolve_calls
+    finally:
+        await controller.stop()
+
+
+async def test_preferred_me_open_failure_falls_back_to_default_mic() -> None:
+    """Zoom holding the preferred endpoint (-9999) falls back to default mic."""
+    backend = FakeBackend()
+    preferred = CaptureDeviceSpec("9:USB Mic", "USB Mic", 48_000, 1)
+    backend.resolved[preferred.key] = preferred
+    backend.fail_open_for.add(preferred.key)
+    controller = DualStreamCaptureController(
+        backend,
+        TimestampedAudioRingBuffer(),
+        poll_interval_s=FAST_POLL_S,
+        preferred_me_device_key=preferred.key,
+    )
+    await controller.start()
+    try:
+        assert controller.device_names["me"] == "Mic"
+        assert preferred.key in backend.resolve_calls
+        assert any(h.spec.key == "1:Mic" and not h.closed for h in backend.open_handles)
+    finally:
+        await controller.stop()
 

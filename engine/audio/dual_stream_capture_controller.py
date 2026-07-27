@@ -123,7 +123,7 @@ class DualStreamCaptureController:
         self._on_device_changed = on_device_changed
         self._poll_interval_s = poll_interval_s
         self._echo_canceller = echo_canceller
-        # When set, ME opens/re-probes this key — never silently fall back to default.
+        # When set, ME prefers this key; open/probe failures fall back to default.
         self._preferred_me_device_key = preferred_me_device_key
         self._streams: dict[StreamLabel, _StreamState] = {}
         self._monitor_task: asyncio.Task[None] | None = None
@@ -148,6 +148,10 @@ class DualStreamCaptureController:
             for label in (StreamLabel.THEM, StreamLabel.ME):
                 # PortAudio probing/opening blocks -> keep it off the loop.
                 self._streams[label] = await asyncio.to_thread(self._open_stream, label)
+                # Brief gap: opening mic immediately after loopback can trip
+                # WASAPI -9999 when Zoom/Teams already owns the session.
+                if label is StreamLabel.THEM:
+                    await asyncio.sleep(0.05)
         except Exception:
             await asyncio.to_thread(self._close_all_streams)
             raise
@@ -170,18 +174,33 @@ class DualStreamCaptureController:
         return {label.value: state.spec.name for label, state in self._streams.items()}
 
     def _open_stream(self, label: StreamLabel) -> _StreamState:
-        """Probe the endpoint for ``label`` (preferred ME mic when set) and open it."""
-        spec = self._probe_for_label(label)
-        # Fresh resampler per (re)open: filter state must never bleed
-        # across devices with different rates/channel counts.
-        resampler = StreamingResamplerTo16kMono(spec.sample_rate, spec.channels)
+        """Probe the endpoint for ``label`` (preferred ME mic when set) and open it.
+
+        Preferred ME mic is best-effort: if Zoom/Teams holds that endpoint
+        (-9999 / LookupError), fall back to the Windows default mic so
+        capture can still start rather than fail closed on a stale pick.
+        """
+        preferred_key = self._preferred_me_device_key
+        preferred_failed: str | None = None
+        try:
+            spec = self._probe_for_label(label)
+        except LookupError as exc:
+            if label is StreamLabel.ME and preferred_key is not None:
+                preferred_failed = str(exc)
+                spec = self._backend.probe_default_device(label)
+            else:
+                raise
+
+        state_box: dict[str, StreamingResamplerTo16kMono] = {
+            "resampler": StreamingResamplerTo16kMono(spec.sample_rate, spec.channels)
+        }
 
         def on_chunk(raw: bytes, t_end_monotonic: float) -> None:
             # Runs on a PortAudio callback thread: resample + buffer only,
             # never block. Errors are swallowed into a log because raising
             # inside the driver callback would kill the whole stream.
             try:
-                samples = resampler.process(raw)
+                samples = state_box["resampler"].process(raw)
             except ValueError:
                 logger.exception("dropping malformed audio chunk on stream %s", label.value)
                 return
@@ -198,7 +217,40 @@ class DualStreamCaptureController:
                 AudioFrame(stream=label, samples=samples, t_start_monotonic=t_start)
             )
 
-        handle = self._backend.open_capture_stream(spec, on_chunk)
+        try:
+            handle = self._backend.open_capture_stream(spec, on_chunk)
+        except OSError:
+            if label is StreamLabel.ME and preferred_key is not None and preferred_failed is None:
+                logger.warning(
+                    "preferred mic %r failed to open; falling back to default",
+                    preferred_key,
+                )
+                spec = self._backend.probe_default_device(label)
+                state_box["resampler"] = StreamingResamplerTo16kMono(
+                    spec.sample_rate, spec.channels
+                )
+                handle = self._backend.open_capture_stream(spec, on_chunk)
+            else:
+                raise
+        # Align resampler with the format PortAudio actually opened.
+        opened_rate = getattr(handle, "sample_rate", spec.sample_rate)
+        opened_channels = getattr(handle, "channels", spec.channels)
+        if opened_rate != spec.sample_rate or opened_channels != spec.channels:
+            spec = CaptureDeviceSpec(
+                key=spec.key,
+                name=spec.name,
+                sample_rate=int(opened_rate),
+                channels=int(opened_channels),
+            )
+            state_box["resampler"] = StreamingResamplerTo16kMono(
+                spec.sample_rate, spec.channels
+            )
+        if preferred_failed is not None:
+            logger.warning(
+                "preferred mic unavailable (%s); using default %r",
+                preferred_failed,
+                spec.name,
+            )
         logger.info(
             "capture stream %s open on %r (%d Hz, %d ch)",
             label.value,
@@ -206,7 +258,7 @@ class DualStreamCaptureController:
             spec.sample_rate,
             spec.channels,
         )
-        return _StreamState(spec=spec, handle=handle, resampler=resampler)
+        return _StreamState(spec=spec, handle=handle, resampler=state_box["resampler"])
 
     def _close_all_streams(self) -> None:
         for state in self._streams.values():

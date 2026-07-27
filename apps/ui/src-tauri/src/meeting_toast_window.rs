@@ -47,6 +47,8 @@ pub fn setup_meeting_toast(app: &AppHandle) -> tauri::Result<()> {
     .inner_size(TOAST_WIDTH, TOAST_HEIGHT)
     .decorations(false)
     .transparent(true)
+    // Windows: native shadow on undecorated windows = 1px white frame.
+    .shadow(false)
     .always_on_top(true)
     .skip_taskbar(true)
     .resizable(false)

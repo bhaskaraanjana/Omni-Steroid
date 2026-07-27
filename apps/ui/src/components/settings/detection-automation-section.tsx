@@ -22,7 +22,7 @@ export function DetectionAutomationSection({
   readonly update: SettingsUpdater;
 }) {
   const autoStartSources = useStore(store, (s) => s.settings?.detectionAutoStartSources ?? []);
-  const autostopSilenceS = useStore(store, (s) => s.settings?.autostopSilenceS ?? 60);
+  const autostopSilenceS = useStore(store, (s) => s.settings?.autostopSilenceS ?? 0);
 
   const liveTranslationLang = useStore(store, (s) => s.settings?.liveTranslationLang ?? "");
   // Local draft so mid-keystroke values do not round-trip through settings.update.
@@ -54,7 +54,7 @@ export function DetectionAutomationSection({
     <SettingsGroupCard label="Automation">
       <SettingsRow
         title="Auto-start capture"
-        subCaption="When enabled for a source, Omni Steroid starts recording without a toast click once a meeting is detected."
+        subCaption="On by default for every known meeting app. Turn a source off to require a toast click first. “Any app with sustained audio” stays opt-in — it can fire on music/YouTube."
       />
       {DETECTION_SOURCE_OPTIONS.map((option, index) => (
         <SettingsRow
@@ -71,7 +71,7 @@ export function DetectionAutomationSection({
       ))}
       <SettingsRow
         title="Silence auto-stop"
-        subCaption="Stop after no new transcript for N seconds (STT activity). 0 = off."
+        subCaption="Stop after no new transcript for N seconds. Muted mic + headphones often look like silence — keep Off unless you want this. 0 = off."
       >
         <select
           aria-label="Silence auto-stop timeout"

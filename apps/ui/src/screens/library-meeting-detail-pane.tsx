@@ -57,21 +57,37 @@ function DetailTabs({
     { id: "tools", label: "Export" },
   ];
   return (
-    <div className="flex flex-wrap gap-[var(--space-2)] border-b border-[var(--grey-200)] pb-[var(--space-2)]">
-      {tabs.map((item) => (
-        <button
-          key={item.id}
-          type="button"
-          className={
-            "cursor-pointer border-none bg-transparent font-[family-name:var(--font-mono)] " +
-            (tab === item.id ? "text-[var(--ink)]" : "text-[var(--grey-600)]")
-          }
-          style={{ fontSize: 12 }}
-          onClick={() => onTab(item.id)}
-        >
-          {item.label}
-        </button>
-      ))}
+    <div
+      role="tablist"
+      aria-label="Meeting sections"
+      className="flex flex-wrap gap-[var(--space-2)] border-b border-[var(--grey-200)] pb-[var(--space-3)]"
+    >
+      {tabs.map((item) => {
+        const selected = tab === item.id;
+        return (
+          <button
+            key={item.id}
+            type="button"
+            role="tab"
+            aria-selected={selected}
+            className={
+              "inline-flex cursor-pointer items-center border font-[family-name:var(--font-body)] outline-none transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)] focus-visible:outline-offset-2 " +
+              (selected
+                ? "bg-[var(--accent-muted)] border-[var(--accent-border)] text-[var(--accent)]"
+                : "bg-[var(--surface)] border-[var(--border-strong)] text-[var(--ink-secondary)] hover:border-[var(--grey-600)] hover:text-[var(--ink)]")
+            }
+            style={{
+              borderRadius: "var(--radius-pill)",
+              padding: "6px 12px",
+              fontSize: 13,
+              lineHeight: 1.4,
+            }}
+            onClick={() => onTab(item.id)}
+          >
+            {item.label}
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -262,22 +278,45 @@ export function LibraryMeetingDetailPane({
               <p className="m-0 text-[var(--grey-600)]">No notes were typed for this meeting.</p>
             )}
           </PaneSection>
+
+          <PaneSection label="Transcript">
+            {detail.transcript.length === 0 ? (
+              <div className="flex flex-col items-start gap-[var(--space-2)]">
+                <p className="m-0 text-[var(--grey-600)]">No transcript was captured.</p>
+                <p className="m-0 text-[var(--grey-600)]" style={{ fontSize: 13 }}>
+                  Common causes: silence auto-stop fired before anyone spoke, your mic was
+                  muted, or system audio was on headphones (loopback hears speakers, not
+                  headset audio).
+                </p>
+              </div>
+            ) : (
+              <div className="flex flex-col items-start gap-[var(--space-2)]">
+                <p className="m-0 text-[var(--ink)]">
+                  {detail.transcript.length} segment{detail.transcript.length === 1 ? "" : "s"}{" "}
+                  captured.
+                </p>
+                <OmniButton variant="secondary" small onClick={() => setTab("transcript")}>
+                  Open transcript
+                </OmniButton>
+              </div>
+            )}
+          </PaneSection>
             </>
           )}
 
           {tab === "transcript" && (
           <PaneSection label="Transcript">
             {detail.transcript.length === 0 ? (
-              <p className="m-0 text-[var(--grey-600)]">No transcript was captured.</p>
+              <div className="flex flex-col gap-[var(--space-2)]">
+                <p className="m-0 text-[var(--grey-600)]">No transcript was captured.</p>
+                <p className="m-0 text-[var(--grey-600)]" style={{ fontSize: 13 }}>
+                  If the meeting ended on its own, check Settings → Automation → Silence
+                  auto-stop (set to Off while testing). Headphones also hide “them” audio from
+                  loopback capture.
+                </p>
+              </div>
             ) : (
-              <details>
-                <summary
-                  className="cursor-pointer text-[var(--grey-600)]"
-                  style={{ fontSize: "var(--text-body-size)" }}
-                >
-                  {detail.transcript.length} segments — click to expand
-                </summary>
-                <ul className="m-0 mt-[var(--space-2)] flex list-none flex-col gap-[var(--space-1)] p-0">
+              <ul className="m-0 flex list-none flex-col gap-[var(--space-2)] p-0">
                   {detail.transcript.map((line) => (
                     <li key={line.segmentId} style={{ fontSize: 13, lineHeight: "1.5" }}>
                       <span className="font-[family-name:var(--font-mono)] text-[var(--ink-secondary)]">
@@ -332,8 +371,7 @@ export function LibraryMeetingDetailPane({
                       )}
                     </li>
                   ))}
-                </ul>
-              </details>
+              </ul>
             )}
           </PaneSection>
           )}

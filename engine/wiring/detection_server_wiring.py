@@ -17,8 +17,9 @@ Pipeline position: constructed by ``engine.server``'s production app;
 Security invariants:
 - Observation only: decisions become SUGGESTION events; starting/stopping
   capture stays behind the user-driven command path
-  (approval-before-execute). Auto-start additionally requires the user's
-  explicit per-source opt-in, which defaults to NOTHING (deny by default).
+  (approval-before-execute). Auto-start requires the source to be in the
+  user's ``detection_auto_start_sources`` list — product default enables
+  every known meeting-app source (adhoc loopback stays opt-in).
 - A failing broadcast is logged and dropped — detection can never take the
   engine down (fail closed, stay up).
 """
@@ -101,7 +102,7 @@ class DetectionServerWiring:
                     read_microphone_consent_store_via_winreg
                 ),
                 vad_trigger=self._vad_trigger,
-                # Deny-by-default settings: suggest only; auto-start NOTHING
+                # Product default auto-starts known meeting apps; adhoc stays opt-in.
                 # until the user opts sources in (settings UI, later).
                 rules_engine=AutoStartRulesEngine(),
                 is_capture_active=is_capture_active,

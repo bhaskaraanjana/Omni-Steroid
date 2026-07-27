@@ -66,6 +66,7 @@ from engine.storage.sqlite_migrations_runner import apply_migrations
 from engine.stt.model_weights_downloader import MODEL_SPECS, models_directory
 from engine.stt.silence_auto_stop_monitor import AUTOSTOP_SILENCE_ENV_VAR
 from engine.vault.vault_paths import VAULT_DIR_ENV_VAR
+from engine.detect.detection_signal_types import DEFAULT_AUTO_START_SOURCES
 from engine.wiring.settings_value_validation import (
     SettingsValueError,
     validate_settings_values,
@@ -85,8 +86,8 @@ SETTINGS_DEFAULTS: dict[str, object] = {
     SETTING_ACTIVE_TEMPLATE: AUTO_TEMPLATE_ID,
     SETTING_CUSTOM_TEMPLATES: [],
     SETTING_ONBOARDING_COMPLETE: False,
-    SETTING_DETECTION_AUTO_START_SOURCES: [],
-    SETTING_AUTOSTOP_SILENCE_S: 60,
+    SETTING_DETECTION_AUTO_START_SOURCES: sorted(DEFAULT_AUTO_START_SOURCES),
+    SETTING_AUTOSTOP_SILENCE_S: 0,
     SETTING_LIVE_CAPTIONS_OVERLAY: True,
     SETTING_AEC_ENABLED: False,
     SETTING_LIVE_TRANSLATION_LANG: "",

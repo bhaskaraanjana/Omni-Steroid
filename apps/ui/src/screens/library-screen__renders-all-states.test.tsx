@@ -33,8 +33,6 @@ beforeEach(() => {
 
 afterEach(cleanup);
 
-const onStartCapture = vi.fn();
-
 function rows(): readonly MeetingSummaryRow[] {
   const hoursAgo = (h: number) => new Date(Date.now() - h * 3_600_000).toISOString();
   return [
@@ -46,7 +44,7 @@ function rows(): readonly MeetingSummaryRow[] {
 
 /** Mount always triggers loadMeetings — flush that before asserting ready UI. */
 async function renderReady(repository: MeetingsRepository): Promise<void> {
-  render(<LibraryScreen repository={repository} onStartCapture={onStartCapture} />);
+  render(<LibraryScreen repository={repository} />);
   await act(async () => {
     await Promise.resolve();
   });
@@ -58,7 +56,6 @@ describe("LibraryScreen states", () => {
     render(
       <LibraryScreen
         repository={{ listMeetings: () => new Promise(() => undefined) }}
-        onStartCapture={onStartCapture}
       />,
     );
     expect(screen.getByRole("status", { name: "Loading" })).toBeTruthy();
@@ -82,17 +79,12 @@ describe("LibraryScreen states", () => {
     expect(screen.getByText("Vendor call — Northwind")).toBeTruthy();
   });
 
-  it("EMPTY: says what will happen and offers capture", async () => {
+  it("EMPTY: points to Record Meeting elsewhere — no redundant capture CTA", async () => {
     const repository = { listMeetings: vi.fn().mockResolvedValue([]) };
     await renderReady(repository);
     expect(screen.getByText("No meetings yet")).toBeTruthy();
-    expect(screen.getByText(/two labelled transcript streams/)).toBeTruthy();
-    // Header + empty-state both speak the "Record" vocabulary; the empty-state
-    // CTA is the second one and wires to the real capture handler.
-    const ctas = screen.getAllByRole("button", { name: "Record a meeting" });
-    expect(ctas).toHaveLength(2);
-    fireEvent.click(ctas[1]!);
-    expect(onStartCapture).toHaveBeenCalled();
+    expect(screen.getByText(/Record Meeting in the sidebar/)).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Record a meeting" })).toBeNull();
   });
 
   it("POPULATED: renders every row, day groups, and the computed meta line", async () => {

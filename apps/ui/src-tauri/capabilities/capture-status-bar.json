@@ -1,0 +1,13 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "capture-status-bar",
+  "description": "Least-privilege capability for the movable capture status bar overlay. Core defaults plus show/hide/focus and start-dragging so the user can move the bar.",
+  "windows": ["capture-status-bar"],
+  "permissions": [
+    "core:default",
+    "core:window:allow-show",
+    "core:window:allow-hide",
+    "core:window:allow-set-focus",
+    "core:window:allow-start-dragging"
+  ]
+}

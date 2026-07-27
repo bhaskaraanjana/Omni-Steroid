@@ -29,6 +29,8 @@ pub fn setup_captions_overlay(app: &AppHandle) -> tauri::Result<()> {
     .inner_size(CAPTIONS_WIDTH, CAPTIONS_HEIGHT)
     .decorations(false)
     .transparent(true)
+    // Windows: native shadow on undecorated windows = 1px white frame.
+    .shadow(false)
     .always_on_top(true)
     .skip_taskbar(true)
     .resizable(false)

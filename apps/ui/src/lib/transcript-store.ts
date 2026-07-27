@@ -165,11 +165,18 @@ export function applyCaptureStopped(store: TranscriptStore, meetingId: string, r
   store.setState((state) => {
     // A stop for some other (stale) meeting must not kill the live one.
     if (state.meetingId !== null && state.meetingId !== meetingId) return state;
+    let errorMessage: string | null = null;
+    if (reason === "error") {
+      errorMessage = "Capture stopped because of an engine error.";
+    } else if (reason === "silence") {
+      errorMessage =
+        "Stopped after no speech was transcribed — often a muted mic, headphones (no speaker loopback), or a quiet room. Set Silence auto-stop to Off in Settings → Automation if that was too aggressive.";
+    }
     return {
       ...state,
       captureStatus: reason === "error" ? "error" : "stopped",
       partials: { me: null, them: null }, // nothing is in flight once stopped
-      errorMessage: reason === "error" ? "Capture stopped because of an engine error." : null,
+      errorMessage,
     };
   });
 }

@@ -1,0 +1,4 @@
+[2026-07-20][16:34:23][engine][INFO] engine sidecar started (pid 15260)
+[2026-07-20][16:34:24][engine][WARN] INFO:     Started server process [33256]
+[2026-07-20][16:34:24][engine][WARN] INFO:     Waiting for application startup.
+[2026-07-20][16:34:24][engine][WARN] 2026-07-20 14:04:24,296 INFO engine.wiring.vault_watchdog_server_wiring: vault watcher ON over C:\ (500 ms debounce)

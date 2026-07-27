@@ -119,13 +119,17 @@ class _RecordingPyAudio:
 
 def test_is_alive_true_when_stream_active() -> None:
     log: list[str] = []
-    handle = _PyAudioStreamHandle(_RecordingPyAudio(log), _RecordingStream(log, active=True))
+    handle = _PyAudioStreamHandle(
+        _RecordingPyAudio(log), _RecordingStream(log, active=True), sample_rate=48_000, channels=1
+    )
     assert handle.is_alive is True
 
 
 def test_is_alive_false_when_stream_inactive() -> None:
     log: list[str] = []
-    handle = _PyAudioStreamHandle(_RecordingPyAudio(log), _RecordingStream(log, active=False))
+    handle = _PyAudioStreamHandle(
+        _RecordingPyAudio(log), _RecordingStream(log, active=False), sample_rate=48_000, channels=1
+    )
     assert handle.is_alive is False
 
 
@@ -133,7 +137,10 @@ def test_is_alive_false_after_close_without_touching_stream() -> None:
     log: list[str] = []
     # is_active would raise if consulted; a closed handle must NOT consult it.
     handle = _PyAudioStreamHandle(
-        _RecordingPyAudio(log), _RecordingStream(log, active_error=OSError("gone"))
+        _RecordingPyAudio(log),
+        _RecordingStream(log, active_error=OSError("gone")),
+        sample_rate=48_000,
+        channels=1,
     )
     handle.close()
     assert handle.is_alive is False
@@ -142,14 +149,19 @@ def test_is_alive_false_after_close_without_touching_stream() -> None:
 def test_is_alive_false_when_is_active_raises_oserror() -> None:
     log: list[str] = []
     handle = _PyAudioStreamHandle(
-        _RecordingPyAudio(log), _RecordingStream(log, active_error=OSError("torn down"))
+        _RecordingPyAudio(log),
+        _RecordingStream(log, active_error=OSError("torn down")),
+        sample_rate=48_000,
+        channels=1,
     )
     assert handle.is_alive is False  # device vanished under us -> treated dead
 
 
 def test_close_releases_in_order_and_is_idempotent() -> None:
     log: list[str] = []
-    handle = _PyAudioStreamHandle(_RecordingPyAudio(log), _RecordingStream(log))
+    handle = _PyAudioStreamHandle(
+        _RecordingPyAudio(log), _RecordingStream(log), sample_rate=48_000, channels=1
+    )
     handle.close()
     assert log == ["stop", "close", "terminate"]
     handle.close()  # second close is a no-op: no duplicate releases
@@ -163,6 +175,8 @@ def test_close_suppresses_oserror_on_each_step_and_still_releases_the_rest() -> 
     handle = _PyAudioStreamHandle(
         _RecordingPyAudio(log),
         _RecordingStream(log, stop_error=OSError("already gone")),
+        sample_rate=48_000,
+        channels=1,
     )
     handle.close()  # must not raise
     assert log == ["stop", "close", "terminate"]
@@ -173,6 +187,8 @@ def test_close_suppresses_oserror_on_terminate() -> None:
     handle = _PyAudioStreamHandle(
         _RecordingPyAudio(log, terminate_error=OSError("pa gone")),
         _RecordingStream(log),
+        sample_rate=48_000,
+        channels=1,
     )
     handle.close()  # terminate OSError suppressed
     assert log == ["stop", "close", "terminate"]
@@ -386,6 +402,32 @@ def test_open_capture_stream_oserror_terminates_instance_and_reraises(
     with pytest.raises(OSError, match="no such device"):
         PyAudioWpatchCaptureBackend().open_capture_stream(spec, lambda data, t: None)
     assert instance.terminated is True  # fail closed: no orphaned PortAudio ref
+    # Retries across rates × channels × attempts before giving up.
+    assert len(instance.open_calls) >= 4
+
+
+def test_open_capture_stream_retries_alternate_channel_after_oserror(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Stereo open -9999 then mono success — common Zoom/Teams mix mismatch."""
+    calls: list[int] = []
+
+    class _FlakyInstance(_FakePyAudioInstance):
+        def open(self, **kwargs: Any) -> Any:
+            self.open_calls.append(kwargs)
+            calls.append(int(kwargs["channels"]))
+            if kwargs["channels"] != 1:
+                raise OSError("[Errno -9999] Unanticipated host error")
+            return object()
+
+    instance = _FlakyInstance()
+    _inject_pyaudio(monkeypatch, instance)
+    spec = CaptureDeviceSpec(key="3:Speakers", name="Speakers", sample_rate=48_000, channels=2)
+    handle = PyAudioWpatchCaptureBackend().open_capture_stream(spec, lambda data, t: None)
+    assert handle.channels == 1
+    assert handle.sample_rate == 48_000
+    assert 2 in calls and 1 in calls
+
 
 
 # --------------------------------------------------------------------------

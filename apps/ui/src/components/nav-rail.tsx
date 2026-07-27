@@ -13,6 +13,8 @@ import { AudioLines, Home, Library, MessageSquareText, Mic, Settings, Sparkles }
 import type { LucideIcon } from "lucide-react";
 import { OmniMark } from "./omni-mark";
 import { useTranscript } from "../lib/transcript-store";
+import { requestCaptureStart, requestCaptureStop } from "../lib/capture-commands";
+import { appSettingsStore } from "../lib/settings-store";
 import { copy } from "../lib/copy";
 import { useNaomiVisibility } from "../lib/use-naomi-visibility";
 import { tokenDurationSeconds } from "../lib/design-token-motion";
@@ -39,10 +41,31 @@ interface NavRailProps {
 
 export function NavRail({ active, onSelect }: NavRailProps) {
   const reducedMotion = useReducedMotion();
-  const captureLive = useTranscript((s) => s.captureStatus === "live");
+  const captureStatus = useTranscript((s) => s.captureStatus);
+  const captureLive = captureStatus === "live";
+  const captureBusy = captureStatus === "starting" || captureStatus === "stopping";
   const { showNaomi } = useNaomiVisibility();
 
   const visibleSections = SECTIONS.filter((s) => s.id !== "naomi" || showNaomi);
+
+  function onRecordCtaClick() {
+    if (captureLive || captureStatus === "stopping") {
+      requestCaptureStop();
+      return;
+    }
+    onSelect("live");
+    if (captureStatus === "starting") return;
+    const mic = appSettingsStore.getState().microphone;
+    requestCaptureStart(undefined, mic ? { micDeviceId: mic } : undefined);
+  }
+
+  const ctaLabel = captureLive
+    ? "Stop recording"
+    : captureStatus === "starting"
+      ? "Starting…"
+      : captureStatus === "stopping"
+        ? "Stopping…"
+        : "Record Meeting";
 
   return (
     <nav
@@ -65,12 +88,16 @@ export function NavRail({ active, onSelect }: NavRailProps) {
         </span>
       </div>
 
-      {/* Record CTA Button — v2 Daylight brief §5.1 */}
+      {/* Record CTA — idle starts capture; live stops (same as bottom bar). */}
       <div className="mb-6 px-1">
         <button
           type="button"
-          onClick={() => onSelect("live")}
-          className={`flex items-center justify-center gap-2.5 w-full cursor-pointer border-none transition-all duration-[var(--dur-micro)] relative font-semibold ${
+          aria-label={ctaLabel}
+          disabled={captureBusy}
+          onClick={onRecordCtaClick}
+          className={`flex items-center justify-center gap-2.5 w-full border-none transition-all duration-[var(--dur-micro)] relative font-semibold ${
+            captureBusy ? "cursor-wait opacity-80" : "cursor-pointer"
+          } ${
             active === "live" || captureLive
               ? "bg-[var(--live)] text-white hover:bg-[var(--live-strong)] shadow-float"
               : "bg-[var(--ink)] text-[var(--canvas)] hover:opacity-90 shadow-raise"
@@ -82,15 +109,15 @@ export function NavRail({ active, onSelect }: NavRailProps) {
             transition: "all var(--dur-micro) var(--ease-out)",
           }}
         >
-          {captureLive ? (
+          {captureLive || captureStatus === "stopping" ? (
             <>
               <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
-              <span>Recording Live</span>
+              <span>{captureStatus === "stopping" ? "Stopping…" : "Stop recording"}</span>
             </>
           ) : (
             <>
               <Mic size={16} />
-              <span>Record Meeting</span>
+              <span>{captureStatus === "starting" ? "Starting…" : "Record Meeting"}</span>
             </>
           )}
         </button>

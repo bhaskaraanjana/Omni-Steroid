@@ -17,10 +17,12 @@ import { wireTrayStartCapture } from "./lib/wire-tray-capture";
 import { wireCaptionsOverlay } from "./lib/wire-captions-overlay";
 import { wireAutoSummary } from "./lib/wire-auto-summary";
 import { wireMeetingToastDesktop } from "./lib/wire-meeting-toast-desktop";
+import { wireCaptureStatusBar } from "./lib/wire-capture-status-bar";
 import { setAutoStartNavigateLive } from "./lib/auto-start-reaction";
 import { loadSettings } from "./lib/settings-actions";
 import { refreshDevicesIntoSettings } from "./lib/engine-devices";
 import { appSettingsStore } from "./lib/settings-store";
+import { transcriptStore } from "./lib/transcript-store";
 import { getSetupStatus } from "./lib/setup-settings-repository";
 import { syncConfiguredDictationHotkey } from "./lib/sync-dictation-hotkey";
 import { useNaomiVisibility } from "./lib/use-naomi-visibility";
@@ -157,6 +159,7 @@ function MainShell() {
     let cancelled = false;
     let unwireCaptions: (() => void) | undefined;
     let unwireMeetingToast: (() => void) | undefined;
+    let unwireCaptureStatusBar: (() => void) | undefined;
     let unlistenTray: (() => void) | undefined;
     let unlistenEngineUnhealthy: (() => void) | undefined;
     try {
@@ -181,6 +184,13 @@ function MainShell() {
         );
         if (cancelled) {
           unwireMeetingToast();
+          return;
+        }
+        unwireCaptureStatusBar = wireCaptureStatusBar(transcriptStore, (event, handler) =>
+          listen(event, handler).then((fn) => fn),
+        );
+        if (cancelled) {
+          unwireCaptureStatusBar();
           return;
         }
         unlistenEngineUnhealthy = await listen(
@@ -210,6 +220,7 @@ function MainShell() {
       setAutoStartNavigateLive(undefined);
       unwireCaptions?.();
       unwireMeetingToast?.();
+      unwireCaptureStatusBar?.();
       unlistenTray?.();
       unlistenEngineUnhealthy?.();
       unwireAutoSummary();
@@ -253,16 +264,7 @@ function MainShell() {
                   }}
                 />
               )}
-              {activeSection === "library" && (
-                <LibraryScreen onStartCapture={() => {
-                  setActiveSection("live");
-                  const mic = appSettingsStore.getState().microphone;
-                  requestCaptureStart(
-                    undefined,
-                    mic ? { micDeviceId: mic } : undefined,
-                  );
-                }} />
-              )}
+              {activeSection === "library" && <LibraryScreen />}
               {activeSection === "live" && <LiveMeetingScreen />}
               {activeSection === "ask" && <AskScreen />}
               {activeSection === "dictation" && (

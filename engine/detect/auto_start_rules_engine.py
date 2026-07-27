@@ -41,15 +41,21 @@ from dataclasses import dataclass, field
 
 from engine.detect.detection_signal_types import (
     KNOWN_DETECTION_SOURCES,
+    SOURCE_BLUEJEANS,
     SOURCE_BROWSER_MEET,
     SOURCE_BROWSER_TEAMS,
     SOURCE_BROWSER_WEBEX,
     SOURCE_BROWSER_WHEREBY,
     SOURCE_BROWSER_ZOOM,
+    SOURCE_CHIME,
     SOURCE_DISCORD,
+    SOURCE_GOTO,
+    SOURCE_RINGCENTRAL,
     SOURCE_SKYPE,
     SOURCE_SLACK,
     SOURCE_TEAMS,
+    SOURCE_TELEGRAM,
+    SOURCE_WHATSAPP,
     SOURCE_ZOOM,
     AdHocCallSuspected,
     AutoStart,
@@ -67,6 +73,7 @@ from engine.detect.detection_signal_types import (
 _MIC_APP_TO_SOURCE: dict[str, str] = {
     "zoom.exe": SOURCE_ZOOM,
     "zoomhybridconf.exe": SOURCE_ZOOM,
+    "zoomrooms.exe": SOURCE_ZOOM,
     "ms-teams.exe": SOURCE_TEAMS,
     "teams.exe": SOURCE_TEAMS,
     "cpthost.exe": SOURCE_TEAMS,
@@ -74,8 +81,19 @@ _MIC_APP_TO_SOURCE: dict[str, str] = {
     "discord.exe": SOURCE_DISCORD,
     "slack.exe": SOURCE_SLACK,
     "skype.exe": SOURCE_SKYPE,
+    "skypeapp.exe": SOURCE_SKYPE,
     "webexhost.exe": SOURCE_BROWSER_WEBEX,
     "webex.exe": SOURCE_BROWSER_WEBEX,
+    "bluejeans.exe": SOURCE_BLUEJEANS,
+    "bluejeans.desktop.exe": SOURCE_BLUEJEANS,
+    "g2mcomm.exe": SOURCE_GOTO,
+    "gotomeeting.exe": SOURCE_GOTO,
+    "goto.exe": SOURCE_GOTO,
+    "ringcentral.exe": SOURCE_RINGCENTRAL,
+    "softphoneclient.exe": SOURCE_RINGCENTRAL,
+    "chime.exe": SOURCE_CHIME,
+    "whatsapp.exe": SOURCE_WHATSAPP,
+    "telegram.exe": SOURCE_TELEGRAM,
 }
 
 # A browser holding the mic corroborates any active browser_* source.
@@ -97,11 +115,12 @@ _CORROBORATED_CONFIDENCE_CAP = 0.95
 
 @dataclass(frozen=True)
 class DetectionRuleSettings:
-    """User-facing knobs. Defaults: suggest everything plausible, auto-start
-    NOTHING (deny by default; calendar-linked auto-start arrives with OAuth)."""
+    """User-facing knobs. Product default (SETTINGS_DEFAULTS) auto-starts every
+    known meeting-app source; the engine itself still denies auto-start when
+    ``auto_start_sources`` is empty (tests + explicit user opt-out)."""
 
     source_enabled: Mapping[str, bool] = field(default_factory=dict)  # absent -> enabled
-    auto_start_sources: frozenset[str] = frozenset()  # deny by default: empty
+    auto_start_sources: frozenset[str] = frozenset()  # empty = no auto-start
     suggest_min_confidence: float = 0.6
     auto_start_min_confidence: float = 0.85
     mic_corroboration_boost: float = 0.4

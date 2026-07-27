@@ -53,8 +53,6 @@ describe("DetectionAutomationSection autostop copy", () => {
       />,
     );
     expect(screen.queryByText(/sustained silence on both audio streams/i)).toBeNull();
-    expect(
-      screen.getByText(/Stop after no new transcript for N seconds \(STT activity\)\. 0 = off\./i),
-    ).toBeTruthy();
+    expect(screen.getByText(/Muted mic \+ headphones often look like silence/i)).toBeTruthy();
   });
 });

@@ -9,6 +9,7 @@ for the server wiring. Deny by default: unknown sources may only suggest.
 from engine.detect.auto_start_rules_engine import AutoStartRulesEngine, DetectionRuleSettings
 from engine.detect.detection_service import AsyncClock, DetectionService, SystemClock
 from engine.detect.detection_signal_types import (
+    DEFAULT_AUTO_START_SOURCES,
     KNOWN_DETECTION_SOURCES,
     AdHocCallSuspected,
     AutoStart,
@@ -35,6 +36,7 @@ from engine.detect.sustained_loopback_vad_trigger import (
 from engine.detect.windows_desktop_snapshot_via_ctypes import read_desktop_snapshot_via_ctypes
 
 __all__ = [
+    "DEFAULT_AUTO_START_SOURCES",
     "KNOWN_DETECTION_SOURCES",
     "AdHocCallSuspected",
     "AsyncClock",
