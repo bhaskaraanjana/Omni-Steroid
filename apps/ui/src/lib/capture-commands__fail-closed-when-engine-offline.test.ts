@@ -67,10 +67,13 @@ describe("requestCaptureStart", () => {
         };
       },
     };
+    // Emitting through a function boundary keeps `listener` at its declared union
+    // type; called inline it narrows to the `null` it was initialised with.
+    const emit = (frame: unknown): void => listener?.(frame);
     expect(requestCaptureStart(undefined, undefined, store, transport)).toBe(true);
     expect(store.getState().captureStatus).toBe("starting");
     expect(sent).not.toBeNull();
-    listener?.(
+    emit(
       JSON.stringify({
         v: PROTOCOL_VERSION,
         kind: "reply",

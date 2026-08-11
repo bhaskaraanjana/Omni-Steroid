@@ -70,7 +70,6 @@ export function wireCaptureStatusBar(
   ) => Promise<() => void> = async () => () => {},
   now: () => number = () => Date.now(),
 ): () => void {
-  const store = transcript;
   let elapsedTimer: ReturnType<typeof setInterval> | null = null;
 
   const clearElapsedTimer = (): void => {

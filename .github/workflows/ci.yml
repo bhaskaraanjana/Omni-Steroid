@@ -9,7 +9,12 @@ on:
 
 jobs:
   engine:
-    runs-on: ubuntu-latest
+    # Omni ships on Windows only: WASAPI loopback capture, DPAPI key custody, and
+    # the winreg/winsound stdlib. On ubuntu-latest the DPAPI suite fails 19 tests
+    # with "DPAPI is only available on Windows" — the platform is wrong, not the
+    # product. Testing the platform users actually run also means the key-custody
+    # controls get exercised instead of skipped.
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
 
