@@ -1,0 +1,599 @@
+{
+  "aggregate_build": {
+    "components": [
+      {
+        "attempt_count": 0,
+        "blockers": [
+          "named prerequisite unavailable: pyinstaller"
+        ],
+        "check_id": "engine-build",
+        "discovered_argv": [
+          "uv",
+          "run",
+          "--with",
+          "pyinstaller",
+          "pyinstaller",
+          "packaging/omni-engine.spec",
+          "--noconfirm",
+          "--distpath",
+          "packaging/dist",
+          "--workpath",
+          "packaging/build"
+        ],
+        "duration_ms": 0,
+        "executed_argv": [],
+        "exit_code": null,
+        "measurements": [],
+        "network_observation_ref": null,
+        "status": "blocked",
+        "stderr_ref": null,
+        "stdout_ref": null,
+        "termination": "precheck_blocked",
+        "test_counts": {
+          "deselected": 0,
+          "failed": 0,
+          "ignored": 0,
+          "passed": 0,
+          "skipped": 0
+        },
+        "warning_count": 0,
+        "warnings": [],
+        "write_audit_ref": null
+      },
+      {
+        "attempt_count": 0,
+        "blockers": [
+          "command cannot emit the required empirical Python containment proof"
+        ],
+        "check_id": "frontend-build",
+        "discovered_argv": [
+          "pnpm",
+          "run",
+          "build"
+        ],
+        "duration_ms": 0,
+        "executed_argv": [],
+        "exit_code": null,
+        "measurements": [],
+        "network_observation_ref": null,
+        "status": "blocked",
+        "stderr_ref": null,
+        "stdout_ref": null,
+        "termination": "precheck_blocked",
+        "test_counts": {
+          "deselected": 0,
+          "failed": 0,
+          "ignored": 0,
+          "passed": 0,
+          "skipped": 0
+        },
+        "warning_count": 0,
+        "warnings": [],
+        "write_audit_ref": null
+      },
+      {
+        "attempt_count": 0,
+        "blockers": [
+          "command cannot emit the required empirical Python containment proof"
+        ],
+        "check_id": "desktop-build",
+        "discovered_argv": [
+          "cmd",
+          "/c",
+          "call %LOCALAPPDATA%\\portable-msvc\\msvc\\setup_x64.bat && cd /d <repo>\\apps\\ui && pnpm tauri build"
+        ],
+        "duration_ms": 0,
+        "executed_argv": [],
+        "exit_code": null,
+        "measurements": [],
+        "network_observation_ref": null,
+        "status": "blocked",
+        "stderr_ref": null,
+        "stdout_ref": null,
+        "termination": "precheck_blocked",
+        "test_counts": {
+          "deselected": 0,
+          "failed": 0,
+          "ignored": 0,
+          "passed": 0,
+          "skipped": 0
+        },
+        "warning_count": 0,
+        "warnings": [],
+        "write_audit_ref": null
+      }
+    ],
+    "passed": false,
+    "status": "unverified"
+  },
+  "checks": [
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "command cannot emit the required empirical Python containment proof"
+      ],
+      "check_id": "python-lint",
+      "discovered_argv": [
+        "uv",
+        "run",
+        "ruff",
+        "check",
+        "."
+      ],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 1,
+      "blockers": [],
+      "check_id": "python-types",
+      "discovered_argv": [
+        "uv",
+        "run",
+        "mypy"
+      ],
+      "duration_ms": 26905,
+      "executed_argv": [
+        "uv",
+        "run",
+        "--active",
+        "--no-sync",
+        "mypy"
+      ],
+      "exit_code": 1,
+      "measurements": [],
+      "network_observation_ref": "network-containment/observations/python-types-081cbe82565c4257a6928bd23ecee7d8.jsonl",
+      "status": "failed",
+      "stderr_ref": "raw/python-types-081cbe82565c4257a6928bd23ecee7d8.stderr",
+      "stdout_ref": "raw/python-types-081cbe82565c4257a6928bd23ecee7d8.stdout",
+      "termination": "exited",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": "write-audit/python-types-081cbe82565c4257a6928bd23ecee7d8.json"
+    },
+    {
+      "attempt_count": 1,
+      "blockers": [],
+      "check_id": "python-tests",
+      "discovered_argv": [
+        "uv",
+        "run",
+        "pytest"
+      ],
+      "duration_ms": 57844,
+      "executed_argv": [
+        "uv",
+        "run",
+        "--active",
+        "--no-sync",
+        "pytest"
+      ],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": "network-containment/observations/python-tests-a7cb6b52e72041f3ae1e669e8616f8a0.jsonl",
+      "status": "failed",
+      "stderr_ref": "raw/python-tests-a7cb6b52e72041f3ae1e669e8616f8a0.stderr",
+      "stdout_ref": "raw/python-tests-a7cb6b52e72041f3ae1e669e8616f8a0.stdout",
+      "termination": "crashed",
+      "test_counts": {
+        "deselected": 1,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 2198,
+        "skipped": 1
+      },
+      "warning_count": 1,
+      "warnings": [],
+      "write_audit_ref": "write-audit/python-tests-a7cb6b52e72041f3ae1e669e8616f8a0.json"
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "no executable path found by the complete repository configuration search"
+      ],
+      "check_id": "python-coverage",
+      "discovered_argv": [],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "not implemented",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "omitted",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "command cannot emit the required empirical Python containment proof"
+      ],
+      "check_id": "typescript-types",
+      "discovered_argv": [
+        "pnpm",
+        "run",
+        "typecheck"
+      ],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "command cannot emit the required empirical Python containment proof"
+      ],
+      "check_id": "typescript-tests",
+      "discovered_argv": [
+        "pnpm",
+        "run",
+        "test"
+      ],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "no executable path found by the complete repository configuration search"
+      ],
+      "check_id": "typescript-coverage",
+      "discovered_argv": [],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "not implemented",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "omitted",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "named prerequisite unavailable: cargo, rustc"
+      ],
+      "check_id": "rust-check",
+      "discovered_argv": [
+        "cargo",
+        "check",
+        "--locked"
+      ],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "named prerequisite unavailable: cargo, rustc"
+      ],
+      "check_id": "rust-tests",
+      "discovered_argv": [
+        "cargo",
+        "test",
+        "--locked"
+      ],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "named prerequisite unavailable: pyinstaller"
+      ],
+      "check_id": "engine-build",
+      "discovered_argv": [
+        "uv",
+        "run",
+        "--with",
+        "pyinstaller",
+        "pyinstaller",
+        "packaging/omni-engine.spec",
+        "--noconfirm",
+        "--distpath",
+        "packaging/dist",
+        "--workpath",
+        "packaging/build"
+      ],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "command cannot emit the required empirical Python containment proof"
+      ],
+      "check_id": "frontend-build",
+      "discovered_argv": [
+        "pnpm",
+        "run",
+        "build"
+      ],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "command cannot emit the required empirical Python containment proof"
+      ],
+      "check_id": "desktop-build",
+      "discovered_argv": [
+        "cmd",
+        "/c",
+        "call %LOCALAPPDATA%\\portable-msvc\\msvc\\setup_x64.bat && cd /d <repo>\\apps\\ui && pnpm tauri build"
+      ],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "no executable path found by the complete repository configuration search"
+      ],
+      "check_id": "frozen-engine-smoke",
+      "discovered_argv": [],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "not implemented",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "omitted",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "no executable path found by the complete repository configuration search"
+      ],
+      "check_id": "packaging",
+      "discovered_argv": [],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "not implemented",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "omitted",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    },
+    {
+      "attempt_count": 0,
+      "blockers": [
+        "no executable path found by the complete repository configuration search"
+      ],
+      "check_id": "hermetic-security",
+      "discovered_argv": [],
+      "duration_ms": 0,
+      "executed_argv": [],
+      "exit_code": null,
+      "measurements": [],
+      "network_observation_ref": null,
+      "status": "not implemented",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "omitted",
+      "test_counts": {
+        "deselected": 0,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 0,
+        "skipped": 0
+      },
+      "warning_count": 0,
+      "warnings": [],
+      "write_audit_ref": null
+    }
+  ],
+  "coverage": {
+    "branch_measured": false,
+    "branch_percent": null,
+    "line_measured": false,
+    "line_percent": null
+  },
+  "reconciliation": {
+    "committed": {
+      "branch_coverage_percent": "78.2",
+      "line_coverage_percent": "86.7",
+      "tests": 1358
+    },
+    "fresh": {
+      "branch_coverage_percent": null,
+      "line_coverage_percent": null,
+      "tests": {
+        "deselected": 1,
+        "failed": 0,
+        "ignored": 0,
+        "passed": 2198,
+        "skipped": 1
+      }
+    },
+    "historical_values_preserved": true
+  }
+}

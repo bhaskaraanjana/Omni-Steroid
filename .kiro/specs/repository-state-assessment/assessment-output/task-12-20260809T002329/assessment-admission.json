@@ -1,0 +1,23 @@
+{
+  "admitted": true,
+  "claim_count": 231,
+  "classified_row_count": 288,
+  "finding_count": 28,
+  "parity_row_count": 29,
+  "preservation_confirmed": true,
+  "reasons": [],
+  "status_totals": {
+    "Environment_Blocked": 19,
+    "Fresh_Failure": 2,
+    "Historical_Only": 0,
+    "Integration_Failed": 0,
+    "Not_Applicable": 0,
+    "Not_Implemented": 17,
+    "Unverified": 248,
+    "Verified_Partial": 0,
+    "Verified_Working": 2
+  },
+  "untraceable_claim_ids": [
+    "claim-06f07d43bc89d076850b"
+  ]
+}

@@ -1,0 +1,1128 @@
+{
+  "assessment_paths": {
+    "database": "C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\local-e2e\\data\\omni.db",
+    "models": "C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\local-e2e\\models",
+    "provider_configuration": "explicitly nonexistent",
+    "reports": "C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\local-e2e\\reports",
+    "traces": "C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\local-e2e\\traces"
+  },
+  "disposition_counts": {
+    "configuration_excluded": 3,
+    "environment_blocked": 19,
+    "external_provider_dependent": 4
+  },
+  "preflights": [
+    {
+      "name": "production frontend build",
+      "observed": "C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\mirror\\apps\\ui\\dist\\index.html",
+      "reason": "production index must exist",
+      "status": "blocked"
+    },
+    {
+      "name": "production frontend startup",
+      "observed": "build + preview",
+      "reason": "dev/watch mode is prohibited",
+      "status": "passed"
+    },
+    {
+      "name": "real local engine",
+      "observed": "C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\mirror\\engine\\server.py",
+      "reason": "engine.server source must exist",
+      "status": "passed"
+    },
+    {
+      "name": "production engine startup",
+      "observed": "python -m engine.server",
+      "reason": "real engine module path is required",
+      "status": "passed"
+    },
+    {
+      "name": "configured browser",
+      "observed": null,
+      "reason": "no configured executable may be inferred or downloaded",
+      "status": "blocked"
+    },
+    {
+      "name": "local test data",
+      "observed": {
+        "migrations": "C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\mirror\\migrations",
+        "seed": "C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\mirror\\apps\\ui\\e2e\\harness\\seed_engine.py",
+        "vault": "C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\mirror\\apps\\ui\\e2e\\fixtures\\vault"
+      },
+      "reason": "all local fixtures must exist",
+      "status": "passed"
+    },
+    {
+      "name": "local services",
+      "observed": "C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\mirror\\engine\\server.py",
+      "reason": "real local engine service path is required",
+      "status": "passed"
+    },
+    {
+      "name": "free loopback port 4173",
+      "observed": {
+        "bind_available": true,
+        "host": "127.0.0.1",
+        "listener_pid": null,
+        "port": 4173
+      },
+      "reason": "occupied or non-loopback ports block; existing listeners are never killed",
+      "status": "passed"
+    },
+    {
+      "name": "free loopback port 8765",
+      "observed": {
+        "bind_available": true,
+        "host": "127.0.0.1",
+        "listener_pid": null,
+        "port": 8765
+      },
+      "reason": "occupied or non-loopback ports block; existing listeners are never killed",
+      "status": "passed"
+    },
+    {
+      "name": "process ownership",
+      "observed": {
+        "ownership_token_present": true
+      },
+      "reason": "every launched tree requires assessment ownership",
+      "status": "passed"
+    },
+    {
+      "name": "ownership-safe harness cleanup",
+      "observed": {
+        "kills_by_port": true
+      },
+      "reason": "port-based cleanup is unsafe and is never invoked",
+      "status": "blocked"
+    },
+    {
+      "name": "write audit",
+      "observed": {
+        "root": "C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\local-e2e"
+      },
+      "reason": "observed write auditing must be established",
+      "status": "passed"
+    },
+    {
+      "name": "loopback-only egress",
+      "observed": {
+        "node_browser_guard": "unavailable",
+        "proof_marker": "absent"
+      },
+      "reason": "Node/Chromium cannot emit the required per-lease containment proof",
+      "status": "blocked"
+    }
+  ],
+  "preflights_completed_before_process_launch": true,
+  "process_cleanup": {
+    "assessment_owned_processes_surviving": 0,
+    "cleanup_needed": false,
+    "cleanup_scope": "assessment-owned processes only",
+    "owned_processes_started": 0,
+    "pre_existing_processes_touched": 0
+  },
+  "product_failures": 0,
+  "repository_harness_cleanup_invoked": false,
+  "scenario_count": 26,
+  "scenarios": [
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/accessibility.spec.ts:29:Library home has no serious/critical WCAG 2.2 AA violations",
+      "title": "Library home has no serious/critical WCAG 2.2 AA violations",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/accessibility.spec.ts:36:Settings has no serious/critical WCAG 2.2 AA violations",
+      "title": "Settings has no serious/critical WCAG 2.2 AA violations",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "external_provider_dependent",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/accessibility.spec.ts:45:Ask (answered) has no serious/critical WCAG 2.2 AA violations",
+      "title": "Ask (answered) has no serious/critical WCAG 2.2 AA violations",
+      "unavailable_prerequisites": []
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/ask.spec.ts:23:empty state shows the page display and the privacy line",
+      "title": "empty state shows the page display and the privacy line",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "external_provider_dependent",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/ask.spec.ts:29:answers a real question from the vault with citations and latency",
+      "title": "answers a real question from the vault with citations and latency",
+      "unavailable_prerequisites": []
+    },
+    {
+      "disposition": "external_provider_dependent",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/ask.spec.ts:45:expands a citation to reveal its verbatim source snippet on click",
+      "title": "expands a citation to reveal its verbatim source snippet on click",
+      "unavailable_prerequisites": []
+    },
+    {
+      "disposition": "external_provider_dependent",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: external_provider_dependent",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/ask.spec.ts:58:honest no-match state for a question outside the vault",
+      "title": "honest no-match state for a question outside the vault",
+      "unavailable_prerequisites": []
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/library.spec.ts:20:lists the real seeded meetings with a summary line",
+      "title": "lists the real seeded meetings with a summary line",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/library.spec.ts:29:search filters the list live and shows an honest no-match state",
+      "title": "search filters the list live and shows an honest no-match state",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/library.spec.ts:42:opening a meeting shows its real enhanced notes, actions and transcript",
+      "title": "opening a meeting shows its real enhanced notes, actions and transcript",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/live-meeting.spec.ts:21:shows the idle pre-capture state with the real privacy promise",
+      "title": "shows the idle pre-capture state with the real privacy promise",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/live-meeting.spec.ts:28:Start capture is wired and enabled while the engine is connected",
+      "title": "Start capture is wired and enabled while the engine is connected",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/naomi.spec.ts:15:renders the real living-water pool canvas and brand label",
+      "title": "renders the real living-water pool canvas and brand label",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/naomi.spec.ts:27:the pool canvas has real, non-zero rendered dimensions",
+      "title": "the pool canvas has real, non-zero rendered dimensions",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/nav.spec.ts:10:boots into the main shell and navigates every section",
+      "title": "boots into the main shell and navigates every section",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/nav.spec.ts:38:status footer reflects the live engine connection",
+      "title": "status footer reflects the live engine connection",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "configuration_excluded",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": "scenario requires a remote model download under loopback-only policy",
+      "scenario_id": "e2e:apps/ui/e2e/specs/onboarding.spec.ts:19:finishes after vault and local models; keys and calendar are optional",
+      "title": "finishes after vault and local models; keys and calendar are optional",
+      "unavailable_prerequisites": []
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/onboarding.spec.ts:62:restoring setup boots straight into the Library shell",
+      "title": "restoring setup boots straight into the Library shell",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "configuration_excluded",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        }
+      },
+      "project": "media",
+      "reason": "project 'media' is not selected",
+      "scenario_id": "media:apps/ui/e2e/specs/product-showcase.media.ts:22:real product tour — home, meetings, ask, settings, naomi",
+      "title": "real product tour — home, meetings, ask, settings, naomi",
+      "unavailable_prerequisites": []
+    },
+    {
+      "disposition": "configuration_excluded",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: configuration_excluded",
+          "state": "absent"
+        }
+      },
+      "project": "media",
+      "reason": "project 'media' is not selected",
+      "scenario_id": "media:apps/ui/e2e/specs/product-showcase.media.ts:111:real onboarding walk-through — first-run steps",
+      "title": "real onboarding walk-through — first-run steps",
+      "unavailable_prerequisites": []
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/settings.spec.ts:26:Essentials is the default tier and Advanced reveals power controls",
+      "title": "Essentials is the default tier and Advanced reveals power controls",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/settings.spec.ts:36:renders the real router matrix and cost ledger from engine data",
+      "title": "renders the real router matrix and cost ledger from engine data",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/settings.spec.ts:52:API keys are custody-masked password fields with the on-device guarantee",
+      "title": "API keys are custody-masked password fields with the on-device guarantee",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/settings.spec.ts:64:device picker enumerates real audio devices",
+      "title": "device picker enumerates real audio devices",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/settings.spec.ts:69:a privacy toggle persists and reverts through the real engine",
+      "title": "a privacy toggle persists and reverts through the real engine",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    },
+    {
+      "disposition": "environment_blocked",
+      "outputs": {
+        "browser": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "engine": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "frontend": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "scenario": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "screenshot": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        },
+        "trace": {
+          "reason": "scenario was not executed: environment_blocked",
+          "state": "absent"
+        }
+      },
+      "project": "e2e",
+      "reason": null,
+      "scenario_id": "e2e:apps/ui/e2e/specs/settings.spec.ts:83:the auto-run whitelist is a real deny-by-default security surface",
+      "title": "the auto-run whitelist is a real deny-by-default security surface",
+      "unavailable_prerequisites": [
+        "production frontend build path",
+        "Playwright-configured browser executable",
+        "enforceable non-loopback denial",
+        "ownership-safe harness cleanup",
+        "loopback-only network containment"
+      ]
+    }
+  ]
+}

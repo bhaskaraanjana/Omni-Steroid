@@ -1,0 +1,447 @@
+{
+  "admission": {
+    "loopback_enforcement_established": true,
+    "mirror_verified": true,
+    "redaction_established": true,
+    "source_comparison_available": true,
+    "write_containment_established": true
+  },
+  "blockers": [],
+  "counts": {
+    "checks_discovered": 14,
+    "claims_inventoried": 232,
+    "files_hashed": 1444,
+    "omissions_recorded": 23,
+    "scenarios_found": 26,
+    "tools_resolved": 5,
+    "tools_unresolved": 9
+  },
+  "mirror_exclusion_policy": [
+    {
+      "prefix": ".git",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    },
+    {
+      "prefix": ".venv",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    },
+    {
+      "prefix": "node_modules",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    },
+    {
+      "prefix": "apps/ui/node_modules",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    },
+    {
+      "prefix": ".pytest_cache",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    },
+    {
+      "prefix": ".mypy_cache",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    },
+    {
+      "prefix": ".ruff_cache",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    },
+    {
+      "prefix": "build",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    },
+    {
+      "prefix": "dist",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    },
+    {
+      "prefix": "apps/ui/dist",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    },
+    {
+      "prefix": "apps/ui/src-tauri/target",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    },
+    {
+      "prefix": ".kiro/specs/repository-state-assessment/assessment-output",
+      "reason": "dependency, cache, Git metadata, build, or prior assessment output excluded"
+    }
+  ],
+  "network_containment": {
+    "adapter": "LoopbackOnlyNetworkContainment",
+    "blocked_prelaunch_count": 6,
+    "genuinely_guarded_check_ids": [],
+    "proof_candidate_check_ids": [
+      "python-types",
+      "python-tests",
+      "rust-check",
+      "rust-tests",
+      "engine-build",
+      "desktop-build"
+    ],
+    "scope": "Python interpreters that emit a valid per-lease startup proof"
+  },
+  "omissions": [
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "uv",
+        "run",
+        "ruff",
+        "check",
+        "."
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "python-lint",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "python-lint",
+      "reason": "observation-only phase limit stops before repository process execution"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "uv",
+        "run",
+        "mypy"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "python-types",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "python-types",
+      "reason": "observation-only phase limit stops before repository process execution"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "uv",
+        "run",
+        "pytest"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "python-tests",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "python-tests",
+      "reason": "observation-only phase limit stops before repository process execution"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [],
+      "dependent_checks": [
+        {
+          "check_id": "python-coverage",
+          "status": "Not_Implemented"
+        }
+      ],
+      "operation_id": "python-coverage",
+      "reason": "no command found after the complete bounded repository configuration search"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "pnpm",
+        "run",
+        "typecheck"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "typescript-types",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "typescript-types",
+      "reason": "observation-only phase limit stops before repository process execution"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "pnpm",
+        "run",
+        "test"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "typescript-tests",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "typescript-tests",
+      "reason": "observation-only phase limit stops before repository process execution"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [],
+      "dependent_checks": [
+        {
+          "check_id": "typescript-coverage",
+          "status": "Not_Implemented"
+        }
+      ],
+      "operation_id": "typescript-coverage",
+      "reason": "no command found after the complete bounded repository configuration search"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "cargo",
+        "check",
+        "--locked"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "rust-check",
+          "status": "Environment_Blocked"
+        }
+      ],
+      "operation_id": "rust-check",
+      "reason": "observation-only phase limit; prerequisite unresolved in workspace-only search: cargo, rustc"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "cargo",
+        "test",
+        "--locked"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "rust-tests",
+          "status": "Environment_Blocked"
+        }
+      ],
+      "operation_id": "rust-tests",
+      "reason": "observation-only phase limit; prerequisite unresolved in workspace-only search: cargo, rustc"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "uv",
+        "run",
+        "--with",
+        "pyinstaller",
+        "pyinstaller",
+        "packaging/omni-engine.spec",
+        "--noconfirm",
+        "--distpath",
+        "packaging/dist",
+        "--workpath",
+        "packaging/build"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "engine-build",
+          "status": "Environment_Blocked"
+        }
+      ],
+      "operation_id": "engine-build",
+      "reason": "observation-only phase limit; prerequisite unresolved in workspace-only search: pyinstaller"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "pnpm",
+        "run",
+        "build"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "frontend-build",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "frontend-build",
+      "reason": "observation-only phase limit stops before repository process execution"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "cmd",
+        "/c",
+        "call %LOCALAPPDATA%\\portable-msvc\\msvc\\setup_x64.bat && cd /d <repo>\\apps\\ui && pnpm tauri build"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "desktop-build",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "desktop-build",
+      "reason": "observation-only phase limit stops before repository process execution"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "pnpm",
+        "exec",
+        "playwright",
+        "test",
+        "--config",
+        "e2e/playwright.config.ts",
+        "--project=e2e"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "local-e2e-e2e",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "local-e2e-e2e",
+      "reason": "observation-only phase limit stops before repository process execution"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "pnpm",
+        "exec",
+        "playwright",
+        "test",
+        "--config",
+        "e2e/playwright.config.ts",
+        "--project=media"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "local-e2e-media",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "local-e2e-media",
+      "reason": "observation-only phase limit stops before repository process execution"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [],
+      "dependent_checks": [],
+      "operation_id": "dependency-install-or-download",
+      "reason": "installs and downloads are prohibited"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [],
+      "dependent_checks": [],
+      "operation_id": "external-provider-or-credential-use",
+      "reason": "provider calls and credential access are prohibited"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [],
+      "dependent_checks": [],
+      "operation_id": "destructive-git-or-production-repair",
+      "reason": "source mutation, destructive Git, commit, push, and production repair are prohibited"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "uv",
+        "run",
+        "ruff",
+        "check",
+        "."
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "python-lint",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "network-containment:python-lint",
+      "reason": "empirical loopback containment is unavailable: no unique current-lease Python startup proof can be established for this command"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "pnpm",
+        "run",
+        "typecheck"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "typescript-types",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "network-containment:typescript-types",
+      "reason": "empirical loopback containment is unavailable: no unique current-lease Python startup proof can be established for this command"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "pnpm",
+        "run",
+        "test"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "typescript-tests",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "network-containment:typescript-tests",
+      "reason": "empirical loopback containment is unavailable: no unique current-lease Python startup proof can be established for this command"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "pnpm",
+        "run",
+        "build"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "frontend-build",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "network-containment:frontend-build",
+      "reason": "empirical loopback containment is unavailable: no unique current-lease Python startup proof can be established for this command"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "pnpm",
+        "exec",
+        "playwright",
+        "test",
+        "--config",
+        "e2e/playwright.config.ts",
+        "--project=e2e"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "local-e2e-e2e",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "network-containment:local-e2e-e2e",
+      "reason": "empirical loopback containment is unavailable: no unique current-lease Python startup proof can be established for this command"
+    },
+    {
+      "affected_content": [],
+      "command_or_procedure": [
+        "pnpm",
+        "exec",
+        "playwright",
+        "test",
+        "--config",
+        "e2e/playwright.config.ts",
+        "--project=media"
+      ],
+      "dependent_checks": [
+        {
+          "check_id": "local-e2e-media",
+          "status": "Unverified"
+        }
+      ],
+      "operation_id": "network-containment:local-e2e-media",
+      "reason": "empirical loopback containment is unavailable: no unique current-lease Python startup proof can be established for this command"
+    }
+  ],
+  "run_id": "task-12-20260809T002329"
+}

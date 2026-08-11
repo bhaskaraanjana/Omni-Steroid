@@ -447,3 +447,29 @@ These are mistakes this workflow has hit **repeatedly across sessions and projec
 - **Known loop-traps to name in briefs where relevant:** mutation-score chasing against **equivalent mutants** (document justified survivors as equivalent per the repo's filter instead of looping for 100%); flaky/environment-dependent test retries (report the flake, don't re-run to green); hook/permission-blocked writes (use the known heredoc fallback ONCE, then report); network 403/429s (back off once, then return with what's cached); Windows cp1252/emoji crashes (§7.1 fix, once).
 - **Mutation testing is usage-expensive and is NEVER agent-initiated (user mandate).** Build agents do **not** run mutation passes as part of package acceptance — they write genuinely adversarial tests and stop. Mutation verification is **batched, scoped to changed/critical modules, and run once at the hardening gate — preferably on the nightly/`workflow_dispatch` Linux CI plane (§7.2), not locally, and never in a kill-the-survivors loop on this box.** Survivors get one triage (equivalent vs genuine gap); genuine gaps get one targeted test each; anything further is explicitly scheduled, not looped. The same economy applies generally: don't re-run green suites for reassurance, don't re-verify what a gate already proved, and **use exactly ONE wait mechanism per background command** (never stack Monitor + sleep-poll + background-wait on the same run — one wait, then act on the exit code, which is authoritative on its own).
 - **Orchestrator duties:** (1) put an explicit **tool-call/effort budget** and the stuck-protocol in every brief; (2) on every check-in or long-running agent, **verify real artifact progress** (worktree commits/files, not the agent's self-report); (3) if an agent reports stuck or shows loop symptoms from outside, **do not resend the same brief** — fix the blocker, narrow the scope, or respawn fresh with the blocker pre-solved; (4) a respawned agent gets the previous agent's blocker report so the loop is not replayed.
+
+### 7.8 Ground the change before running it — the four failures that cost a full session
+Observed repeatedly in one session on the assessor package. Each was **known** and done anyway, so
+the countermeasure must be a gate, not an intention.
+
+- **Read the validator, not just the field list.** This codebase encodes its invariants in
+  `__post_init__` (exactly one of argv/procedure; a blocked record must name a prerequisite that
+  appears in its own prerequisite tuple; enum members that do not exist). Grepping a dataclass for
+  field names and inferring the rest produced four separate runtime failures. **Before constructing
+  any type from a package you did not just write, read its `__post_init__` and its enum members.**
+- **Static gates run BEFORE the expensive run, never as cleanup after it.** `ruff` + `mypy` on the
+  changed files would have caught a wrong attribute name and a non-existent enum member in seconds;
+  instead each cost a multi-minute pipeline run to discover. Order is: edit → ruff/mypy on changed
+  files → targeted test → full suite → run.
+- **When you change a shared boundary, the new test must FAIL against the old code first.** Hardening
+  a shared loader broke a caller whose artifact had a different shape, and it sailed through a green
+  272-test suite because the fixtures never exercised that boundary. **A green suite over the
+  boundary you just changed is not evidence.** Write the test, watch it fail, then fix.
+- **Never do scripted/regex structural surgery on source.** Read the file, write the file. A
+  multi-step regex edit silently deleted seven functions (356 lines → 51). If the file is untracked
+  there is no recovery at all — so **back up any untracked file before editing it**, and prefer
+  making the tree tracked so git is the safety net.
+- **A run in flight freezes the tree.** Any assessment/verification that hashes the workspace will
+  report *your own* concurrent edit as a preservation failure. Update trackers and docs **before**
+  launching, then do not touch the tree until it lands. Better: run against a `git worktree` so the
+  live tree structurally cannot be the measured tree.

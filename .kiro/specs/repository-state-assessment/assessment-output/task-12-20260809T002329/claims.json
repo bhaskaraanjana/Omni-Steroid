@@ -1,0 +1,2554 @@
+[
+  {
+    "claim_id": "claim-5fd7625e6258672bff54",
+    "document_date": null,
+    "exact_text": "Knowledge workers and professionals who spend significant time in meetings and calls — often with headphones, often handling sensitive topics.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 9,
+      "path": "PRODUCT.md",
+      "start_line": 9
+    }
+  },
+  {
+    "claim_id": "claim-9ce79d906265da0528d9",
+    "document_date": null,
+    "exact_text": "They are privacy-conscious: they refuse bot-in-call recorders and cloud-first note tools that upload by default.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 9,
+      "path": "PRODUCT.md",
+      "start_line": 9
+    }
+  },
+  {
+    "claim_id": "claim-4bf7283dfeb8bd217441",
+    "document_date": null,
+    "exact_text": "Context when using Omni: at a desk during a video call, between meetings reviewing notes, or anywhere via global voice dictation.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 9,
+      "path": "PRODUCT.md",
+      "start_line": 9
+    }
+  },
+  {
+    "claim_id": "claim-22d5fcaffdb1f2aec998",
+    "document_date": null,
+    "exact_text": "Secondary users: developers and power users who want BYOK AI routing, audit logs, and advanced controls — but the primary experience must not require understanding engine architecture.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 11,
+      "path": "PRODUCT.md",
+      "start_line": 11
+    }
+  },
+  {
+    "claim_id": "claim-3d2801ac7d8fe860e03c",
+    "document_date": null,
+    "exact_text": "Omni is local-first meeting and voice intelligence: bot-free capture, on-device transcription, enhanced notes woven around the user's own words, vault-native search with citations, and approval-carded actions (calendar, contacts, Gmail drafts — never send).",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 15,
+      "path": "PRODUCT.md",
+      "start_line": 15
+    }
+  },
+  {
+    "claim_id": "claim-6f362ddc893e16c91a96",
+    "document_date": null,
+    "exact_text": "Global dictation and Naomi voice mode extend the same engine between meetings.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 15,
+      "path": "PRODUCT.md",
+      "start_line": 15
+    }
+  },
+  {
+    "claim_id": "claim-53197c75fbd83d5fb067",
+    "document_date": null,
+    "exact_text": "Success looks like: a user fluent in Notion or Granola trusts Omni in under 60 seconds, completes a first meeting with useful enhanced notes, and never wonders whether their audio or transcripts left the machine without consent.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 17,
+      "path": "PRODUCT.md",
+      "start_line": 17
+    }
+  },
+  {
+    "claim_id": "claim-b1c07679d646ba3546ba",
+    "document_date": null,
+    "exact_text": "**Tagline (consumer-facing):** Meeting notes that stay yours.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 19,
+      "path": "PRODUCT.md",
+      "start_line": 19
+    }
+  },
+  {
+    "claim_id": "claim-4a64dd927a53258a4e3c",
+    "document_date": null,
+    "exact_text": "Naomi is the one allowed character name; she prepares actions, never executes without approval.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 27,
+      "path": "PRODUCT.md",
+      "start_line": 27
+    }
+  },
+  {
+    "claim_id": "claim-0086c4faa5d71066ce4e",
+    "document_date": null,
+    "exact_text": "- Developer-console aesthetic: monospace uppercase labels on every nav item, latency numbers in the default footer, model names in primary settings",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 34,
+      "path": "PRODUCT.md",
+      "start_line": 34
+    }
+  },
+  {
+    "claim_id": "claim-86f140c54ccb971cd844",
+    "document_date": null,
+    "exact_text": "- Bot-in-call meeting tools (Grain, Otter-style joiners) — Omni never joins a call",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 35,
+      "path": "PRODUCT.md",
+      "start_line": 35
+    }
+  },
+  {
+    "claim_id": "claim-5af79894082e3c6011cc",
+    "document_date": null,
+    "exact_text": "**Privacy is the product** — local-first, zero telemetry; audio is kept on-device as MP3 with the transcript by default and never uploaded (opt out to discard); copy and UI must reinforce this without fear-mongering.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 42,
+      "path": "PRODUCT.md",
+      "start_line": 42
+    }
+  },
+  {
+    "claim_id": "claim-93ce8210806b1e400dac",
+    "document_date": null,
+    "exact_text": "**Approval before execute** — Naomi and extraction propose; the user approves.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 47,
+      "path": "PRODUCT.md",
+      "start_line": 47
+    }
+  },
+  {
+    "claim_id": "claim-9e1c6bfb9bdc3d21d7ac",
+    "document_date": null,
+    "exact_text": "Capture dual audio streams on your machine.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 8,
+      "path": "README.md",
+      "start_line": 8
+    }
+  },
+  {
+    "claim_id": "claim-c815b6049a896c0003d2",
+    "document_date": null,
+    "exact_text": "Transcribe on-device.",
+    "material_scope": "capability.transcription",
+    "source": {
+      "end_line": 8,
+      "path": "README.md",
+      "start_line": 8
+    }
+  },
+  {
+    "claim_id": "claim-86048245527ecdbd8259",
+    "document_date": null,
+    "exact_text": "Turn rough notes into clean enhanced notes.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 8,
+      "path": "README.md",
+      "start_line": 8
+    }
+  },
+  {
+    "claim_id": "claim-4c670c61795c320f8350",
+    "document_date": null,
+    "exact_text": "Ask your vault with real citations.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 8,
+      "path": "README.md",
+      "start_line": 8
+    }
+  },
+  {
+    "claim_id": "claim-06f07d43bc89d076850b",
+    "document_date": null,
+    "exact_text": "> [!NOTE]",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 38,
+      "path": "README.md",
+      "start_line": 38
+    }
+  },
+  {
+    "claim_id": "claim-7966879e18e6210734c3",
+    "document_date": null,
+    "exact_text": "> Screenshots and the demo are the **current Omni Steroid app** (Daylight UI) running against the **real Python engine** with seeded synthetic meetings — not mockups, not the legacy monochrome Omni build.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 39,
+      "path": "README.md",
+      "start_line": 39
+    }
+  },
+  {
+    "claim_id": "claim-fb607e7689e7bcda5b15",
+    "document_date": null,
+    "exact_text": "Capture notes: [`media/README.md`](media/README.md).",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 39,
+      "path": "README.md",
+      "start_line": 39
+    }
+  },
+  {
+    "claim_id": "claim-f02f6e58bf3621f66ed9",
+    "document_date": null,
+    "exact_text": "| 🎧 | **Bot-free capture** | Dual labelled streams — system audio (`them`) + mic (`me`).",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 134,
+      "path": "README.md",
+      "start_line": 134
+    }
+  },
+  {
+    "claim_id": "claim-851884b7aab95f35ee22",
+    "document_date": null,
+    "exact_text": "Works with headphones on Windows (WASAPI).",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 134,
+      "path": "README.md",
+      "start_line": 134
+    }
+  },
+  {
+    "claim_id": "claim-7afbbee85dc7fd40fd77",
+    "document_date": null,
+    "exact_text": "macOS/Linux via monitor devices (BlackHole / PipeWire).",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 134,
+      "path": "README.md",
+      "start_line": 134
+    }
+  },
+  {
+    "claim_id": "claim-53b7f0b1b66675de08a6",
+    "document_date": null,
+    "exact_text": "Audio stays as local MP3 by default.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 135,
+      "path": "README.md",
+      "start_line": 135
+    }
+  },
+  {
+    "claim_id": "claim-fda5aef445cb97b4ec38",
+    "document_date": null,
+    "exact_text": "| 📝 | **Enhanced notes** | Your rough notes stay primary.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 136,
+      "path": "README.md",
+      "start_line": 136
+    }
+  },
+  {
+    "claim_id": "claim-2015c06a8de37426080d",
+    "document_date": null,
+    "exact_text": "| 🔍 | **Ask + citations** | Local RAG over Obsidian vault + transcripts.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 137,
+      "path": "README.md",
+      "start_line": 137
+    }
+  },
+  {
+    "claim_id": "claim-35d1c885b838a47ecf21",
+    "document_date": null,
+    "exact_text": "Inline citations to exact note + line range when synthesis keys are configured.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 137,
+      "path": "README.md",
+      "start_line": 137
+    }
+  },
+  {
+    "claim_id": "claim-9c080e7c61f5ed121ed9",
+    "document_date": null,
+    "exact_text": "| ✅ | **Approval cards** | Calendar, contacts, vault writes, **Gmail drafts only (never send)**.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 138,
+      "path": "README.md",
+      "start_line": 138
+    }
+  },
+  {
+    "claim_id": "claim-f36953ace30dd11e16a2",
+    "document_date": null,
+    "exact_text": "| 🎙️ | **Global dictation** | Push-to-talk, locked recording, cleanup styles, inject into any app (Windows), searchable history.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 139,
+      "path": "README.md",
+      "start_line": 139
+    }
+  },
+  {
+    "claim_id": "claim-3aa966813b1edf6d5efa",
+    "document_date": null,
+    "exact_text": "| 📦 | **Export & import** | Markdown, PDF, DOCX, SRT, VTT.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 140,
+      "path": "README.md",
+      "start_line": 140
+    }
+  },
+  {
+    "claim_id": "claim-546ce3cd20540a945e3d",
+    "document_date": null,
+    "exact_text": "| 🌊 | **Naomi** | Optional voice agent over the same vault and approval path (when a voice provider is configured).",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 141,
+      "path": "README.md",
+      "start_line": 141
+    }
+  },
+  {
+    "claim_id": "claim-8c5757bcfa948e04c05b",
+    "document_date": null,
+    "exact_text": "> **Privacy is the product.** Zero telemetry.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 144,
+      "path": "README.md",
+      "start_line": 144
+    }
+  },
+  {
+    "claim_id": "claim-177ec342569393d64ea8",
+    "document_date": null,
+    "exact_text": "Transcripts, embeddings, and keys stay on your machine except the minimum excerpt you send to a model you configured.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 144,
+      "path": "README.md",
+      "start_line": 144
+    }
+  },
+  {
+    "claim_id": "claim-6b78cf770b55b9f0a2f1",
+    "document_date": null,
+    "exact_text": "One control pauses all cloud AI; capture and vault keep working offline.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 144,
+      "path": "README.md",
+      "start_line": 144
+    }
+  },
+  {
+    "claim_id": "claim-e065082f58565976014c",
+    "document_date": null,
+    "exact_text": "**Desktop shell:** Tauri 2 + React · **Engine sidecar:** Python FastAPI over localhost WebSocket · **Storage:** SQLite + `sqlite-vec` + your Obsidian vault · **Speech:** Silero VAD, Parakeet / Whisper · **Models (BYOK):** Groq, Gemini, Claude, OpenAI-compatible, Ollama, …",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 167,
+      "path": "README.md",
+      "start_line": 167
+    }
+  },
+  {
+    "claim_id": "claim-2cfd6d8b797c28b40034",
+    "document_date": null,
+    "exact_text": "Architecture notes: [`docs/architecture.md`](docs/architecture.md).",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 169,
+      "path": "README.md",
+      "start_line": 169
+    }
+  },
+  {
+    "claim_id": "claim-bd1ec92bd22ebb6928b0",
+    "document_date": null,
+    "exact_text": "| [Rust](https://tauri.app/start/prerequisites/) | Tauri shell (MSVC on Windows) |",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 181,
+      "path": "README.md",
+      "start_line": 181
+    }
+  },
+  {
+    "claim_id": "claim-b36cbc249881d900f90e",
+    "document_date": null,
+    "exact_text": "Point Omni Steroid at your **Obsidian vault**\n2.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 208,
+      "path": "README.md",
+      "start_line": 207
+    }
+  },
+  {
+    "claim_id": "claim-d9266ca6295de3b939b6",
+    "document_date": null,
+    "exact_text": "Add **API keys** you want (all optional — skip what you don’t need):",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 208,
+      "path": "README.md",
+      "start_line": 208
+    }
+  },
+  {
+    "claim_id": "claim-9c1ec55d57ad042c51b7",
+    "document_date": null,
+    "exact_text": "| Key | Unlocks | Free tier |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 210,
+      "path": "README.md",
+      "start_line": 210
+    }
+  },
+  {
+    "claim_id": "claim-47971b687ab7961b0d50",
+    "document_date": null,
+    "exact_text": "| [Groq](https://console.groq.com/keys) | Fast live answers | Yes |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 212,
+      "path": "README.md",
+      "start_line": 212
+    }
+  },
+  {
+    "claim_id": "claim-603778199b111e22ca2b",
+    "document_date": null,
+    "exact_text": "| [Anthropic](https://console.anthropic.com/settings/keys) | Agentic / high-quality synthesis | Paid |",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 214,
+      "path": "README.md",
+      "start_line": 214
+    }
+  },
+  {
+    "claim_id": "claim-8e701bacc1dfa8d344a2",
+    "document_date": null,
+    "exact_text": "> With **no keys**, capture, transcription, and vault still work fully offline.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 220,
+      "path": "README.md",
+      "start_line": 220
+    }
+  },
+  {
+    "claim_id": "claim-c695618ff60941fcd0fa",
+    "document_date": null,
+    "exact_text": "Cloud features stay off until you add a key.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 220,
+      "path": "README.md",
+      "start_line": 220
+    }
+  },
+  {
+    "claim_id": "claim-7794e85e6a1b5dca4389",
+    "document_date": null,
+    "exact_text": "Tagged releases ship **Windows** (NSIS/MSI), **macOS** (DMG), and **Linux** (deb/AppImage) with signature-verified auto-update when published:",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 224,
+      "path": "README.md",
+      "start_line": 224
+    }
+  },
+  {
+    "claim_id": "claim-556e0d96ea2e411196f7",
+    "document_date": null,
+    "exact_text": "| Local-first | Transcripts, embeddings, notes, and keys stay on-device except minimum model excerpts you opt into |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 236,
+      "path": "README.md",
+      "start_line": 236
+    }
+  },
+  {
+    "claim_id": "claim-bfd2eb1210aff85dd1ca",
+    "document_date": null,
+    "exact_text": "| No audio upload | Recordings kept as local MP3 with the transcript (or discarded after STT if you opt out) |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 237,
+      "path": "README.md",
+      "start_line": 237
+    }
+  },
+  {
+    "claim_id": "claim-bdab5d5ba62cf82aded1",
+    "document_date": null,
+    "exact_text": "| Zero telemetry | No analytics, no phone-home |",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 238,
+      "path": "README.md",
+      "start_line": 238
+    }
+  },
+  {
+    "claim_id": "claim-14f1c162fb04c93fd8f3",
+    "document_date": null,
+    "exact_text": "| DPAPI keys | Entered at onboarding; engine-only; never plaintext on disk |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 239,
+      "path": "README.md",
+      "start_line": 239
+    }
+  },
+  {
+    "claim_id": "claim-237582cdb1b6d8b480e9",
+    "document_date": null,
+    "exact_text": "| Approve before execute | Calendar / contacts / vault / Gmail draft — deny by default |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 240,
+      "path": "README.md",
+      "start_line": 240
+    }
+  },
+  {
+    "claim_id": "claim-d1503bd42586cc576342",
+    "document_date": null,
+    "exact_text": "| Kill-switch | Halts all external model calls; local features continue |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 242,
+      "path": "README.md",
+      "start_line": 242
+    }
+  },
+  {
+    "claim_id": "claim-45af4c8145f0af5e633a",
+    "document_date": null,
+    "exact_text": "| Audit log | Append-only record of every external call and executed action |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 243,
+      "path": "README.md",
+      "start_line": 243
+    }
+  },
+  {
+    "claim_id": "claim-d46788396a6074e30838",
+    "document_date": null,
+    "exact_text": "| `engine/` | Capture, STT, index/RAG, router, agents, vault, Naomi, dictation |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 254,
+      "path": "README.md",
+      "start_line": 254
+    }
+  },
+  {
+    "claim_id": "claim-0fc7a65af57d5af126d7",
+    "document_date": null,
+    "exact_text": "| `media/` | Full showcase media + capture notes |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 256,
+      "path": "README.md",
+      "start_line": 256
+    }
+  },
+  {
+    "claim_id": "claim-e8af23c7ebdb081788a7",
+    "document_date": null,
+    "exact_text": "| `tests/` | Engine + UI test suites |",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 259,
+      "path": "README.md",
+      "start_line": 259
+    }
+  },
+  {
+    "claim_id": "claim-a3c8735e98b11bcf14a1",
+    "document_date": null,
+    "exact_text": "See [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), and [SECURITY.md](SECURITY.md).",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 274,
+      "path": "README.md",
+      "start_line": 274
+    }
+  },
+  {
+    "claim_id": "claim-f096203dcb4517ad5720",
+    "document_date": null,
+    "exact_text": "Omni handles some of the most private data a person has — the audio and\ntranscripts of their meetings, their notes, their contacts, and their API keys.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 4,
+      "path": "SECURITY.md",
+      "start_line": 3
+    }
+  },
+  {
+    "claim_id": "claim-46d154d79a8b2c241167",
+    "document_date": null,
+    "exact_text": "**Please do not open a public GitHub issue for a security vulnerability.**\nDisclosing it publicly before there's a fix puts users at risk.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 12,
+      "path": "SECURITY.md",
+      "start_line": 11
+    }
+  },
+  {
+    "claim_id": "claim-1d06f9a200e7513f436c",
+    "document_date": null,
+    "exact_text": "- **Email:** **alexanderkapadia2@gmail.com** — put `SECURITY` in the subject line.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 16,
+      "path": "SECURITY.md",
+      "start_line": 16
+    }
+  },
+  {
+    "claim_id": "claim-5928eca8c2403945264d",
+    "document_date": null,
+    "exact_text": "- If GitHub [private vulnerability reporting](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability)",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 17,
+      "path": "SECURITY.md",
+      "start_line": 17
+    }
+  },
+  {
+    "claim_id": "claim-5b5c97ef187192d7678d",
+    "document_date": null,
+    "exact_text": "**Please do not** run automated scanners against infrastructure you don't own,\ntest against anyone else's data, or access, modify, or destroy data that isn't\nyours while investigating.",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 33,
+      "path": "SECURITY.md",
+      "start_line": 31
+    }
+  },
+  {
+    "claim_id": "claim-f27fe0490ef541c4b33f",
+    "document_date": null,
+    "exact_text": "Good-faith research that respects users' privacy is\nalways welcome.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 34,
+      "path": "SECURITY.md",
+      "start_line": 33
+    }
+  },
+  {
+    "claim_id": "claim-30f4dba6c6f83efe8d44",
+    "document_date": null,
+    "exact_text": "Omni is a local-first desktop app: a Tauri 2 shell and a Python engine sidecar\nthat runs on `127.0.0.1` only, with no backend and no accounts.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 39,
+      "path": "SECURITY.md",
+      "start_line": 38
+    }
+  },
+  {
+    "claim_id": "claim-c70ea94df08eebfe7aba",
+    "document_date": null,
+    "exact_text": "user explicitly configured — telemetry, exfiltration, or an over-broad request\n  that sends more than a task needs.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 44,
+      "path": "SECURITY.md",
+      "start_line": 43
+    }
+  },
+  {
+    "claim_id": "claim-d4a1ca179acc151c9875",
+    "document_date": null,
+    "exact_text": "- Anything that lets an action **execute without the user's approval**, or that",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 45,
+      "path": "SECURITY.md",
+      "start_line": 45
+    }
+  },
+  {
+    "claim_id": "claim-9be2d145cfd8f96504e4",
+    "document_date": null,
+    "exact_text": "bypasses the approval-card status machine.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 46,
+      "path": "SECURITY.md",
+      "start_line": 46
+    }
+  },
+  {
+    "claim_id": "claim-d48471f52ae632cb6743",
+    "document_date": null,
+    "exact_text": "- **Key exposure** — an API key written to disk in plaintext, logged, leaked to",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 48,
+      "path": "SECURITY.md",
+      "start_line": 48
+    }
+  },
+  {
+    "claim_id": "claim-6f2158ba72bbcbefc427",
+    "document_date": null,
+    "exact_text": "- **Local privilege / integrity** issues — tampering with the append-only audit",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 53,
+      "path": "SECURITY.md",
+      "start_line": 53
+    }
+  },
+  {
+    "claim_id": "claim-a3957e638d3452cc0ea9",
+    "document_date": null,
+    "exact_text": "log, the migration bookkeeping, or the vault's managed regions; or a path that\n  overwrites user-authored content.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 55,
+      "path": "SECURITY.md",
+      "start_line": 54
+    }
+  },
+  {
+    "claim_id": "claim-8aabb77af9fc2847d933",
+    "document_date": null,
+    "exact_text": "could be reached by a local attacker.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 57,
+      "path": "SECURITY.md",
+      "start_line": 57
+    }
+  },
+  {
+    "claim_id": "claim-382bded500034aa8bdb5",
+    "document_date": null,
+    "exact_text": "Generally **out of scope**: issues that require an attacker to already have full\ncontrol of the user's OS account (Omni's DPAPI keys are, by design, only as safe\nas the Windows user session); vulnerabilities in third-party AI providers you\nsend data to by choice; and reports that amount to \"the app makes network calls\nto the providers the user configured\" — that's the documented, opt-in behavior.",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 63,
+      "path": "SECURITY.md",
+      "start_line": 59
+    }
+  },
+  {
+    "claim_id": "claim-0a7c90edfd9b82b45df2",
+    "document_date": null,
+    "exact_text": "These are the security properties Omni enforces in code — SQL triggers, pydantic\nmodels, DPAPI, and source-scanning tests — not by convention.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 69,
+      "path": "SECURITY.md",
+      "start_line": 68
+    }
+  },
+  {
+    "claim_id": "claim-e51e61b3e3283ff36a6a",
+    "document_date": null,
+    "exact_text": "- **Local-first.** Transcripts, embeddings, notes, and keys never leave the",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 72,
+      "path": "SECURITY.md",
+      "start_line": 72
+    }
+  },
+  {
+    "claim_id": "claim-2579d4e46406ec13cea6",
+    "document_date": null,
+    "exact_text": "the transcript by default; the user can opt out (discard after transcription)\n  in Privacy settings.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 76,
+      "path": "SECURITY.md",
+      "start_line": 75
+    }
+  },
+  {
+    "claim_id": "claim-36f9fe94289111717493",
+    "document_date": null,
+    "exact_text": "- **Zero telemetry.** No phone-home of any kind.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 77,
+      "path": "SECURITY.md",
+      "start_line": 77
+    }
+  },
+  {
+    "claim_id": "claim-13ff25b458bd7f247336",
+    "document_date": null,
+    "exact_text": "- **Approval-before-execute.** No calendar event, contact upsert, vault write,",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 78,
+      "path": "SECURITY.md",
+      "start_line": 78
+    }
+  },
+  {
+    "claim_id": "claim-5f0a8b21d3e318b12b0a",
+    "document_date": null,
+    "exact_text": "- **Keys via Windows DPAPI**, held only by the engine, never plaintext on disk,",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 83,
+      "path": "SECURITY.md",
+      "start_line": 83
+    }
+  },
+  {
+    "claim_id": "claim-cbf41f32a152cc8a9185",
+    "document_date": null,
+    "exact_text": "- **Append-only audit log** of every executed action and external model call:",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 87,
+      "path": "SECURITY.md",
+      "start_line": 87
+    }
+  },
+  {
+    "claim_id": "claim-192d4707daf66c9d0eb3",
+    "document_date": null,
+    "exact_text": "what, when, which provider, and exactly what data left the machine.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 88,
+      "path": "SECURITY.md",
+      "start_line": 88
+    }
+  },
+  {
+    "claim_id": "claim-3c5172dae5cae7868ac8",
+    "document_date": null,
+    "exact_text": "- **Kill-switch.** One flag halts all external calls; local capture,",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 89,
+      "path": "SECURITY.md",
+      "start_line": 89
+    }
+  },
+  {
+    "claim_id": "claim-d4648e6b55ea614701a8",
+    "document_date": null,
+    "exact_text": "transcription, and vault features keep working.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 90,
+      "path": "SECURITY.md",
+      "start_line": 90
+    }
+  },
+  {
+    "claim_id": "claim-0930ece319a0992e716b",
+    "document_date": null,
+    "exact_text": "For packaging and release mechanics see [packaging/README.md](../packaging/README.md).",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 3,
+      "path": "docs/architecture.md",
+      "start_line": 3
+    }
+  },
+  {
+    "claim_id": "claim-b51ef9bff079c035cd1a",
+    "document_date": null,
+    "exact_text": "**Deterministic local core** — capture, storage, approval cards, audit log, vault writes.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 35,
+      "path": "docs/architecture.md",
+      "start_line": 35
+    }
+  },
+  {
+    "claim_id": "claim-223896d70d96a2ad7ef4",
+    "document_date": null,
+    "exact_text": "**Engine owns secrets** — API keys via Windows DPAPI in the engine process only.",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 37,
+      "path": "docs/architecture.md",
+      "start_line": 37
+    }
+  },
+  {
+    "claim_id": "claim-bcfecc70b3a8cbbd1f62",
+    "document_date": null,
+    "exact_text": "The UI never holds keys.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 37,
+      "path": "docs/architecture.md",
+      "start_line": 37
+    }
+  },
+  {
+    "claim_id": "claim-51705f0e8c4659decc84",
+    "document_date": null,
+    "exact_text": "Rust handles OS integration (hotkeys, windows, injection).",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 38,
+      "path": "docs/architecture.md",
+      "start_line": 38
+    }
+  },
+  {
+    "claim_id": "claim-da91a87df2d5a6d168fb",
+    "document_date": null,
+    "exact_text": "User starts capture (manual, auto-start rules, or calendar hint).",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 45,
+      "path": "docs/architecture.md",
+      "start_line": 45
+    }
+  },
+  {
+    "claim_id": "claim-bdbfe0c2d34034e311f0",
+    "document_date": null,
+    "exact_text": "`audio/` opens mic + loopback streams (WASAPI on Windows; sounddevice monitor on macOS/Linux when configured).",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 46,
+      "path": "docs/architecture.md",
+      "start_line": 46
+    }
+  },
+  {
+    "claim_id": "claim-3c1a6217a6ca4ef7ae07",
+    "document_date": null,
+    "exact_text": "Rough notes + transcript feed `enhance/` for enhanced notes after finalize.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 48,
+      "path": "docs/architecture.md",
+      "start_line": 48
+    }
+  },
+  {
+    "claim_id": "claim-b5b24a84800bb41c9b42",
+    "document_date": null,
+    "exact_text": "Meeting row + transcript land in SQLite; vault export optional on finalize.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 49,
+      "path": "docs/architecture.md",
+      "start_line": 49
+    }
+  },
+  {
+    "claim_id": "claim-942546c2d12eb41f2ec9",
+    "document_date": null,
+    "exact_text": "Router synthesizes answer with citations; scope can be vault-only, meeting-only, or `dictation_only`.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 54,
+      "path": "docs/architecture.md",
+      "start_line": 54
+    }
+  },
+  {
+    "claim_id": "claim-9589c1231868664fcb51",
+    "document_date": null,
+    "exact_text": "Every external call logged in router ledger + audit.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 55,
+      "path": "docs/architecture.md",
+      "start_line": 55
+    }
+  },
+  {
+    "claim_id": "claim-a8dd2ff1806eab51c5f3",
+    "document_date": null,
+    "exact_text": "Audio → STT → cleanup style → inject into focused app (Windows) or vault note mode.",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 60,
+      "path": "docs/architecture.md",
+      "start_line": 60
+    }
+  },
+  {
+    "claim_id": "claim-70872c8bb4c7e85316c4",
+    "document_date": null,
+    "exact_text": "Entries stored in `dictation_entries` + optional vault Inbox; history screen lists/search.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 61,
+      "path": "docs/architecture.md",
+      "start_line": 61
+    }
+  },
+  {
+    "claim_id": "claim-bd9d046f4dd861dce7b6",
+    "document_date": null,
+    "exact_text": "Extraction or Naomi intent creates a **pending** approval card (SQL-enforced).",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 65,
+      "path": "docs/architecture.md",
+      "start_line": 65
+    }
+  },
+  {
+    "claim_id": "claim-0c9cb2bf3c2eebb0206c",
+    "document_date": null,
+    "exact_text": "One append-only audit row per execution; Gmail remains draft-only.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 67,
+      "path": "docs/architecture.md",
+      "start_line": 67
+    }
+  },
+  {
+    "claim_id": "claim-e799ac8cdf04ee4e59ae",
+    "document_date": null,
+    "exact_text": "| New capture backend | `engine/audio/capture_backend_factory.py` |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 76,
+      "path": "docs/architecture.md",
+      "start_line": 76
+    }
+  },
+  {
+    "claim_id": "claim-2a9dd8c567d62e1b063c",
+    "document_date": null,
+    "exact_text": "| Capability | Windows | macOS | Linux |",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 81,
+      "path": "docs/architecture.md",
+      "start_line": 81
+    }
+  },
+  {
+    "claim_id": "claim-257178e7be2a2bee96c9",
+    "document_date": null,
+    "exact_text": "| Mic capture | ✅ | ✅ | ✅ |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 84,
+      "path": "docs/architecture.md",
+      "start_line": 84
+    }
+  },
+  {
+    "claim_id": "claim-61f126a01e4eb5fa99bf",
+    "document_date": null,
+    "exact_text": "| DPAPI key storage | ✅ | Platform keychain TBD | Platform keychain TBD |",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 87,
+      "path": "docs/architecture.md",
+      "start_line": 87
+    }
+  },
+  {
+    "claim_id": "claim-28e4a34ea7aeb8c8ada1",
+    "document_date": null,
+    "exact_text": "Windows is first-class for full meeting capture; macOS and Linux ship as bundles with honest partial capture until loopback devices are configured.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 89,
+      "path": "docs/architecture.md",
+      "start_line": 89
+    }
+  },
+  {
+    "claim_id": "claim-02dbfa284eda0a81f21f",
+    "document_date": null,
+    "exact_text": "- [threat-model.md](./threat-model.md) — security boundaries",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 95,
+      "path": "docs/architecture.md",
+      "start_line": 95
+    }
+  },
+  {
+    "claim_id": "claim-1cb4310513101c7c16f6",
+    "document_date": null,
+    "exact_text": "Platform notes are honest — partial means available with setup or reduced fidelity.",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 3,
+      "path": "docs/features.md",
+      "start_line": 3
+    }
+  },
+  {
+    "claim_id": "claim-ea4d502dd58c5dcaaa2f",
+    "document_date": null,
+    "exact_text": "| Bot-free capture | Dual labelled streams: loopback (`them`) + mic (`me`) | Windows full · macOS/Linux partial loopback |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 9,
+      "path": "docs/features.md",
+      "start_line": 9
+    }
+  },
+  {
+    "claim_id": "claim-aaa3489da03f777c384f",
+    "document_date": null,
+    "exact_text": "| Enhanced notes | Fuses rough notes + transcript; user text untouched | All |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 12,
+      "path": "docs/features.md",
+      "start_line": 12
+    }
+  },
+  {
+    "claim_id": "claim-94d0f898f0e97bdb9964",
+    "document_date": null,
+    "exact_text": "| Proactive vault | Suggests relevant vault snippets during meeting | All |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 15,
+      "path": "docs/features.md",
+      "start_line": 15
+    }
+  },
+  {
+    "claim_id": "claim-f9a2bb4726afbe86f3b1",
+    "document_date": null,
+    "exact_text": "| Meeting board | Structured board view during live session | All |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 16,
+      "path": "docs/features.md",
+      "start_line": 16
+    }
+  },
+  {
+    "claim_id": "claim-5f039af8f623c50f02a0",
+    "document_date": null,
+    "exact_text": "| Auto-start | Rules from loopback VAD, mic, window title, calendar | Windows primary |",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 20,
+      "path": "docs/features.md",
+      "start_line": 20
+    }
+  },
+  {
+    "claim_id": "claim-1a05d8bc6d65ed36fc8b",
+    "document_date": null,
+    "exact_text": "| Meeting library | Searchable list grouped by day |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 26,
+      "path": "docs/features.md",
+      "start_line": 26
+    }
+  },
+  {
+    "claim_id": "claim-8dd73e0586b61267369e",
+    "document_date": null,
+    "exact_text": "| Chat with meeting | `ask.query` scoped to one meeting |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 28,
+      "path": "docs/features.md",
+      "start_line": 28
+    }
+  },
+  {
+    "claim_id": "claim-d214c97ddbefd704cb33",
+    "document_date": null,
+    "exact_text": "| Search & replace | Transcript and summary text replace |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 29,
+      "path": "docs/features.md",
+      "start_line": 29
+    }
+  },
+  {
+    "claim_id": "claim-bc2af7347993cd1cbe51",
+    "document_date": null,
+    "exact_text": "| Export | Markdown, PDF, DOCX, SRT, VTT, TXT |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 31,
+      "path": "docs/features.md",
+      "start_line": 31
+    }
+  },
+  {
+    "claim_id": "claim-14279dcdc403f26ed415",
+    "document_date": null,
+    "exact_text": "| Vault RAG | BM25 + dense embeddings (`bge-small`) in sqlite-vec |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 39,
+      "path": "docs/features.md",
+      "start_line": 39
+    }
+  },
+  {
+    "claim_id": "claim-27b40d916955fcb5eb02",
+    "document_date": null,
+    "exact_text": "| Inline citations | Note path + line range on every claim |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 40,
+      "path": "docs/features.md",
+      "start_line": 40
+    }
+  },
+  {
+    "claim_id": "claim-92a8be974ea5c3490426",
+    "document_date": null,
+    "exact_text": "| Live answers | Spotter during capture |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 41,
+      "path": "docs/features.md",
+      "start_line": 41
+    }
+  },
+  {
+    "claim_id": "claim-aab4fbb3585df174c5e5",
+    "document_date": null,
+    "exact_text": "| Dictation-only Ask | Query past dictation entries |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 42,
+      "path": "docs/features.md",
+      "start_line": 42
+    }
+  },
+  {
+    "claim_id": "claim-e1e236a815344592a4c1",
+    "document_date": null,
+    "exact_text": "| Kill switch | Halts all external model calls; local features continue |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 43,
+      "path": "docs/features.md",
+      "start_line": 43
+    }
+  },
+  {
+    "claim_id": "claim-6182e713d817480aa1cb",
+    "document_date": null,
+    "exact_text": "| Locked recording | Re-press hotkey while holding to lock until second release | All |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 50,
+      "path": "docs/features.md",
+      "start_line": 50
+    }
+  },
+  {
+    "claim_id": "claim-0ca4670db735118ac21c",
+    "document_date": null,
+    "exact_text": "| Inject mode | Types into focused app | Windows |",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 51,
+      "path": "docs/features.md",
+      "start_line": 51
+    }
+  },
+  {
+    "claim_id": "claim-5c13917b43925886d620",
+    "document_date": null,
+    "exact_text": "| Note / command modes | Vault note or Naomi intent | All |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 52,
+      "path": "docs/features.md",
+      "start_line": 52
+    }
+  },
+  {
+    "claim_id": "claim-e86351879752cbf084d9",
+    "document_date": null,
+    "exact_text": "| History search | SQL keyword search (semantic search optional future) | All |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 56,
+      "path": "docs/features.md",
+      "start_line": 56
+    }
+  },
+  {
+    "claim_id": "claim-ef5fb3eb29a2707bde4b",
+    "document_date": null,
+    "exact_text": "| Fast (default) | Parakeet-TDT on GPU/CPU | Live capture, low latency |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 62,
+      "path": "docs/features.md",
+      "start_line": 62
+    }
+  },
+  {
+    "claim_id": "claim-a3b85ed278c7dc05a4ae",
+    "document_date": null,
+    "exact_text": "| Enhanced | Whisper (CUDA when available) | Import, retranscribe, accuracy |",
+    "material_scope": "capability.transcription",
+    "source": {
+      "end_line": 63,
+      "path": "docs/features.md",
+      "start_line": 63
+    }
+  },
+  {
+    "claim_id": "claim-5ee2191fb9da732f014e",
+    "document_date": null,
+    "exact_text": "Live capture remains Parakeet-first; tier picker applies to import, retranscribe, and settings-driven backend loads.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 66,
+      "path": "docs/features.md",
+      "start_line": 66
+    }
+  },
+  {
+    "claim_id": "claim-a32513572820846c27e7",
+    "document_date": null,
+    "exact_text": "| Silence auto-stop | Ends capture after configured silence |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 74,
+      "path": "docs/features.md",
+      "start_line": 74
+    }
+  },
+  {
+    "claim_id": "claim-8dfca95382c76e1d0f87",
+    "document_date": null,
+    "exact_text": "| Approval cards | Pending → approved → executed; SQL-enforced |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 81,
+      "path": "docs/features.md",
+      "start_line": 81
+    }
+  },
+  {
+    "claim_id": "claim-b64ed8bf610b54d17d69",
+    "document_date": null,
+    "exact_text": "| Agent tools | Calendar, contacts, vault write, Gmail **draft** |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 82,
+      "path": "docs/features.md",
+      "start_line": 82
+    }
+  },
+  {
+    "claim_id": "claim-63439b0099b985d2dc02",
+    "document_date": null,
+    "exact_text": "| Naomi voice agent | Hands-free vault Q&A + action preparation |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 83,
+      "path": "docs/features.md",
+      "start_line": 83
+    }
+  },
+  {
+    "claim_id": "claim-21b83f0873e44bbe2ee2",
+    "document_date": null,
+    "exact_text": "| Audit ledger | Append-only log of every external call and execution |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 85,
+      "path": "docs/features.md",
+      "start_line": 85
+    }
+  },
+  {
+    "claim_id": "claim-b6687093bcefc31b9bf0",
+    "document_date": null,
+    "exact_text": "- Local-first storage; zero telemetry",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 89,
+      "path": "docs/features.md",
+      "start_line": 89
+    }
+  },
+  {
+    "claim_id": "claim-fb720b38b9ddf0c07b2f",
+    "document_date": null,
+    "exact_text": "- DPAPI-encrypted keys (engine only)",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 91,
+      "path": "docs/features.md",
+      "start_line": 91
+    }
+  },
+  {
+    "claim_id": "claim-0aa7a3404d7464e48563",
+    "document_date": null,
+    "exact_text": "- Managed vault regions between `<!-- omni:managed -->` markers",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 93,
+      "path": "docs/features.md",
+      "start_line": 93
+    }
+  },
+  {
+    "claim_id": "claim-32e1044973fd2dd67a00",
+    "document_date": null,
+    "exact_text": "`omni-cli` — `list`, `get`, `export`, `import`, `record` for scripting without the UI.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 97,
+      "path": "docs/features.md",
+      "start_line": 97
+    }
+  },
+  {
+    "claim_id": "claim-5d3b73fed9fbfef8a6b5",
+    "document_date": null,
+    "exact_text": "| Item | Notes |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 101,
+      "path": "docs/features.md",
+      "start_line": 101
+    }
+  },
+  {
+    "claim_id": "claim-b379663d5587e3f9a76b",
+    "document_date": null,
+    "exact_text": "| Talkis Cloud STT proxy | Deferred — conflicts with privacy default |",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 104,
+      "path": "docs/features.md",
+      "start_line": 104
+    }
+  },
+  {
+    "claim_id": "claim-29508d5fede4c390a893",
+    "document_date": null,
+    "exact_text": "| Full macOS/Linux dictation inject | Paste paths planned |",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 106,
+      "path": "docs/features.md",
+      "start_line": 106
+    }
+  },
+  {
+    "claim_id": "claim-18bf682154526a447611",
+    "document_date": null,
+    "exact_text": "| Semantic dictation search | Keyword search only today |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 107,
+      "path": "docs/features.md",
+      "start_line": 107
+    }
+  },
+  {
+    "claim_id": "claim-b542305912674302805b",
+    "document_date": null,
+    "exact_text": "Report vulnerabilities per [SECURITY.md](../SECURITY.md) — do not file public issues for exploitable findings.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 3,
+      "path": "docs/threat-model.md",
+      "start_line": 3
+    }
+  },
+  {
+    "claim_id": "claim-79b1e713c3be7a596ece",
+    "document_date": null,
+    "exact_text": "**Assets:** meeting audio/transcripts, vault markdown, API keys (DPAPI), approval cards, audit log, user calendar/contacts (via Google/Microsoft).",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 5,
+      "path": "docs/threat-model.md",
+      "start_line": 5
+    }
+  },
+  {
+    "claim_id": "claim-ff43090eaa220b1fe0d3",
+    "document_date": null,
+    "exact_text": "**Internet ↔ engine** — model provider APIs only; kill-switch can deny all egress.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 9,
+      "path": "docs/threat-model.md",
+      "start_line": 9
+    }
+  },
+  {
+    "claim_id": "claim-66c63683685922b0f1a1",
+    "document_date": null,
+    "exact_text": "**Engine ↔ OS** — capture devices, vault filesystem, DPAPI, optional Google/Microsoft OAuth.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 11,
+      "path": "docs/threat-model.md",
+      "start_line": 11
+    }
+  },
+  {
+    "claim_id": "claim-8ab233ea21510d62d491",
+    "document_date": null,
+    "exact_text": "**Untrusted content ↔ models** — transcripts, vault excerpts, meeting notes treated as data not instructions.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 12,
+      "path": "docs/threat-model.md",
+      "start_line": 12
+    }
+  },
+  {
+    "claim_id": "claim-e509d9480f273c2eebfc",
+    "document_date": null,
+    "exact_text": "| **Tampering** | Rewriting audit rows or approved card payloads | Append-only audit; SQL triggers on card status/payload immutability |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 19,
+      "path": "docs/threat-model.md",
+      "start_line": 19
+    }
+  },
+  {
+    "claim_id": "claim-6b2e3597b08df094ea61",
+    "document_date": null,
+    "exact_text": "| **Repudiation** | Denying an executed action | Audit log + router cost ledger per external call |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 20,
+      "path": "docs/threat-model.md",
+      "start_line": 20
+    }
+  },
+  {
+    "claim_id": "claim-9dafe58d1fd575566833",
+    "document_date": null,
+    "exact_text": "| **Information disclosure** | Keys in logs, vault exfil via tool | DPAPI engine-only; minimum excerpt per model call; `data_sent_off_machine` on tools |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 21,
+      "path": "docs/threat-model.md",
+      "start_line": 21
+    }
+  },
+  {
+    "claim_id": "claim-7763aa9424bea2c84d0f",
+    "document_date": null,
+    "exact_text": "| **Denial of service** | Engine crash loops | Sidecar supervisor with backoff; capture fails closed without STT stack |",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 22,
+      "path": "docs/threat-model.md",
+      "start_line": 22
+    }
+  },
+  {
+    "claim_id": "claim-feca7a4b92feba521f26",
+    "document_date": null,
+    "exact_text": "| **Elevation of privilege** | Unapproved calendar send / Gmail send | Approval-before-execute; Gmail draft-only; instant-execute whitelist explicit |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 23,
+      "path": "docs/threat-model.md",
+      "start_line": 23
+    }
+  },
+  {
+    "claim_id": "claim-1a772ec2c677c4d99e03",
+    "document_date": null,
+    "exact_text": "- **Local-first** — no telemetry; audio not uploaded; transcripts stay on disk unless user-configured model calls.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 27,
+      "path": "docs/threat-model.md",
+      "start_line": 27
+    }
+  },
+  {
+    "claim_id": "claim-b6adef43ed1f5850722c",
+    "document_date": null,
+    "exact_text": "- **Fail closed** — missing key, ambiguous permission, or kill-switch → refuse egress, not partial send.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 28,
+      "path": "docs/threat-model.md",
+      "start_line": 28
+    }
+  },
+  {
+    "claim_id": "claim-304eb7fa56fa26588580",
+    "document_date": null,
+    "exact_text": "- **Never edit user prose** — vault writes append or use managed regions; collision suffixing on new notes.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 29,
+      "path": "docs/threat-model.md",
+      "start_line": 29
+    }
+  },
+  {
+    "claim_id": "claim-ede45077dcbd9a8dca19",
+    "document_date": null,
+    "exact_text": "- Attacker with full interactive access to the user's Windows account (DPAPI keys are user-scoped).",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 35,
+      "path": "docs/threat-model.md",
+      "start_line": 35
+    }
+  },
+  {
+    "claim_id": "claim-d071d2b873f69a10c04d",
+    "document_date": null,
+    "exact_text": "- Compromise of third-party providers (Groq, Google, etc.) — user chose to configure those keys.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 36,
+      "path": "docs/threat-model.md",
+      "start_line": 36
+    }
+  },
+  {
+    "claim_id": "claim-8370d2c0af407e4e9347",
+    "document_date": null,
+    "exact_text": "- Physical access scenarios beyond standard OS account security.",
+    "material_scope": "safety.security_privacy",
+    "source": {
+      "end_line": 37,
+      "path": "docs/threat-model.md",
+      "start_line": 37
+    }
+  },
+  {
+    "claim_id": "claim-e690337b9fd00712c93c",
+    "document_date": null,
+    "exact_text": "| **Retrieval quality** (BM25 tier) | Recall@5 **1.000** lexical / **0.667** paraphrase (overall 0.909), MRR 0.853 | `data/retrieval_quality_bm25.json` |",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 22,
+      "path": "evidence/README.md",
+      "start_line": 22
+    }
+  },
+  {
+    "claim_id": "claim-e0a4d792c984129040e0",
+    "document_date": null,
+    "exact_text": "| **Retrieval latency** | p50 **0.78 ms**, p99 **1.92 ms** (n=1,375) — far under the 20 ms budget | `figures/fig_retrieval_latency_bm25.*` |",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 23,
+      "path": "evidence/README.md",
+      "start_line": 23
+    }
+  },
+  {
+    "claim_id": "claim-59db64f3c1573fcc9c43",
+    "document_date": null,
+    "exact_text": "| **Retrieval scaling** | corpus ×**53.7** (30→1,610 notes) → p50 latency ×**3.6** (sub-linear) | `figures/fig_retrieval_latency_scaling.*` |",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 24,
+      "path": "evidence/README.md",
+      "start_line": 24
+    }
+  },
+  {
+    "claim_id": "claim-278af6c5ffed70765dd9",
+    "document_date": null,
+    "exact_text": "| **STT chunk-merge** | fidelity **1.000**, transcript reconstruction **1.000**; p50 **0.042 ms** | `figures/fig_stt_chunk_merge_latency.*` |",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 25,
+      "path": "evidence/README.md",
+      "start_line": 25
+    }
+  },
+  {
+    "claim_id": "claim-b6bfc91bf9da78bf9b3b",
+    "document_date": null,
+    "exact_text": "| **Router — live** | **15 real** provider calls, **$0.00080723** total (cap $0.50), 0 fallbacks | `data/router_live_sample.json` |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 27,
+      "path": "evidence/README.md",
+      "start_line": 27
+    }
+  },
+  {
+    "claim_id": "claim-c7652aa6bc711ad0d195",
+    "document_date": null,
+    "exact_text": "| **Ask citation exactness** | **1.000** over 55 answers; **0** hallucinated markers survived | `figures/fig_ask_pipeline_latency.*` |",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 28,
+      "path": "evidence/README.md",
+      "start_line": 28
+    }
+  },
+  {
+    "claim_id": "claim-b50eaeb96716b3370e64",
+    "document_date": null,
+    "exact_text": "| **Dictation guard** | accuracy **1.000**, **0 false-negatives** over 1,020 adversarial cases | `figures/fig_dictation_faithfulness_confusion.*` |",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 29,
+      "path": "evidence/README.md",
+      "start_line": 29
+    }
+  },
+  {
+    "claim_id": "claim-9b89c14bd1b35b3a4f33",
+    "document_date": null,
+    "exact_text": "| **Test suite** | **950** Python + **408** TypeScript = **1,358** cases; **86.7%** line / **78.2%** branch coverage (measured) | `data/test_suite_inventory.json` |",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 31,
+      "path": "evidence/README.md",
+      "start_line": 31
+    }
+  },
+  {
+    "claim_id": "claim-6a3b06ba54dbd8f2a92d",
+    "document_date": null,
+    "exact_text": "Run order: `measure/*` write `data/*.json`; `figures/build_all_figures.py` and\n`diagrams/build_*` read `data/` (and the source tree, for diagrams) to render the\nvisuals.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 49,
+      "path": "evidence/README.md",
+      "start_line": 47
+    }
+  },
+  {
+    "claim_id": "claim-cb811f8616a428b764cf",
+    "document_date": null,
+    "exact_text": "Runs the **real** `engine.index.HybridRrfRetriever` + `VaultIndexerService` over a\nsynthetic, PII-free labelled vault (20 seed notes + 30 distractors, 55 golden\nqueries).",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 58,
+      "path": "evidence/README.md",
+      "start_line": 56
+    }
+  },
+  {
+    "claim_id": "claim-a59dd2187258903d2fbd",
+    "document_date": null,
+    "exact_text": "Reports note-level Recall@k, nDCG@k and MRR with 95% bootstrap CIs, split\ninto **lexical** vs **paraphrase** queries, plus a latency distribution and a\nsize-scaling curve.",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 60,
+      "path": "evidence/README.md",
+      "start_line": 58
+    }
+  },
+  {
+    "claim_id": "claim-89949aeaed6a0c74e441",
+    "document_date": null,
+    "exact_text": "Proves **fidelity** (every output token is a\nverbatim input token; order monotonic) and **reconstruction** (the merged\ntranscript equals the intended words with overlap duplicates removed, none\ndropped), and measures merge latency.",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 69,
+      "path": "evidence/README.md",
+      "start_line": 66
+    }
+  },
+  {
+    "claim_id": "claim-0bde0087a418e08cbd04",
+    "document_date": null,
+    "exact_text": "The fallback matrix drives the real\n`ProviderRouter` with scripted clients to record retry/backoff/cascade per error\nclass.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 76,
+      "path": "evidence/README.md",
+      "start_line": 74
+    }
+  },
+  {
+    "claim_id": "claim-1933e1fa1d16b6ed0da9",
+    "document_date": null,
+    "exact_text": "The **live** harness makes a small, metered set of **real** provider calls\n(hard $0.50 cap; keys read from `.env` by the harness, never printed) and reports\nthe true spend.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 78,
+      "path": "evidence/README.md",
+      "start_line": 76
+    }
+  },
+  {
+    "claim_id": "claim-70fcd23572d568b854be",
+    "document_date": null,
+    "exact_text": "AST/parse count over the real repo, bucketed by rigour markers\n(property/fuzz/determinism/injection/fail-closed/boundary/race/toctou), plus\n`coverage.py --branch` measured over the real pytest suite (950 tests, 0 failures).",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 99,
+      "path": "evidence/README.md",
+      "start_line": 97
+    }
+  },
+  {
+    "claim_id": "claim-1c8d1572e46178d15987",
+    "document_date": null,
+    "exact_text": "- **STT measures the merge/gating logic, not model transcription accuracy.** The GPU",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 115,
+      "path": "evidence/README.md",
+      "start_line": 115
+    }
+  },
+  {
+    "claim_id": "claim-dee1267556518acaf373",
+    "document_date": null,
+    "exact_text": "demonstrate real cost/latency/fallback wiring, not a load test.",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 119,
+      "path": "evidence/README.md",
+      "start_line": 119
+    }
+  },
+  {
+    "claim_id": "claim-5d108462b3d3b6a75807",
+    "document_date": null,
+    "exact_text": "- **Coverage is 86.7% line / 78.2% branch**, below the 90/85 *target* gate (which is",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 121,
+      "path": "evidence/README.md",
+      "start_line": 121
+    }
+  },
+  {
+    "claim_id": "claim-3a182c3388c1161d5b82",
+    "document_date": null,
+    "exact_text": "The over-limit\n  files flagged by the inventory (`vault_indexer_service.py`,\n  `live_capture_service.py`, `approval_cards_gateway.py` — all >300 lines) are\n  pre-existing and noted here rather than changed by this lane.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 125,
+      "path": "evidence/README.md",
+      "start_line": 122
+    }
+  },
+  {
+    "claim_id": "claim-0bd9a3ecb2906613b12a",
+    "document_date": null,
+    "exact_text": "Coverage of the raw\n`coverage.py` report is summarised in `data/coverage_summary.json`; the multi-MB raw\nreport and the isolated venv are gitignored.",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 151,
+      "path": "evidence/README.md",
+      "start_line": 149
+    }
+  },
+  {
+    "claim_id": "claim-0bda84bf72fd701882a4",
+    "document_date": null,
+    "exact_text": "Measured on the Windows dev box (RTX 4070) with ad-hoc coverage tooling\n(`uv run --with pytest-cov --with coverage pytest --cov=engine --cov-branch`).",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 4,
+      "path": "evidence/coverage-report.md",
+      "start_line": 3
+    }
+  },
+  {
+    "claim_id": "claim-d43b899222516140d5ec",
+    "document_date": null,
+    "exact_text": "The `coverage` / `pytest-cov` tools are **deliberately NOT** in `pyproject.toml`\nor `uv.lock` — they are installed ad-hoc at measurement time so the shipped\nengine sidecar stays lean.",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 6,
+      "path": "evidence/coverage-report.md",
+      "start_line": 4
+    }
+  },
+  {
+    "claim_id": "claim-f1cff19c4f5990599903",
+    "document_date": null,
+    "exact_text": "Configuration lives in the repo-root `.coveragerc`\n(test config, not a runtime dependency).",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 8,
+      "path": "evidence/coverage-report.md",
+      "start_line": 7
+    }
+  },
+  {
+    "claim_id": "claim-b626bde360e8c2ba6a92",
+    "document_date": null,
+    "exact_text": "Gate (claude.md §5.5): **line ≥ 90%**, **branch ≥ 85%** on non-generated code.",
+    "material_scope": "quality.coverage.line.target",
+    "source": {
+      "end_line": 10,
+      "path": "evidence/coverage-report.md",
+      "start_line": 10
+    }
+  },
+  {
+    "claim_id": "claim-bc09fd741dc3b7d38ea4",
+    "document_date": null,
+    "exact_text": "Gate (claude.md §5.5): **line ≥ 90%**, **branch ≥ 85%** on non-generated code.",
+    "material_scope": "quality.coverage.branch.target",
+    "source": {
+      "end_line": 10,
+      "path": "evidence/coverage-report.md",
+      "start_line": 10
+    }
+  },
+  {
+    "claim_id": "claim-5721567912471ea2be53",
+    "document_date": null,
+    "exact_text": "| Line (statement) | 87.49% | **98.87%** (9491/9599) | ≥ 90% | **PASS** |",
+    "material_scope": "quality.coverage.line.target",
+    "source": {
+      "end_line": 16,
+      "path": "evidence/coverage-report.md",
+      "start_line": 16
+    }
+  },
+  {
+    "claim_id": "claim-fecdbaca3f280204a940",
+    "document_date": null,
+    "exact_text": "| Branch  | 76.31% | **94.74%** (1908/2014) | ≥ 85% | **PASS** |",
+    "material_scope": "quality.coverage.branch.target",
+    "source": {
+      "end_line": 17,
+      "path": "evidence/coverage-report.md",
+      "start_line": 17
+    }
+  },
+  {
+    "claim_id": "claim-4fba6915aa7c9c0b5b87",
+    "document_date": null,
+    "exact_text": "**408 new adversarial test functions**\nadded across **27 new test files**.",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 21,
+      "path": "evidence/coverage-report.md",
+      "start_line": 20
+    }
+  },
+  {
+    "claim_id": "claim-1746a1d4eaaf4b0deba2",
+    "document_date": null,
+    "exact_text": "A\npre-integration checkpoint measured 96.59% line / 91.61% branch before the final\ntwo test clusters even landed.",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 30,
+      "path": "evidence/coverage-report.md",
+      "start_line": 28
+    }
+  },
+  {
+    "claim_id": "claim-2271592680aaaff863d4",
+    "document_date": null,
+    "exact_text": "Every added test asserts **correct behaviour** (exact values, boundary-exact\nthresholds, exact error `.reason`/exception types) so it fails if the code is\nwrong.",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 36,
+      "path": "evidence/coverage-report.md",
+      "start_line": 34
+    }
+  },
+  {
+    "claim_id": "claim-55fa5bd79110d0a5c413",
+    "document_date": null,
+    "exact_text": "branch — strict-bool rejection, vault-dir writability probe (real tmp_path),\n  hotkey length boundaries (1/64/65), whitelist dedupe+sort, snake_case\n  template ids, custom-template bounds, all-or-nothing batch rollback.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 41,
+      "path": "evidence/coverage-report.md",
+      "start_line": 39
+    }
+  },
+  {
+    "claim_id": "claim-eb393256c73d035235ce",
+    "document_date": null,
+    "exact_text": "- **Provider clients** (groq/anthropic/gemini): fake SDK injected into",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 42,
+      "path": "evidence/coverage-report.md",
+      "start_line": 42
+    }
+  },
+  {
+    "claim_id": "claim-dd1ffd6ca74e542fc086",
+    "document_date": null,
+    "exact_text": "- `engine/voice/naomi_ttfa_live_probe.py` — a manual live TTS latency probe",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 62,
+      "path": "evidence/coverage-report.md",
+      "start_line": 62
+    }
+  },
+  {
+    "claim_id": "claim-9343cf4555f83137b4a2",
+    "document_date": null,
+    "exact_text": "**None were added.** The measurement plane is Windows (the product is a\nWindows-only capture stack: WASAPI loopback, DPAPI, ctypes user32/kernel32),\nwhere the hardware/OS boundaries are exercisable: lazy-imported native libs\n(`pyaudiowpatch`, `onnxruntime`, `nemo`/`torch`, provider SDKs, `websockets`,\nctypes DLL handles, `winreg`) are covered by injecting fakes into `sys.modules`\nor via dependency injection; the real Windows DPAPI syscall body is covered by\nthe existing round-trip suite; the Google OAuth desktop flow is covered over a\nreal in-process 127.0.0.1 loopback.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 79,
+      "path": "evidence/coverage-report.md",
+      "start_line": 72
+    }
+  },
+  {
+    "claim_id": "claim-73b7db5918d46e5701c9",
+    "document_date": null,
+    "exact_text": "These few residual lines are honestly noted by the test authors as either\nunreachable defensive code or reachable only by a live router-ledger call; they\nwere left uncovered rather than forced with a contrived or tautological test,\nand the gate is comfortably met without them:",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 85,
+      "path": "evidence/coverage-report.md",
+      "start_line": 82
+    }
+  },
+  {
+    "claim_id": "claim-8ea4a64a15ea12666ab2",
+    "document_date": null,
+    "exact_text": "- `approval_card_builder.py` L148-150,174-176 — `ValidationError` except-branches",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 86,
+      "path": "evidence/coverage-report.md",
+      "start_line": 86
+    }
+  },
+  {
+    "claim_id": "claim-cb41d800f5389687c4b5",
+    "document_date": null,
+    "exact_text": "- `approval_cards_gateway.py` L259, `live_answers_spotter_wiring.py` L105,",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 90,
+      "path": "evidence/coverage-report.md",
+      "start_line": 90
+    }
+  },
+  {
+    "claim_id": "claim-29f6f9bce6625cb47afd",
+    "document_date": null,
+    "exact_text": "On a pure-Linux CI plane the Windows-only capture/DPAPI/ctypes modules would be\nplatform-unreachable (they already carry `# pragma: no cover` on their\nnon-Windows stubs).",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 99,
+      "path": "evidence/coverage-report.md",
+      "start_line": 97
+    }
+  },
+  {
+    "claim_id": "claim-a58ec07d5c7b7bb13d14",
+    "document_date": null,
+    "exact_text": "The authoritative measurement here is the **win32 plane**,\nwhich is where this Windows product actually runs.",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 100,
+      "path": "evidence/coverage-report.md",
+      "start_line": 99
+    }
+  },
+  {
+    "claim_id": "claim-089f6f2d929f333b4d21",
+    "document_date": null,
+    "exact_text": "`pnpm vitest run --coverage` (v8): **792 tests green** across 53 files.",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 104,
+      "path": "evidence/coverage-report.md",
+      "start_line": 104
+    }
+  },
+  {
+    "claim_id": "claim-d869eb660893105d87e7",
+    "document_date": null,
+    "exact_text": "Statements/Lines **75.2%**, Branches **88.92%** (clears the 85% branch bar),\nFunctions 81.06%.",
+    "material_scope": "quality.coverage.branch.target",
+    "source": {
+      "end_line": 105,
+      "path": "evidence/coverage-report.md",
+      "start_line": 104
+    }
+  },
+  {
+    "claim_id": "claim-63ee1d211f2564b01ba8",
+    "document_date": null,
+    "exact_text": "This folder turns the dev checkout into an installable Windows product:\na **PyInstaller-frozen engine sidecar** wrapped by a **Tauri 2 bundle**\n(NSIS `.exe` + `.msi`), auto-updated from **GitHub Releases** with\nsignature-verified artifacts.",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 6,
+      "path": "packaging/README.md",
+      "start_line": 3
+    }
+  },
+  {
+    "claim_id": "claim-38e362baed5c7758cef8",
+    "document_date": null,
+    "exact_text": "| STT Python runtime (torch CUDA 12.8 + NeMo) | **no** | ~8 GB installed | first-run install into `%LOCALAPPDATA%\\Omni\\pyenv` via `install-stt-runtime.ps1` (below) |",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 19,
+      "path": "packaging/README.md",
+      "start_line": 19
+    }
+  },
+  {
+    "claim_id": "claim-b07c351d663b5616fbb9",
+    "document_date": null,
+    "exact_text": "The engine boots and serves `/health`, notes, vault, RAG, router, and\napproval features **without** the STT stack; `stt_ready` in the WS\nheartbeat stays honestly `false` until models + runtime are present\n(fail closed, never a crash).",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 24,
+      "path": "packaging/README.md",
+      "start_line": 21
+    }
+  },
+  {
+    "claim_id": "claim-d8122e9190e6b429d05f",
+    "document_date": null,
+    "exact_text": "`resolve_engine_command()` in `apps/ui/src-tauri/src/engine_sidecar.rs`\nis THE one dev/prod seam: dev runs `uv run python -m engine.server`,\nrelease runs `<exe dir>\\omni-engine\\omni-engine.exe`.",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 41,
+      "path": "packaging/README.md",
+      "start_line": 39
+    }
+  },
+  {
+    "claim_id": "claim-a8a1c6292fbbf38d7905",
+    "document_date": null,
+    "exact_text": "**Chosen: (a) first-run install into a private, per-user environment at\n`%LOCALAPPDATA%\\Omni\\pyenv`, driven by `packaging/install-stt-runtime.ps1`.**",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 48,
+      "path": "packaging/README.md",
+      "start_line": 47
+    }
+  },
+  {
+    "claim_id": "claim-621e81accfedda5563aa",
+    "document_date": null,
+    "exact_text": "The script resolves `uv` (an existing one on PATH, else downloads the\n   pinned release and **verifies its published SHA256** before running it).",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 53,
+      "path": "packaging/README.md",
+      "start_line": 52
+    }
+  },
+  {
+    "claim_id": "claim-2c6ea4eb47765a39d58b",
+    "document_date": null,
+    "exact_text": "`uv pip install -r stt-runtime-requirements.txt` — the requirements\n   file is **exported from the repo's `uv.lock`** (`uv export --frozen\n   --extra stt --no-dev --no-emit-project --no-hashes`), so users get the\n   EXACT versions the engine was tested against (e.g.",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 60,
+      "path": "packaging/README.md",
+      "start_line": 57
+    }
+  },
+  {
+    "claim_id": "claim-b1145fb673e90197bfb8",
+    "document_date": null,
+    "exact_text": "cannot ship as one asset; we'd have to build, split, hash, host and\n  re-assemble multi-part archives ourselves, and rebuild them for every\n  torch/NeMo bump.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 78,
+      "path": "packaging/README.md",
+      "start_line": 76
+    }
+  },
+  {
+    "claim_id": "claim-8ce7b6ac71f127041d26",
+    "document_date": null,
+    "exact_text": "- **Invoke:** `powershell -ExecutionPolicy Bypass -File \"<install dir>\\stt-runtime\\install-stt-runtime.ps1\"`",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 90,
+      "path": "packaging/README.md",
+      "start_line": 90
+    }
+  },
+  {
+    "claim_id": "claim-dbf431f1f563a3903f1b",
+    "document_date": null,
+    "exact_text": "`{\"phase\":\"preflight|uv|venv|install|verify|complete|error\",\"message\":\"...\",\"percent\":0-100|null}`.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 93,
+      "path": "packaging/README.md",
+      "start_line": 93
+    }
+  },
+  {
+    "claim_id": "claim-adc7751a1410b53a1b9a",
+    "document_date": null,
+    "exact_text": "`install`-phase lines relay uv's own output with `percent: null`.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 93,
+      "path": "packaging/README.md",
+      "start_line": 93
+    }
+  },
+  {
+    "claim_id": "claim-bf44da7375f849ade854",
+    "document_date": null,
+    "exact_text": "Artifacts land in `apps/ui/src-tauri/target/release/bundle/`\n(`nsis/Omni_<version>_x64-setup.exe`, `msi/Omni_<version>_x64_en-US.msi`,\nplus `.sig` updater signatures for each).",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 134,
+      "path": "packaging/README.md",
+      "start_line": 132
+    }
+  },
+  {
+    "claim_id": "claim-74f0a6a0fc0d358c42b6",
+    "document_date": null,
+    "exact_text": "Note: `pnpm tauri build` bundles the **current contents of\n`packaging/dist/omni-engine`** — rebuild the sidecar first when engine\ncode changed.",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 138,
+      "path": "packaging/README.md",
+      "start_line": 136
+    }
+  },
+  {
+    "claim_id": "claim-3388e5eb56989d18b288",
+    "document_date": null,
+    "exact_text": "- **Signing:** every installer is minisign-signed at build time; the",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 146,
+      "path": "packaging/README.md",
+      "start_line": 146
+    }
+  },
+  {
+    "claim_id": "claim-cb505ae27b03d617f335",
+    "document_date": null,
+    "exact_text": "public key is pinned in `tauri.conf.json` and the app **refuses any\n  unsigned/mis-signed update** (fail closed).",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 148,
+      "path": "packaging/README.md",
+      "start_line": 147
+    }
+  },
+  {
+    "claim_id": "claim-e936200ff45a9eabeae5",
+    "document_date": null,
+    "exact_text": "- **Private key location (this box):** `%LOCALAPPDATA%\\Omni\\updater-signing-key`",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 149,
+      "path": "packaging/README.md",
+      "start_line": 149
+    }
+  },
+  {
+    "claim_id": "claim-d113a69e8bc1ac7fd4da",
+    "document_date": null,
+    "exact_text": "**NEVER in the repo** — `.gitignore` carries a\n  belt-and-braces `*updater-signing-key*` pattern.",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 151,
+      "path": "packaging/README.md",
+      "start_line": 150
+    }
+  },
+  {
+    "claim_id": "claim-4b98d98b2b2c8fc510ea",
+    "document_date": null,
+    "exact_text": "Losing this key means\n  installed apps can never auto-update again: back it up to a password\n  manager.",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 153,
+      "path": "packaging/README.md",
+      "start_line": 151
+    }
+  },
+  {
+    "claim_id": "claim-254fadf8d075c285b2af",
+    "document_date": null,
+    "exact_text": "- **Check cadence:** once per launch, release builds only",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 154,
+      "path": "packaging/README.md",
+      "start_line": 154
+    }
+  },
+  {
+    "claim_id": "claim-05abfcefb7fce4a2b02c",
+    "document_date": null,
+    "exact_text": "| `updater:update-available` | `{ version, currentVersion, notes }` |",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 165,
+      "path": "packaging/README.md",
+      "start_line": 165
+    }
+  },
+  {
+    "claim_id": "claim-72726d906318d07c8046",
+    "document_date": null,
+    "exact_text": "Commands (Tauri `invoke`): `updater_download_and_install` (re-checks,\ndownloads, verifies, installs; emits progress) and `updater_restart_app`.",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 172,
+      "path": "packaging/README.md",
+      "start_line": 171
+    }
+  },
+  {
+    "claim_id": "claim-9629b574a2f5e7a31e3d",
+    "document_date": null,
+    "exact_text": "`.github/workflows/release.yml` runs a **matrix** on `windows-latest`,\n   `macos-latest`, and `ubuntu-latest`: verifies the tag matches the app\n   version → builds the lean sidecar → **boot-tests `/health` for real** →\n   builds + signs platform bundles (NSIS/MSI on Windows; DMG/app on macOS;\n   deb/AppImage on Linux via tauri-action) → creates a **draft** GitHub Release\n   with installers, `.sig` files, and the `latest.json` updater manifest.",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 186,
+      "path": "packaging/README.md",
+      "start_line": 181
+    }
+  },
+  {
+    "claim_id": "claim-e2521eba317c1afaf2d4",
+    "document_date": null,
+    "exact_text": "Windows uses `stt-runtime/install-stt-runtime.ps1`.",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 193,
+      "path": "packaging/README.md",
+      "start_line": 193
+    }
+  },
+  {
+    "claim_id": "claim-fe54a328075b732f5db7",
+    "document_date": null,
+    "exact_text": "macOS and Linux use\n`packaging/install-stt-runtime.sh` with the same locked requirements\nexported from `uv.lock`.",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 195,
+      "path": "packaging/README.md",
+      "start_line": 193
+    }
+  },
+  {
+    "claim_id": "claim-beebe32aa77861c48676",
+    "document_date": null,
+    "exact_text": "The private venv lands under the platform\nequivalent of `%LOCALAPPDATA%\\Omni\\pyenv`.",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 196,
+      "path": "packaging/README.md",
+      "start_line": 195
+    }
+  },
+  {
+    "claim_id": "claim-cb4024ddbe0b686ea926",
+    "document_date": null,
+    "exact_text": "Create the repo secret `TAURI_SIGNING_PRIVATE_KEY` with the **contents**\nof `%LOCALAPPDATA%\\Omni\\updater-signing-key`:",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 201,
+      "path": "packaging/README.md",
+      "start_line": 200
+    }
+  },
+  {
+    "claim_id": "claim-712ca732915ef121a255",
+    "document_date": null,
+    "exact_text": "The key has an empty password (generated with `--ci`), so\n`TAURI_SIGNING_PRIVATE_KEY_PASSWORD` is set to `\"\"` in the workflow.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 208,
+      "path": "packaging/README.md",
+      "start_line": 207
+    }
+  },
+  {
+    "claim_id": "claim-5a074c2989f2e756820a",
+    "document_date": null,
+    "exact_text": "Wizard: vault path, API keys → DPAPI, Google connect (existing engine\n   surfaces).",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 217,
+      "path": "packaging/README.md",
+      "start_line": 216
+    }
+  },
+  {
+    "claim_id": "claim-c31af877526c8873a854",
+    "document_date": null,
+    "exact_text": "Wizard: **STT runtime install** — run `stt-runtime\\install-stt-runtime.ps1`,\n   render the JSON progress stream (~4 GB download / ~8 GB disk), then\n   restart the engine (kill it; the supervisor respawns with the venv\n   attached).",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 223,
+      "path": "packaging/README.md",
+      "start_line": 220
+    }
+  },
+  {
+    "claim_id": "claim-de8a1ad90264b962506a",
+    "document_date": null,
+    "exact_text": "Heartbeat flips `stt_ready: true` → capture unlocked.",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 224,
+      "path": "packaging/README.md",
+      "start_line": 224
+    }
+  },
+  {
+    "claim_id": "claim-661cb56f6fd8b5df235e",
+    "document_date": null,
+    "exact_text": "- **Windows 10/11** (full capture), or **macOS / Linux** for shell + mic work",
+    "material_scope": "capability.capture",
+    "source": {
+      "end_line": 230,
+      "path": "packaging/README.md",
+      "start_line": 230
+    }
+  },
+  {
+    "claim_id": "claim-8ef51b5f30ab5d5026b4",
+    "document_date": null,
+    "exact_text": "- `uv`, Node 22 + pnpm 10, Rust stable (MSVC on Windows), WebView2 (Windows).",
+    "material_scope": "platform.support",
+    "source": {
+      "end_line": 232,
+      "path": "packaging/README.md",
+      "start_line": 232
+    }
+  },
+  {
+    "claim_id": "claim-88454cd8cd1fa53b733c",
+    "document_date": null,
+    "exact_text": "`TAURI_SIGNING_PRIVATE_KEY` only when you need updater artifacts,\n  or generate your own key with `pnpm tauri signer generate --ci -w <path>`).",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 235,
+      "path": "packaging/README.md",
+      "start_line": 234
+    }
+  },
+  {
+    "claim_id": "claim-a7d1693c38b8637ff31c",
+    "document_date": null,
+    "exact_text": "- NSIS/WiX are fetched by the Tauri bundler automatically on first build.",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 236,
+      "path": "packaging/README.md",
+      "start_line": 236
+    }
+  },
+  {
+    "claim_id": "claim-3fd642f2413f01cab969",
+    "document_date": null,
+    "exact_text": "the stt extra: `uv export --frozen --extra stt --no-dev\n  --no-emit-project --no-hashes -o packaging/stt-runtime-requirements.txt`.",
+    "material_scope": "release.packaging",
+    "source": {
+      "end_line": 239,
+      "path": "packaging/README.md",
+      "start_line": 238
+    }
+  },
+  {
+    "claim_id": "claim-e9afe7fa28fe824e6818",
+    "document_date": null,
+    "exact_text": "- **CPU-only boxes:** the STT runtime installs the CUDA 12.8 torch build",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 247,
+      "path": "packaging/README.md",
+      "start_line": 247
+    }
+  },
+  {
+    "claim_id": "claim-a028358f28fe1d7f7efe",
+    "document_date": null,
+    "exact_text": "- **Cosmetic exe name:** the Cargo package is `omni-ui`, so the raw build",
+    "material_scope": "capability.product",
+    "source": {
+      "end_line": 254,
+      "path": "packaging/README.md",
+      "start_line": 254
+    }
+  },
+  {
+    "claim_id": "claim-830240be42cf053f58e6",
+    "document_date": null,
+    "exact_text": "`_internal/engine/migrations` as a belt-and-braces margin for the\n  `engine/wiring/` package move (now landed, path pinned to repo root in\n  `server_default_service_factories.py` + regression test).",
+    "material_scope": "quality.level",
+    "source": {
+      "end_line": 261,
+      "path": "packaging/README.md",
+      "start_line": 259
+    }
+  }
+]

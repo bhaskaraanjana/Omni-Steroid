@@ -1,0 +1,952 @@
+{
+  "audio_persisted": false,
+  "conflicting_pre_existing_processes": [],
+  "downloads_performed": 0,
+  "permission_or_firewall_changes": 0,
+  "pre_existing_processes_touched": 0,
+  "preflights_completed_before_scoped_behavior": true,
+  "product_failure_scopes": [],
+  "scope_count": 12,
+  "scopes": [
+    {
+      "applicability": "applicable",
+      "blockers": [
+        "unavailable prerequisite: selected microphone device, microphone permission, microphone driver, synthetic non-private microphone test audio"
+      ],
+      "check_id": "hardware-microphone_capture",
+      "duration_ms": 0,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [],
+      "executed_argv": [],
+      "execution_attempted": false,
+      "exit_code": null,
+      "malfunction_observed": false,
+      "network_observation_ref": null,
+      "numbered_procedure": [
+        "Start selected microphone capture; require start within 10 seconds",
+        "Play only synthetic non-private test audio and require an in-memory frame with a non-zero sample within 10 seconds",
+        "Stop capture within 5 seconds and discard every in-memory audio frame",
+        "Reopen and stop the same microphone within 5 seconds to prove release"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 10000,
+          "name": "capture started"
+        },
+        {
+          "deadline_ms": 10000,
+          "name": "non-zero in-memory frame received"
+        },
+        {
+          "deadline_ms": 5000,
+          "name": "capture stopped"
+        },
+        {
+          "deadline_ms": 5000,
+          "name": "same device reopened and stopped"
+        }
+      ],
+      "preflight": [
+        {
+          "available": false,
+          "detection_detail": "not confirmable without opening the audio subsystem; the assessment never opens a capture device, so this prerequisite stays unconfirmed and fails closed",
+          "detection_evidence": "no device enumeration performed",
+          "prerequisite": "selected microphone device",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "not confirmable without opening the audio subsystem; the assessment never opens a capture device, so this prerequisite stays unconfirmed and fails closed",
+          "detection_evidence": "no device enumeration performed",
+          "prerequisite": "microphone permission",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "not confirmable without opening the audio subsystem; the assessment never opens a capture device, so this prerequisite stays unconfirmed and fails closed",
+          "detection_evidence": "no device enumeration performed",
+          "prerequisite": "microphone driver",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "no repository fixture supplies synthetic audio to a physical microphone, and configuring a virtual input device would change machine audio configuration",
+          "detection_evidence": "mirror fixture search for a labelled synthetic microphone corpus",
+          "prerequisite": "synthetic non-private microphone test audio",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": false,
+      "required_outcomes_complete": false,
+      "result": null,
+      "safety": {
+        "disposable_target_required": false,
+        "input_kind": "audio",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "microphone_capture",
+      "status": "Environment_Blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "timeout_ms": 30000,
+      "write_audit_ref": null
+    },
+    {
+      "applicability": "applicable",
+      "blockers": [
+        "unavailable prerequisite: selected system-audio loopback device, system-audio loopback permission, system-audio loopback driver, local synthetic tone generator"
+      ],
+      "check_id": "hardware-system_audio_loopback_capture",
+      "duration_ms": 0,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [],
+      "executed_argv": [],
+      "execution_attempted": false,
+      "exit_code": null,
+      "malfunction_observed": false,
+      "network_observation_ref": null,
+      "numbered_procedure": [
+        "Start selected loopback capture within 10 seconds",
+        "Generate a local synthetic tone; require a non-zero in-memory frame during generation within 10 seconds and identify it as loopback",
+        "Stop capture within 5 seconds and discard every in-memory audio frame",
+        "Reopen and stop the same loopback device within 5 seconds to prove release"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 10000,
+          "name": "loopback capture started"
+        },
+        {
+          "deadline_ms": 10000,
+          "name": "identified non-zero loopback frame received"
+        },
+        {
+          "deadline_ms": 5000,
+          "name": "loopback capture stopped"
+        },
+        {
+          "deadline_ms": 5000,
+          "name": "same loopback device reopened and stopped"
+        }
+      ],
+      "preflight": [
+        {
+          "available": false,
+          "detection_detail": "not confirmable without opening the audio subsystem; the assessment never opens a capture device, so this prerequisite stays unconfirmed and fails closed",
+          "detection_evidence": "no device enumeration performed",
+          "prerequisite": "selected system-audio loopback device",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "not confirmable without opening the audio subsystem; the assessment never opens a capture device, so this prerequisite stays unconfirmed and fails closed",
+          "detection_evidence": "no device enumeration performed",
+          "prerequisite": "system-audio loopback permission",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "not confirmable without opening the audio subsystem; the assessment never opens a capture device, so this prerequisite stays unconfirmed and fails closed",
+          "detection_evidence": "no device enumeration performed",
+          "prerequisite": "system-audio loopback driver",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "no repository-owned generator exists, and system-audio loopback on a live desktop would capture whatever other applications are playing, which is not guaranteed synthetic non-private input",
+          "detection_evidence": "mirror fixture search for an assessment-owned tone generator",
+          "prerequisite": "local synthetic tone generator",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": false,
+      "required_outcomes_complete": false,
+      "result": null,
+      "safety": {
+        "disposable_target_required": false,
+        "input_kind": "audio",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "system_audio_loopback_capture",
+      "status": "Environment_Blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "timeout_ms": 30000,
+      "write_audit_ref": null
+    },
+    {
+      "applicability": "applicable",
+      "blockers": [],
+      "check_id": "hardware-graphics_processor_selection",
+      "duration_ms": 3765,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [],
+      "executed_argv": [
+        "C:\\DEV\\Omni Steroid\\.venv\\Scripts\\python.exe",
+        "-c",
+        "<assessment bounded procedure>"
+      ],
+      "execution_attempted": true,
+      "exit_code": 0,
+      "malfunction_observed": false,
+      "network_observation_ref": "network-containment/observations/hardware-graphics_processor_selection-575473736f624703899f2a4ada2a0409.jsonl",
+      "numbered_procedure": [
+        "Resolve the configured local compute path and record the selected graphics processor without inference"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 300000,
+          "name": "graphics processor selected and identified"
+        }
+      ],
+      "preflight": [
+        {
+          "available": true,
+          "detection_detail": "a resolvable vendor management tool evidences a present graphics processor",
+          "detection_evidence": "vendor management tool resolution: C:\\Windows\\system32\\nvidia-smi.exe",
+          "prerequisite": "graphics processor",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "the vendor management tool ships with, and is only resolvable alongside, its driver",
+          "detection_evidence": "vendor management tool resolution: C:\\Windows\\system32\\nvidia-smi.exe",
+          "prerequisite": "graphics processor driver",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": true,
+      "required_outcomes_complete": true,
+      "result": {
+        "compute_capability": "8.6",
+        "compute_device": "cuda",
+        "graphics_processor": "NVIDIA GeForce RTX 3070",
+        "inference_executed": false,
+        "observable": "graphics processor selected and identified"
+      },
+      "safety": {
+        "disposable_target_required": false,
+        "input_kind": "none",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "graphics_processor_selection",
+      "status": "Verified_Working",
+      "stderr_ref": "raw/hardware-graphics_processor_selection-575473736f624703899f2a4ada2a0409.stderr",
+      "stdout_ref": "raw/hardware-graphics_processor_selection-575473736f624703899f2a4ada2a0409.stdout",
+      "termination": "exited",
+      "timeout_ms": 300000,
+      "write_audit_ref": "write-audit-native/hardware-graphics_processor_selection-575473736f624703899f2a4ada2a0409.json"
+    },
+    {
+      "applicability": "applicable",
+      "blockers": [
+        "unavailable prerequisite: Local_Model weights"
+      ],
+      "check_id": "hardware-local_model_inference",
+      "duration_ms": 0,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [
+        "local model inference"
+      ],
+      "executed_argv": [],
+      "execution_attempted": false,
+      "exit_code": null,
+      "malfunction_observed": false,
+      "network_observation_ref": null,
+      "numbered_procedure": [
+        "Load the confirmed Local_Model within 300 seconds",
+        "Run exactly one local inference within 300 seconds and record a non-empty result, compute device, and duration in milliseconds"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 300000,
+          "name": "Local_Model loaded"
+        },
+        {
+          "deadline_ms": 300000,
+          "name": "one non-empty local inference completed"
+        }
+      ],
+      "preflight": [
+        {
+          "available": true,
+          "detection_detail": "a resolvable vendor management tool evidences a present graphics processor",
+          "detection_evidence": "vendor management tool resolution: C:\\Windows\\system32\\nvidia-smi.exe",
+          "prerequisite": "graphics processor",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "the contained environment redirects the model root to an empty assessment-owned directory; host weights outside the containment boundary are not admissible and downloading weights is prohibited",
+          "detection_evidence": "contained model root probe: C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\process-data",
+          "prerequisite": "Local_Model weights",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "the runtime is declared and installed, but has no admissible weights to load",
+          "detection_evidence": "mirror dependency manifest declares the local inference runtime",
+          "prerequisite": "local model runtime",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": false,
+      "required_outcomes_complete": false,
+      "result": null,
+      "safety": {
+        "disposable_target_required": false,
+        "input_kind": "none",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "local_model_inference",
+      "status": "Environment_Blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "timeout_ms": 600000,
+      "write_audit_ref": null
+    },
+    {
+      "applicability": "applicable",
+      "blockers": [
+        "unavailable prerequisite: Dense_Retrieval_Weights"
+      ],
+      "check_id": "hardware-dense_retrieval",
+      "duration_ms": 0,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [
+        "dense embedding generation",
+        "dense retrieval"
+      ],
+      "executed_argv": [],
+      "execution_attempted": false,
+      "exit_code": null,
+      "malfunction_observed": false,
+      "network_observation_ref": null,
+      "numbered_procedure": [
+        "Generate exactly one non-empty dense embedding within 120 seconds",
+        "Complete exactly one retrieval within 120 seconds and record dense-tier participation"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 120000,
+          "name": "one non-empty dense embedding generated"
+        },
+        {
+          "deadline_ms": 120000,
+          "name": "one dense-participating retrieval completed"
+        }
+      ],
+      "preflight": [
+        {
+          "available": false,
+          "detection_detail": "no dense embedding export exists in the contained model root or on the host; downloading weights is prohibited",
+          "detection_evidence": "contained model root probe: C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\process-data",
+          "prerequisite": "Dense_Retrieval_Weights",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "the runtime is present; only its weights are absent",
+          "detection_evidence": "mirror dependency manifest declares the ONNX and vector-store runtime",
+          "prerequisite": "local dense retrieval runtime",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "synthetic non-private text authored by the assessment for this run only",
+          "detection_evidence": "assessment-owned corpus created under the temporary run root",
+          "prerequisite": "disposable synthetic text corpus",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": false,
+      "required_outcomes_complete": false,
+      "result": null,
+      "safety": {
+        "disposable_target_required": false,
+        "input_kind": "none",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "dense_retrieval",
+      "status": "Environment_Blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "timeout_ms": 240000,
+      "write_audit_ref": null
+    },
+    {
+      "applicability": "applicable",
+      "blockers": [],
+      "check_id": "hardware-fallback_retrieval",
+      "duration_ms": 780,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [
+        "fallback retrieval"
+      ],
+      "executed_argv": [
+        "C:\\DEV\\Omni Steroid\\.venv\\Scripts\\python.exe",
+        "-c",
+        "<assessment bounded procedure>"
+      ],
+      "execution_attempted": true,
+      "exit_code": 0,
+      "malfunction_observed": false,
+      "network_observation_ref": "network-containment/observations/hardware-fallback_retrieval-b92ad4d3be824b61915dac5696987777.jsonl",
+      "numbered_procedure": [
+        "Using only synthetic text, complete exactly one fallback-tier retrieval within 120 seconds and identify the fallback tier"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 120000,
+          "name": "one fallback retrieval completed"
+        }
+      ],
+      "preflight": [
+        {
+          "available": true,
+          "detection_detail": "the repository documents an explicit keyword-only tier over the full-text index used when the dense side is configured absent",
+          "detection_evidence": "mirror schema probe: C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\mirror\\migrations\\0004_index_layer.sql",
+          "prerequisite": "documented fallback retrieval tier",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "synthetic non-private text authored by the assessment for this run only",
+          "detection_evidence": "assessment-owned corpus created under the temporary run root",
+          "prerequisite": "disposable synthetic text corpus",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": true,
+      "required_outcomes_complete": true,
+      "result": {
+        "corpus_size": 3,
+        "dense_tier_participated": false,
+        "elapsed_ms": 0,
+        "observable": "one fallback retrieval completed",
+        "result_count": 3,
+        "retrieval_source": "hybrid_rrf",
+        "retrievals_executed": 1,
+        "tier": "fts5_bm25_keyword_only",
+        "top_note_path": "synthetic/3.md"
+      },
+      "safety": {
+        "disposable_target_required": false,
+        "input_kind": "text",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "fallback_retrieval",
+      "status": "Verified_Working",
+      "stderr_ref": "raw/hardware-fallback_retrieval-b92ad4d3be824b61915dac5696987777.stderr",
+      "stdout_ref": "raw/hardware-fallback_retrieval-b92ad4d3be824b61915dac5696987777.stdout",
+      "termination": "exited",
+      "timeout_ms": 120000,
+      "write_audit_ref": "write-audit-native/hardware-fallback_retrieval-b92ad4d3be824b61915dac5696987777.json"
+    },
+    {
+      "applicability": "applicable",
+      "blockers": [
+        "unavailable prerequisite: labelled local synthetic speech corpus, speech Local_Model"
+      ],
+      "check_id": "hardware-stt_accuracy",
+      "duration_ms": 0,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [],
+      "executed_argv": [],
+      "execution_attempted": false,
+      "exit_code": null,
+      "malfunction_observed": false,
+      "network_observation_ref": null,
+      "numbered_procedure": [
+        "Transcribe the labelled synthetic local corpus without persisting audio",
+        "Calculate uncapped word error rate and retain corpus count, duration, language, model, hardware, and valid numeric zero"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 300000,
+          "name": "corpus WER and complete context produced"
+        }
+      ],
+      "preflight": [
+        {
+          "available": false,
+          "detection_detail": "no labelled synthetic speech corpus exists in the repository, so no word error rate can be measured and none may be invented",
+          "detection_evidence": "mirror fixture search for labelled speech audio",
+          "prerequisite": "labelled local synthetic speech corpus",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "the contained model root is empty and downloading weights is prohibited",
+          "detection_evidence": "contained model root probe: C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\process-data",
+          "prerequisite": "speech Local_Model",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "the runtime is declared; corpus and weights are the missing inputs",
+          "detection_evidence": "mirror dependency manifest declares the speech runtime extra",
+          "prerequisite": "local speech model runtime",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": false,
+      "required_outcomes_complete": false,
+      "result": null,
+      "safety": {
+        "disposable_target_required": false,
+        "input_kind": "audio",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "stt_accuracy",
+      "status": "Environment_Blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "timeout_ms": 300000,
+      "write_audit_ref": null
+    },
+    {
+      "applicability": "applicable",
+      "blockers": [
+        "unavailable prerequisite: interactive desktop session, configured Tauri application executable"
+      ],
+      "check_id": "hardware-tauri_launch",
+      "duration_ms": 0,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [
+        "Tauri launch"
+      ],
+      "executed_argv": [],
+      "execution_attempted": false,
+      "exit_code": null,
+      "malfunction_observed": false,
+      "network_observation_ref": null,
+      "numbered_procedure": [
+        "Launch one assessment-owned Tauri instance within 60 seconds"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 60000,
+          "name": "Tauri launched"
+        }
+      ],
+      "preflight": [
+        {
+          "available": true,
+          "detection_detail": "a desktop host provides the windowing facilities the shell requires",
+          "detection_evidence": "platform probe: nt",
+          "prerequisite": "Tauri host operating-system facilities",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "an interactive session is required before any window may be shown",
+          "detection_evidence": "session probe of the current login session",
+          "prerequisite": "interactive desktop session",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "absent; build outputs are excluded from the assessment mirror by recorded mirror policy, and the assessment neither builds nor launches the developer's installed application",
+          "detection_evidence": "path probe: C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\mirror\\apps\\ui\\src-tauri\\target\\release\\omni-ui.exe",
+          "prerequisite": "configured Tauri application executable",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": false,
+      "required_outcomes_complete": false,
+      "result": null,
+      "safety": {
+        "disposable_target_required": false,
+        "input_kind": "none",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "tauri_launch",
+      "status": "Environment_Blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "timeout_ms": 60000,
+      "write_audit_ref": null
+    },
+    {
+      "applicability": "applicable",
+      "blockers": [
+        "unavailable prerequisite: Python_Engine sidecar executable, assessment-owned Tauri instance"
+      ],
+      "check_id": "hardware-python_engine_sidecar_lifecycle",
+      "duration_ms": 0,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [],
+      "executed_argv": [],
+      "execution_attempted": false,
+      "exit_code": null,
+      "malfunction_observed": false,
+      "network_observation_ref": null,
+      "numbered_procedure": [
+        "Require the assessment-owned Python_Engine sidecar to start within 30 seconds of Tauri launch and remain available while Tauri runs",
+        "Exit Tauri; require sidecar stop and absence of the assessment-created process within 10 seconds"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 30000,
+          "name": "sidecar started and available"
+        },
+        {
+          "deadline_ms": 10000,
+          "name": "sidecar stopped and process absent"
+        }
+      ],
+      "preflight": [
+        {
+          "available": false,
+          "detection_detail": "absent; packaging outputs are excluded from the assessment mirror by recorded mirror policy",
+          "detection_evidence": "path probe: C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\mirror\\packaging\\dist\\omni-engine\\omni-engine.exe",
+          "prerequisite": "Python_Engine sidecar executable",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "the assessment can identify and clean only processes it created",
+          "detection_evidence": "owned-process inspection facility resolved",
+          "prerequisite": "host process ownership and cleanup facility",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "no assessment-owned desktop instance exists because its own preflight blocked",
+          "detection_evidence": "dependent scope hardware-tauri_launch did not execute",
+          "prerequisite": "assessment-owned Tauri instance",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": false,
+      "required_outcomes_complete": false,
+      "result": null,
+      "safety": {
+        "disposable_target_required": false,
+        "input_kind": "none",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "python_engine_sidecar_lifecycle",
+      "status": "Environment_Blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "timeout_ms": 40000,
+      "write_audit_ref": null
+    },
+    {
+      "applicability": "applicable",
+      "blockers": [
+        "unavailable prerequisite: assessment-owned Tauri instance"
+      ],
+      "check_id": "hardware-tray_behavior",
+      "duration_ms": 0,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [],
+      "executed_argv": [],
+      "execution_attempted": false,
+      "exit_code": null,
+      "malfunction_observed": false,
+      "network_observation_ref": null,
+      "numbered_procedure": [
+        "After Tauri launch, require configured tray presence within 30 seconds",
+        "Invoke discovered tray action 'omni-tray-show' once and require its configured outcome within 10 seconds",
+        "Invoke discovered tray action 'omni-tray-start-capture' once and require its configured outcome within 10 seconds",
+        "Invoke discovered tray action 'omni-tray-quit' once and require its configured outcome within 10 seconds"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 30000,
+          "name": "tray presence observed"
+        },
+        {
+          "deadline_ms": 10000,
+          "name": "configured tray action 'omni-tray-show' outcome observed"
+        },
+        {
+          "deadline_ms": 10000,
+          "name": "configured tray action 'omni-tray-start-capture' outcome observed"
+        },
+        {
+          "deadline_ms": 10000,
+          "name": "configured tray action 'omni-tray-quit' outcome observed"
+        }
+      ],
+      "preflight": [
+        {
+          "available": true,
+          "detection_detail": "a desktop host provides the tray facilities the shell requires",
+          "detection_evidence": "platform probe: nt",
+          "prerequisite": "configured tray host operating-system facilities",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "tray actions are read from current repository configuration",
+          "detection_evidence": "mirror configuration probe: 3 action(s)",
+          "prerequisite": "discovered configured tray actions",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "no assessment-owned desktop instance exists because its own preflight blocked",
+          "detection_evidence": "dependent scope hardware-tauri_launch did not execute",
+          "prerequisite": "assessment-owned Tauri instance",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": false,
+      "required_outcomes_complete": false,
+      "result": null,
+      "safety": {
+        "disposable_target_required": false,
+        "input_kind": "none",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "tray_behavior",
+      "status": "Environment_Blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "timeout_ms": 60000,
+      "write_audit_ref": null
+    },
+    {
+      "applicability": "applicable",
+      "blockers": [
+        "unavailable prerequisite: configured global hotkey without registration conflict, disposable unfocused local target"
+      ],
+      "check_id": "hardware-global_hotkey_handling",
+      "duration_ms": 0,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [
+        "global hotkey activation",
+        "configured application response"
+      ],
+      "executed_argv": [],
+      "execution_attempted": false,
+      "exit_code": null,
+      "malfunction_observed": false,
+      "network_observation_ref": null,
+      "numbered_procedure": [
+        "Register the configured hotkey, remove application input focus, activate it once, and require exactly one configured response within 5 seconds"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 5000,
+          "name": "exactly one unfocused hotkey response"
+        }
+      ],
+      "preflight": [
+        {
+          "available": true,
+          "detection_detail": "a desktop host provides global hotkey registration",
+          "detection_evidence": "platform probe: nt",
+          "prerequisite": "global hotkey host operating-system facilities",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "registering a global hotkey would capture input from the live interactive session, so conflict-freedom cannot be confirmed without interfering with the user's desktop",
+          "detection_evidence": "no registration attempted",
+          "prerequisite": "configured global hotkey without registration conflict",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "absent; the only configured responder is the desktop application, which is excluded from the mirror; the assessment will not substitute the developer's installed instance",
+          "detection_evidence": "path probe: C:\\DEV\\Omni-Steroid-assessment-temp\\task-12-20260809T002329\\mirror\\apps\\ui\\src-tauri\\target\\release\\omni-ui.exe",
+          "prerequisite": "disposable unfocused local target",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": false,
+      "required_outcomes_complete": false,
+      "result": null,
+      "safety": {
+        "disposable_target_required": false,
+        "input_kind": "none",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "global_hotkey_handling",
+      "status": "Environment_Blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "timeout_ms": 5000,
+      "write_audit_ref": null
+    },
+    {
+      "applicability": "applicable",
+      "blockers": [
+        "unavailable prerequisite: foreground-control permission, disposable local target"
+      ],
+      "check_id": "hardware-supported_text_injection",
+      "duration_ms": 0,
+      "evidence_ref": "C:\\DEV\\Omni Steroid\\.kiro\\specs\\repository-state-assessment\\assessment-output\\task-12-20260809T002329\\native-integration.json",
+      "exactly_once_operations": [
+        "text injection request",
+        "test string insertion"
+      ],
+      "executed_argv": [],
+      "execution_attempted": false,
+      "exit_code": null,
+      "malfunction_observed": false,
+      "network_observation_ref": null,
+      "numbered_procedure": [
+        "Inject one synthetic non-private test string once into the disposable local target; require exact unchanged insertion within 5 seconds"
+      ],
+      "observables": [
+        {
+          "deadline_ms": 5000,
+          "name": "exact unchanged text inserted once"
+        }
+      ],
+      "preflight": [
+        {
+          "available": true,
+          "detection_detail": "a desktop host provides the synthetic input facilities",
+          "detection_evidence": "platform probe: nt",
+          "prerequisite": "supported text injection host operating-system facilities",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "taking foreground control would interfere with the live interactive session",
+          "detection_evidence": "no foreground control attempted",
+          "prerequisite": "foreground-control permission",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": false,
+          "detection_detail": "the repository's only injection target is an ignored native round trip whose cleanup terminates every editor process on the host, including pre-existing ones, and its toolchain is unavailable, so no disposable target can be created safely",
+          "detection_evidence": "repository round-trip target inspection",
+          "prerequisite": "disposable local target",
+          "scoped_behavior_executed": false
+        },
+        {
+          "available": true,
+          "detection_detail": "no conflicting pre-existing application observed",
+          "detection_evidence": "process-name inventory of the live desktop",
+          "prerequisite": "absence of conflicting pre-existing applications or processes",
+          "scoped_behavior_executed": false
+        }
+      ],
+      "prerequisites_available": false,
+      "required_outcomes_complete": false,
+      "result": null,
+      "safety": {
+        "disposable_target_required": true,
+        "input_kind": "text",
+        "persist_audio": false,
+        "synthetic_non_private_only": true
+      },
+      "scope": "supported_text_injection",
+      "status": "Environment_Blocked",
+      "stderr_ref": null,
+      "stdout_ref": null,
+      "termination": "precheck_blocked",
+      "timeout_ms": 5000,
+      "write_audit_ref": null
+    }
+  ],
+  "status_counts": {
+    "Environment_Blocked": 10,
+    "Verified_Working": 2
+  }
+}

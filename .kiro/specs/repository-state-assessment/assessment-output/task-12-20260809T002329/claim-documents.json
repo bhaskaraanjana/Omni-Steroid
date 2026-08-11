@@ -1,0 +1,38 @@
+[
+  {
+    "category": "architecture",
+    "path": "docs/architecture.md"
+  },
+  {
+    "category": "evidence_results",
+    "path": "evidence/README.md"
+  },
+  {
+    "category": "evidence_results",
+    "path": "evidence/coverage-report.md"
+  },
+  {
+    "category": "feature",
+    "path": "docs/features.md"
+  },
+  {
+    "category": "overview",
+    "path": "PRODUCT.md"
+  },
+  {
+    "category": "overview",
+    "path": "README.md"
+  },
+  {
+    "category": "packaging_release",
+    "path": "packaging/README.md"
+  },
+  {
+    "category": "security_privacy",
+    "path": "SECURITY.md"
+  },
+  {
+    "category": "security_privacy",
+    "path": "docs/threat-model.md"
+  }
+]

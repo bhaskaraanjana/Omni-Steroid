@@ -1,0 +1,1016 @@
+{
+  "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+  "evidence": [
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "command cannot emit the required empirical Python containment proof",
+      "evidence_id": "ev-mirror-python-lint",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": {
+          "values": [
+            "uv",
+            "run",
+            "ruff",
+            "check",
+            "."
+          ]
+        },
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": null,
+        "prerequisites": [
+          "command cannot emit the required empirical Python containment proof"
+        ]
+      },
+      "unavailable_prerequisite": "command cannot emit the required empirical Python containment proof"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": null,
+      "evidence_id": "ev-mirror-python-types",
+      "primary_status": "Fresh_Failure",
+      "rerun": {
+        "exact_argv": {
+          "values": [
+            "uv",
+            "run",
+            "--active",
+            "--no-sync",
+            "mypy"
+          ]
+        },
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": null,
+        "prerequisites": []
+      },
+      "unavailable_prerequisite": null
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": null,
+      "evidence_id": "ev-mirror-python-tests",
+      "primary_status": "Fresh_Failure",
+      "rerun": {
+        "exact_argv": {
+          "values": [
+            "uv",
+            "run",
+            "--active",
+            "--no-sync",
+            "pytest"
+          ]
+        },
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": null,
+        "prerequisites": []
+      },
+      "unavailable_prerequisite": null
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": null,
+      "evidence_id": "ev-mirror-python-coverage",
+      "primary_status": "Not_Implemented",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": [
+          "Resolve a current repository command for mirror-python-coverage",
+          "Execute it once inside the verified mirror under full containment"
+        ],
+        "prerequisites": [
+          "no executable path found by the complete repository configuration search"
+        ]
+      },
+      "unavailable_prerequisite": null
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "command cannot emit the required empirical Python containment proof",
+      "evidence_id": "ev-mirror-typescript-types",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": {
+          "values": [
+            "pnpm",
+            "run",
+            "typecheck"
+          ]
+        },
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": null,
+        "prerequisites": [
+          "command cannot emit the required empirical Python containment proof"
+        ]
+      },
+      "unavailable_prerequisite": "command cannot emit the required empirical Python containment proof"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "command cannot emit the required empirical Python containment proof",
+      "evidence_id": "ev-mirror-typescript-tests",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": {
+          "values": [
+            "pnpm",
+            "run",
+            "test"
+          ]
+        },
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": null,
+        "prerequisites": [
+          "command cannot emit the required empirical Python containment proof"
+        ]
+      },
+      "unavailable_prerequisite": "command cannot emit the required empirical Python containment proof"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": null,
+      "evidence_id": "ev-mirror-typescript-coverage",
+      "primary_status": "Not_Implemented",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": [
+          "Resolve a current repository command for mirror-typescript-coverage",
+          "Execute it once inside the verified mirror under full containment"
+        ],
+        "prerequisites": [
+          "no executable path found by the complete repository configuration search"
+        ]
+      },
+      "unavailable_prerequisite": null
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "named prerequisite unavailable: cargo, rustc",
+      "evidence_id": "ev-mirror-rust-check",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": {
+          "values": [
+            "cargo",
+            "check",
+            "--locked"
+          ]
+        },
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": null,
+        "prerequisites": [
+          "named prerequisite unavailable: cargo, rustc"
+        ]
+      },
+      "unavailable_prerequisite": "named prerequisite unavailable: cargo, rustc"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "named prerequisite unavailable: cargo, rustc",
+      "evidence_id": "ev-mirror-rust-tests",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": {
+          "values": [
+            "cargo",
+            "test",
+            "--locked"
+          ]
+        },
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": null,
+        "prerequisites": [
+          "named prerequisite unavailable: cargo, rustc"
+        ]
+      },
+      "unavailable_prerequisite": "named prerequisite unavailable: cargo, rustc"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "named prerequisite unavailable: pyinstaller",
+      "evidence_id": "ev-mirror-engine-build",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": {
+          "values": [
+            "uv",
+            "run",
+            "--with",
+            "pyinstaller",
+            "pyinstaller",
+            "packaging/omni-engine.spec",
+            "--noconfirm",
+            "--distpath",
+            "packaging/dist",
+            "--workpath",
+            "packaging/build"
+          ]
+        },
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": null,
+        "prerequisites": [
+          "named prerequisite unavailable: pyinstaller"
+        ]
+      },
+      "unavailable_prerequisite": "named prerequisite unavailable: pyinstaller"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "command cannot emit the required empirical Python containment proof",
+      "evidence_id": "ev-mirror-frontend-build",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": {
+          "values": [
+            "pnpm",
+            "run",
+            "build"
+          ]
+        },
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": null,
+        "prerequisites": [
+          "command cannot emit the required empirical Python containment proof"
+        ]
+      },
+      "unavailable_prerequisite": "command cannot emit the required empirical Python containment proof"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "command cannot emit the required empirical Python containment proof",
+      "evidence_id": "ev-mirror-desktop-build",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": {
+          "values": [
+            "cmd",
+            "/c",
+            "call %LOCALAPPDATA%\\portable-msvc\\msvc\\setup_x64.bat && cd /d <repo>\\apps\\ui && pnpm tauri build"
+          ]
+        },
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": null,
+        "prerequisites": [
+          "command cannot emit the required empirical Python containment proof"
+        ]
+      },
+      "unavailable_prerequisite": "command cannot emit the required empirical Python containment proof"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": null,
+      "evidence_id": "ev-mirror-frozen-engine-smoke",
+      "primary_status": "Not_Implemented",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": [
+          "Resolve a current repository command for mirror-frozen-engine-smoke",
+          "Execute it once inside the verified mirror under full containment"
+        ],
+        "prerequisites": [
+          "no executable path found by the complete repository configuration search"
+        ]
+      },
+      "unavailable_prerequisite": null
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": null,
+      "evidence_id": "ev-mirror-packaging",
+      "primary_status": "Not_Implemented",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": [
+          "Resolve a current repository command for mirror-packaging",
+          "Execute it once inside the verified mirror under full containment"
+        ],
+        "prerequisites": [
+          "no executable path found by the complete repository configuration search"
+        ]
+      },
+      "unavailable_prerequisite": null
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": null,
+      "evidence_id": "ev-mirror-hermetic-security",
+      "primary_status": "Not_Implemented",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one terminating result with captured output and counts",
+        "numbered_procedure": [
+          "Resolve a current repository command for mirror-hermetic-security",
+          "Execute it once inside the verified mirror under full containment"
+        ],
+        "prerequisites": [
+          "no executable path found by the complete repository configuration search"
+        ]
+      },
+      "unavailable_prerequisite": null
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "production index must exist",
+      "evidence_id": "ev-local-e2e-inventory",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one disposition per scenario with no process started",
+        "numbered_procedure": [
+          "Complete every Local E2E preflight before launching any process"
+        ],
+        "prerequisites": [
+          "production index must exist",
+          "no configured executable may be inferred or downloaded",
+          "port-based cleanup is unsafe and is never invoked",
+          "Node/Chromium cannot emit the required per-lease containment proof"
+        ]
+      },
+      "unavailable_prerequisite": "production index must exist"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "selected microphone device",
+      "evidence_id": "ev-hardware-microphone_capture",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "capture started; non-zero in-memory frame received; capture stopped; same device reopened and stopped",
+        "numbered_procedure": [
+          "Start selected microphone capture; require start within 10 seconds",
+          "Play only synthetic non-private test audio and require an in-memory frame with a non-zero sample within 10 seconds",
+          "Stop capture within 5 seconds and discard every in-memory audio frame",
+          "Reopen and stop the same microphone within 5 seconds to prove release"
+        ],
+        "prerequisites": [
+          "selected microphone device",
+          "microphone permission",
+          "microphone driver",
+          "synthetic non-private microphone test audio",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": "selected microphone device"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "selected system-audio loopback device",
+      "evidence_id": "ev-hardware-system_audio_loopback_capture",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "loopback capture started; identified non-zero loopback frame received; loopback capture stopped; same loopback device reopened and stopped",
+        "numbered_procedure": [
+          "Start selected loopback capture within 10 seconds",
+          "Generate a local synthetic tone; require a non-zero in-memory frame during generation within 10 seconds and identify it as loopback",
+          "Stop capture within 5 seconds and discard every in-memory audio frame",
+          "Reopen and stop the same loopback device within 5 seconds to prove release"
+        ],
+        "prerequisites": [
+          "selected system-audio loopback device",
+          "system-audio loopback permission",
+          "system-audio loopback driver",
+          "local synthetic tone generator",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": "selected system-audio loopback device"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": null,
+      "evidence_id": "ev-hardware-graphics_processor_selection",
+      "primary_status": "Verified_Working",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "graphics processor selected and identified",
+        "numbered_procedure": [
+          "Resolve the configured local compute path and record the selected graphics processor without inference"
+        ],
+        "prerequisites": [
+          "graphics processor",
+          "graphics processor driver",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": null
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "Local_Model weights",
+      "evidence_id": "ev-hardware-local_model_inference",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "Local_Model loaded; one non-empty local inference completed",
+        "numbered_procedure": [
+          "Load the confirmed Local_Model within 300 seconds",
+          "Run exactly one local inference within 300 seconds and record a non-empty result, compute device, and duration in milliseconds"
+        ],
+        "prerequisites": [
+          "graphics processor",
+          "Local_Model weights",
+          "local model runtime",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": "Local_Model weights"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "Dense_Retrieval_Weights",
+      "evidence_id": "ev-hardware-dense_retrieval",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one non-empty dense embedding generated; one dense-participating retrieval completed",
+        "numbered_procedure": [
+          "Generate exactly one non-empty dense embedding within 120 seconds",
+          "Complete exactly one retrieval within 120 seconds and record dense-tier participation"
+        ],
+        "prerequisites": [
+          "Dense_Retrieval_Weights",
+          "local dense retrieval runtime",
+          "disposable synthetic text corpus",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": "Dense_Retrieval_Weights"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": null,
+      "evidence_id": "ev-hardware-fallback_retrieval",
+      "primary_status": "Verified_Working",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one fallback retrieval completed",
+        "numbered_procedure": [
+          "Using only synthetic text, complete exactly one fallback-tier retrieval within 120 seconds and identify the fallback tier"
+        ],
+        "prerequisites": [
+          "documented fallback retrieval tier",
+          "disposable synthetic text corpus",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": null
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "labelled local synthetic speech corpus",
+      "evidence_id": "ev-hardware-stt_accuracy",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "corpus WER and complete context produced",
+        "numbered_procedure": [
+          "Transcribe the labelled synthetic local corpus without persisting audio",
+          "Calculate uncapped word error rate and retain corpus count, duration, language, model, hardware, and valid numeric zero"
+        ],
+        "prerequisites": [
+          "labelled local synthetic speech corpus",
+          "speech Local_Model",
+          "local speech model runtime",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": "labelled local synthetic speech corpus"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "interactive desktop session",
+      "evidence_id": "ev-hardware-tauri_launch",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "Tauri launched",
+        "numbered_procedure": [
+          "Launch one assessment-owned Tauri instance within 60 seconds"
+        ],
+        "prerequisites": [
+          "Tauri host operating-system facilities",
+          "interactive desktop session",
+          "configured Tauri application executable",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": "interactive desktop session"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "Python_Engine sidecar executable",
+      "evidence_id": "ev-hardware-python_engine_sidecar_lifecycle",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "sidecar started and available; sidecar stopped and process absent",
+        "numbered_procedure": [
+          "Require the assessment-owned Python_Engine sidecar to start within 30 seconds of Tauri launch and remain available while Tauri runs",
+          "Exit Tauri; require sidecar stop and absence of the assessment-created process within 10 seconds"
+        ],
+        "prerequisites": [
+          "Python_Engine sidecar executable",
+          "host process ownership and cleanup facility",
+          "assessment-owned Tauri instance",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": "Python_Engine sidecar executable"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "assessment-owned Tauri instance",
+      "evidence_id": "ev-hardware-tray_behavior",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "tray presence observed; configured tray action 'omni-tray-show' outcome observed; configured tray action 'omni-tray-start-capture' outcome observed; configured tray action 'omni-tray-quit' outcome observed",
+        "numbered_procedure": [
+          "After Tauri launch, require configured tray presence within 30 seconds",
+          "Invoke discovered tray action 'omni-tray-show' once and require its configured outcome within 10 seconds",
+          "Invoke discovered tray action 'omni-tray-start-capture' once and require its configured outcome within 10 seconds",
+          "Invoke discovered tray action 'omni-tray-quit' once and require its configured outcome within 10 seconds"
+        ],
+        "prerequisites": [
+          "configured tray host operating-system facilities",
+          "discovered configured tray actions",
+          "assessment-owned Tauri instance",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": "assessment-owned Tauri instance"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "configured global hotkey without registration conflict",
+      "evidence_id": "ev-hardware-global_hotkey_handling",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "exactly one unfocused hotkey response",
+        "numbered_procedure": [
+          "Register the configured hotkey, remove application input focus, activate it once, and require exactly one configured response within 5 seconds"
+        ],
+        "prerequisites": [
+          "global hotkey host operating-system facilities",
+          "configured global hotkey without registration conflict",
+          "disposable unfocused local target",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": "configured global hotkey without registration conflict"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "foreground-control permission",
+      "evidence_id": "ev-hardware-supported_text_injection",
+      "primary_status": "Environment_Blocked",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "exact unchanged text inserted once",
+        "numbered_procedure": [
+          "Inject one synthetic non-private test string once into the disposable local target; require exact unchanged insertion within 5 seconds"
+        ],
+        "prerequisites": [
+          "supported text injection host operating-system facilities",
+          "foreground-control permission",
+          "disposable local target",
+          "absence of conflicting pre-existing applications or processes"
+        ]
+      },
+      "unavailable_prerequisite": "foreground-control permission"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "the repository exposes no hermetic security command to execute",
+      "evidence_id": "ev-security-local_only_storage",
+      "primary_status": "Unverified",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one sanitized record per control with complete method booleans",
+        "numbered_procedure": [
+          "Assess the local_only_storage control by hermetic execution",
+          "Record all five verification-method booleans"
+        ],
+        "prerequisites": [
+          "hermetic security execution plane"
+        ]
+      },
+      "unavailable_prerequisite": "hermetic security execution plane"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "the repository exposes no hermetic security command to execute",
+      "evidence_id": "ev-security-zero_telemetry",
+      "primary_status": "Unverified",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one sanitized record per control with complete method booleans",
+        "numbered_procedure": [
+          "Assess the zero_telemetry control by hermetic execution",
+          "Record all five verification-method booleans"
+        ],
+        "prerequisites": [
+          "hermetic security execution plane"
+        ]
+      },
+      "unavailable_prerequisite": "hermetic security execution plane"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "the repository exposes no hermetic security command to execute",
+      "evidence_id": "ev-security-key_custody",
+      "primary_status": "Unverified",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one sanitized record per control with complete method booleans",
+        "numbered_procedure": [
+          "Assess the key_custody control by hermetic execution",
+          "Record all five verification-method booleans"
+        ],
+        "prerequisites": [
+          "hermetic security execution plane"
+        ]
+      },
+      "unavailable_prerequisite": "hermetic security execution plane"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "the repository exposes no hermetic security command to execute",
+      "evidence_id": "ev-security-kill_switch",
+      "primary_status": "Unverified",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one sanitized record per control with complete method booleans",
+        "numbered_procedure": [
+          "Assess the kill_switch control by hermetic execution",
+          "Record all five verification-method booleans"
+        ],
+        "prerequisites": [
+          "hermetic security execution plane"
+        ]
+      },
+      "unavailable_prerequisite": "hermetic security execution plane"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "the repository exposes no hermetic security command to execute",
+      "evidence_id": "ev-security-approval_before_execute",
+      "primary_status": "Unverified",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one sanitized record per control with complete method booleans",
+        "numbered_procedure": [
+          "Assess the approval_before_execute control by hermetic execution",
+          "Record all five verification-method booleans"
+        ],
+        "prerequisites": [
+          "hermetic security execution plane"
+        ]
+      },
+      "unavailable_prerequisite": "hermetic security execution plane"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "the repository exposes no hermetic security command to execute",
+      "evidence_id": "ev-security-gmail_draft_only",
+      "primary_status": "Unverified",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one sanitized record per control with complete method booleans",
+        "numbered_procedure": [
+          "Assess the gmail_draft_only control by hermetic execution",
+          "Record all five verification-method booleans"
+        ],
+        "prerequisites": [
+          "hermetic security execution plane"
+        ]
+      },
+      "unavailable_prerequisite": "hermetic security execution plane"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "the repository exposes no hermetic security command to execute",
+      "evidence_id": "ev-security-append_only_audit",
+      "primary_status": "Unverified",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one sanitized record per control with complete method booleans",
+        "numbered_procedure": [
+          "Assess the append_only_audit control by hermetic execution",
+          "Record all five verification-method booleans"
+        ],
+        "prerequisites": [
+          "hermetic security execution plane"
+        ]
+      },
+      "unavailable_prerequisite": "hermetic security execution plane"
+    },
+    {
+      "assessment_environment": "Windows 10; baseline b6679bec0e9b02d909bcb50952f839656e525e92",
+      "detection_evidence": "the repository exposes no hermetic security command to execute",
+      "evidence_id": "ev-security-managed_vault_boundaries",
+      "primary_status": "Unverified",
+      "rerun": {
+        "exact_argv": null,
+        "expected_observable": "one sanitized record per control with complete method booleans",
+        "numbered_procedure": [
+          "Assess the managed_vault_boundaries control by hermetic execution",
+          "Record all five verification-method booleans"
+        ],
+        "prerequisites": [
+          "hermetic security execution plane"
+        ]
+      },
+      "unavailable_prerequisite": "hermetic security execution plane"
+    }
+  ],
+  "evidence_count": 36,
+  "finding_count": 28,
+  "findings": [
+    {
+      "check_id": "python-lint",
+      "conclusion": "python-lint was omitted before launch: command cannot emit the required empirical Python containment proof",
+      "evidence_refs": [
+        "ev-mirror-python-lint"
+      ],
+      "plane": "Python_Engine",
+      "scope": "python-lint",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "python-types",
+      "conclusion": "python-types terminated with exit code 1 and recorded counts {'deselected': 0, 'failed': 0, 'ignored': 0, 'passed': 0, 'skipped': 0}",
+      "evidence_refs": [
+        "ev-mirror-python-types"
+      ],
+      "plane": "Python_Engine",
+      "scope": "python-types",
+      "status": "Fresh_Failure"
+    },
+    {
+      "check_id": "python-tests",
+      "conclusion": "python-tests terminated with exit code None and recorded counts {'deselected': 1, 'failed': 0, 'ignored': 0, 'passed': 2198, 'skipped': 1}",
+      "evidence_refs": [
+        "ev-mirror-python-tests"
+      ],
+      "plane": "Python_Engine",
+      "scope": "python-tests",
+      "status": "Fresh_Failure"
+    },
+    {
+      "check_id": "python-coverage",
+      "conclusion": "python-coverage has no command in the current repository configuration",
+      "evidence_refs": [
+        "ev-mirror-python-coverage"
+      ],
+      "plane": "Python_Engine",
+      "scope": "python-coverage",
+      "status": "Not_Implemented"
+    },
+    {
+      "check_id": "typescript-types",
+      "conclusion": "typescript-types was omitted before launch: command cannot emit the required empirical Python containment proof",
+      "evidence_refs": [
+        "ev-mirror-typescript-types"
+      ],
+      "plane": "TypeScript_UI",
+      "scope": "typescript-types",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "typescript-tests",
+      "conclusion": "typescript-tests was omitted before launch: command cannot emit the required empirical Python containment proof",
+      "evidence_refs": [
+        "ev-mirror-typescript-tests"
+      ],
+      "plane": "TypeScript_UI",
+      "scope": "typescript-tests",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "typescript-coverage",
+      "conclusion": "typescript-coverage has no command in the current repository configuration",
+      "evidence_refs": [
+        "ev-mirror-typescript-coverage"
+      ],
+      "plane": "TypeScript_UI",
+      "scope": "typescript-coverage",
+      "status": "Not_Implemented"
+    },
+    {
+      "check_id": "rust-check",
+      "conclusion": "rust-check was omitted before launch: named prerequisite unavailable: cargo, rustc",
+      "evidence_refs": [
+        "ev-mirror-rust-check"
+      ],
+      "plane": "Rust_Tauri_Shell",
+      "scope": "rust-check",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "rust-tests",
+      "conclusion": "rust-tests was omitted before launch: named prerequisite unavailable: cargo, rustc",
+      "evidence_refs": [
+        "ev-mirror-rust-tests"
+      ],
+      "plane": "Rust_Tauri_Shell",
+      "scope": "rust-tests",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "engine-build",
+      "conclusion": "engine-build was omitted before launch: named prerequisite unavailable: pyinstaller",
+      "evidence_refs": [
+        "ev-mirror-engine-build"
+      ],
+      "plane": "Product_Build",
+      "scope": "engine-build",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "frontend-build",
+      "conclusion": "frontend-build was omitted before launch: command cannot emit the required empirical Python containment proof",
+      "evidence_refs": [
+        "ev-mirror-frontend-build"
+      ],
+      "plane": "Product_Build",
+      "scope": "frontend-build",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "desktop-build",
+      "conclusion": "desktop-build was omitted before launch: command cannot emit the required empirical Python containment proof",
+      "evidence_refs": [
+        "ev-mirror-desktop-build"
+      ],
+      "plane": "Product_Build",
+      "scope": "desktop-build",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "frozen-engine-smoke",
+      "conclusion": "frozen-engine-smoke has no command in the current repository configuration",
+      "evidence_refs": [
+        "ev-mirror-frozen-engine-smoke"
+      ],
+      "plane": "Product_Build",
+      "scope": "frozen-engine-smoke",
+      "status": "Not_Implemented"
+    },
+    {
+      "check_id": "packaging",
+      "conclusion": "packaging has no command in the current repository configuration",
+      "evidence_refs": [
+        "ev-mirror-packaging"
+      ],
+      "plane": "Packaging_Release",
+      "scope": "packaging",
+      "status": "Not_Implemented"
+    },
+    {
+      "check_id": "hermetic-security",
+      "conclusion": "hermetic-security has no command in the current repository configuration",
+      "evidence_refs": [
+        "ev-mirror-hermetic-security"
+      ],
+      "plane": "Security_Privacy",
+      "scope": "hermetic-security",
+      "status": "Not_Implemented"
+    },
+    {
+      "check_id": "local-e2e-inventory",
+      "conclusion": "every one of 26 scenarios received exactly one disposition {'configuration_excluded': 3, 'environment_blocked': 19, 'external_provider_dependent': 4}; zero scenarios executed and zero product failures were recorded",
+      "evidence_refs": [
+        "ev-local-e2e-inventory"
+      ],
+      "plane": "Local_E2E",
+      "scope": "configured Playwright scenarios",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "hardware-microphone_capture",
+      "conclusion": "microphone_capture was blocked before any scoped behavior: selected microphone device",
+      "evidence_refs": [
+        "ev-hardware-microphone_capture"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "microphone_capture",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "hardware-system_audio_loopback_capture",
+      "conclusion": "system_audio_loopback_capture was blocked before any scoped behavior: selected system-audio loopback device",
+      "evidence_refs": [
+        "ev-hardware-system_audio_loopback_capture"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "system_audio_loopback_capture",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "hardware-graphics_processor_selection",
+      "conclusion": "graphics_processor_selection executed once within bounds and observed {\"compute_capability\": \"8.6\", \"compute_device\": \"cuda\", \"graphics_processor\": \"NVIDIA GeForce RTX 3070\", \"inference_executed\": false, \"observable\": \"graphics processor selected and identified\"}",
+      "evidence_refs": [
+        "ev-hardware-graphics_processor_selection"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "graphics_processor_selection",
+      "status": "Verified_Working"
+    },
+    {
+      "check_id": "hardware-local_model_inference",
+      "conclusion": "local_model_inference was blocked before any scoped behavior: Local_Model weights",
+      "evidence_refs": [
+        "ev-hardware-local_model_inference"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "local_model_inference",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "hardware-dense_retrieval",
+      "conclusion": "dense_retrieval was blocked before any scoped behavior: Dense_Retrieval_Weights",
+      "evidence_refs": [
+        "ev-hardware-dense_retrieval"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "dense_retrieval",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "hardware-fallback_retrieval",
+      "conclusion": "fallback_retrieval executed once within bounds and observed {\"corpus_size\": 3, \"dense_tier_participated\": false, \"elapsed_ms\": 0, \"observable\": \"one fallback retrieval completed\", \"result_count\": 3, \"retrieval_source\": \"hybrid_rrf\", \"retrievals_executed\": 1, \"tier\": \"fts5_bm25_keyword_only\", \"top_note_path\": \"synthetic/3.md\"}",
+      "evidence_refs": [
+        "ev-hardware-fallback_retrieval"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "fallback_retrieval",
+      "status": "Verified_Working"
+    },
+    {
+      "check_id": "hardware-stt_accuracy",
+      "conclusion": "stt_accuracy was blocked before any scoped behavior: labelled local synthetic speech corpus",
+      "evidence_refs": [
+        "ev-hardware-stt_accuracy"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "stt_accuracy",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "hardware-tauri_launch",
+      "conclusion": "tauri_launch was blocked before any scoped behavior: interactive desktop session",
+      "evidence_refs": [
+        "ev-hardware-tauri_launch"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "tauri_launch",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "hardware-python_engine_sidecar_lifecycle",
+      "conclusion": "python_engine_sidecar_lifecycle was blocked before any scoped behavior: Python_Engine sidecar executable",
+      "evidence_refs": [
+        "ev-hardware-python_engine_sidecar_lifecycle"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "python_engine_sidecar_lifecycle",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "hardware-tray_behavior",
+      "conclusion": "tray_behavior was blocked before any scoped behavior: assessment-owned Tauri instance",
+      "evidence_refs": [
+        "ev-hardware-tray_behavior"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "tray_behavior",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "hardware-global_hotkey_handling",
+      "conclusion": "global_hotkey_handling was blocked before any scoped behavior: configured global hotkey without registration conflict",
+      "evidence_refs": [
+        "ev-hardware-global_hotkey_handling"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "global_hotkey_handling",
+      "status": "Environment_Blocked"
+    },
+    {
+      "check_id": "hardware-supported_text_injection",
+      "conclusion": "supported_text_injection was blocked before any scoped behavior: foreground-control permission",
+      "evidence_refs": [
+        "ev-hardware-supported_text_injection"
+      ],
+      "plane": "Hardware_Integration",
+      "scope": "supported_text_injection",
+      "status": "Environment_Blocked"
+    }
+  ]
+}
