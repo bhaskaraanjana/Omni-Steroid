@@ -22,13 +22,10 @@ jobs:
         include:
           - os: windows-latest
             engine_binary: omni-engine.exe
-            smoke_shell: pwsh
           - os: macos-latest
             engine_binary: omni-engine
-            smoke_shell: bash
           - os: ubuntu-latest
             engine_binary: omni-engine
-            smoke_shell: bash
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -52,37 +49,49 @@ jobs:
       - name: Build engine sidecar (PyInstaller onedir)
         run: uv run --with pyinstaller pyinstaller packaging/omni-engine.spec --noconfirm --distpath packaging/dist --workpath packaging/build
 
+      # `shell:` is a plain string in the workflow schema and never evaluates an
+      # expression, so `shell: ${{ matrix.smoke_shell }}` made GitHub reject this
+      # whole file. Split per OS with a static shell instead; the previous single
+      # step also wrapped PowerShell inside a bash `if`, which no shell could run.
       - name: Smoke-test sidecar boot (GET /health must return 200)
-        shell: ${{ matrix.smoke_shell }}
+        if: runner.os == 'Windows'
+        shell: pwsh
+        env:
+          OMNI_ENGINE_PORT: "8791"
+          OMNI_DB_PATH: ${{ runner.temp }}/omni-smoke/omni.db
+          OMNI_MODELS_DIR: ${{ runner.temp }}/omni-smoke/models
+        run: |
+          New-Item -ItemType Directory -Force -Path $env:OMNI_MODELS_DIR | Out-Null
+          $p = Start-Process -FilePath "packaging/dist/omni-engine/${{ matrix.engine_binary }}" -PassThru
+          $ok = $false
+          foreach ($i in 1..30) {
+            Start-Sleep -Seconds 2
+            try {
+              $r = Invoke-WebRequest -Uri "http://127.0.0.1:8791/health" -UseBasicParsing -TimeoutSec 5
+              if ($r.StatusCode -eq 200) { Write-Host "health: $($r.Content)"; $ok = $true; break }
+            } catch {}
+          }
+          Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
+          if (-not $ok) { Write-Error "frozen engine never answered /health"; exit 1 }
+
+      - name: Smoke-test sidecar boot (GET /health must return 200)
+        if: runner.os != 'Windows'
+        shell: bash
         env:
           OMNI_ENGINE_PORT: "8791"
           OMNI_DB_PATH: ${{ runner.temp }}/omni-smoke/omni.db
           OMNI_MODELS_DIR: ${{ runner.temp }}/omni-smoke/models
         run: |
           mkdir -p "$OMNI_MODELS_DIR"
-          if [ "${{ matrix.smoke_shell }}" = "pwsh" ]; then
-            $p = Start-Process -FilePath "packaging/dist/omni-engine/${{ matrix.engine_binary }}" -PassThru
-            $ok = $false
-            foreach ($i in 1..30) {
-              Start-Sleep -Seconds 2
-              try {
-                $r = Invoke-WebRequest -Uri "http://127.0.0.1:8791/health" -UseBasicParsing -TimeoutSec 5
-                if ($r.StatusCode -eq 200) { Write-Host "health: $($r.Content)"; $ok = $true; break }
-              } catch {}
-            }
-            Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
-            if (-not $ok) { Write-Error "frozen engine never answered /health"; exit 1 }
-          else
-            packaging/dist/omni-engine/${{ matrix.engine_binary }} &
-            pid=$!
-            ok=0
-            for i in $(seq 1 30); do
-              sleep 2
-              if curl -fsS "http://127.0.0.1:8791/health" >/dev/null; then ok=1; break; fi
-            done
-            kill "$pid" 2>/dev/null || true
-            if [ "$ok" -ne 1 ]; then echo "frozen engine never answered /health"; exit 1; fi
-          fi
+          packaging/dist/omni-engine/${{ matrix.engine_binary }} &
+          pid=$!
+          ok=0
+          for i in $(seq 1 30); do
+            sleep 2
+            if curl -fsS "http://127.0.0.1:8791/health" >/dev/null; then ok=1; break; fi
+          done
+          kill "$pid" 2>/dev/null || true
+          if [ "$ok" -ne 1 ]; then echo "frozen engine never answered /health"; exit 1; fi
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
