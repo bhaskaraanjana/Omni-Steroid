@@ -402,7 +402,7 @@ def test_open_capture_stream_oserror_terminates_instance_and_reraises(
     with pytest.raises(OSError, match="no such device"):
         PyAudioWpatchCaptureBackend().open_capture_stream(spec, lambda data, t: None)
     assert instance.terminated is True  # fail closed: no orphaned PortAudio ref
-    # Retries across rates × channels × attempts before giving up.
+    # Retries across rates x channels x attempts before giving up.
     assert len(instance.open_calls) >= 4
 
 

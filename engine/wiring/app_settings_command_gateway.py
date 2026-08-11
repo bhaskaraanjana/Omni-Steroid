@@ -21,6 +21,7 @@ import os
 from collections.abc import Callable
 from pathlib import Path
 
+from engine.detect.detection_signal_types import DEFAULT_AUTO_START_SOURCES
 from engine.enhance.note_templates import AUTO_TEMPLATE_ID, BUILTIN_TEMPLATES
 from engine.google.dpapi_google_token_store import GoogleTokenStore
 from engine.microsoft.dpapi_microsoft_token_store import MicrosoftTokenStore
@@ -66,7 +67,6 @@ from engine.storage.sqlite_migrations_runner import apply_migrations
 from engine.stt.model_weights_downloader import MODEL_SPECS, models_directory
 from engine.stt.silence_auto_stop_monitor import AUTOSTOP_SILENCE_ENV_VAR
 from engine.vault.vault_paths import VAULT_DIR_ENV_VAR
-from engine.detect.detection_signal_types import DEFAULT_AUTO_START_SOURCES
 from engine.wiring.settings_value_validation import (
     SettingsValueError,
     validate_settings_values,

@@ -43,7 +43,7 @@ logger = logging.getLogger(__name__)
 # the callback rate (50/s) costs nothing.
 _CHUNK_SECONDS = 0.02
 _MIN_FRAMES_PER_BUFFER = 128
-# Stereo is enough for loopback/mic; asking for 6–8ch against a 2ch mix → -9999.
+# Stereo is enough for loopback/mic; asking for 6-8ch against a 2ch mix gives -9999.
 _MAX_OPEN_CHANNELS = 2
 _OPEN_ATTEMPTS = 3
 _OPEN_RETRY_SLEEP_S = 0.2

@@ -81,7 +81,9 @@ packages = ["engine"]
 [tool.ruff]
 line-length = 100
 target-version = "py311"
-extend-exclude = ["docs", "apps"]
+# `.kiro` holds the repository-state assessment spec and its own assessor package,
+# which is linted by its own gate and is not product code shipped to users.
+extend-exclude = ["docs", "apps", ".kiro"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B", "SIM", "C4", "RUF", "S"]
@@ -115,6 +117,10 @@ module = [
     "nemo.*",
     "torch",
     "torch.*",
+    # Ships only in the optional `whisper` extra; the STT backend imports it lazily
+    # and reports stt_ready=false when absent, so CI must type-check without it.
+    "pywhispercpp",
+    "pywhispercpp.*",
 ]
 ignore_missing_imports = true
 
