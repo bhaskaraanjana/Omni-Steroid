@@ -62,17 +62,29 @@ jobs:
           OMNI_MODELS_DIR: ${{ runner.temp }}/omni-smoke/models
         run: |
           New-Item -ItemType Directory -Force -Path $env:OMNI_MODELS_DIR | Out-Null
-          $p = Start-Process -FilePath "packaging/dist/omni-engine/${{ matrix.engine_binary }}" -PassThru
+          $workspace = (Get-Location).Path
+          $engine = Join-Path $workspace "packaging/dist/omni-engine/${{ matrix.engine_binary }}"
+          $engine = (Resolve-Path $engine).Path
+          $stdout = Join-Path $env:RUNNER_TEMP "omni-engine.stdout.log"
+          $stderr = Join-Path $env:RUNNER_TEMP "omni-engine.stderr.log"
+          $p = Start-Process -FilePath $engine -WorkingDirectory $workspace -RedirectStandardOutput $stdout -RedirectStandardError $stderr -PassThru
+          if ($null -eq $p -or $p.HasExited) { Write-Error "engine failed to start"; exit 1 }
           $ok = $false
           foreach ($i in 1..30) {
             Start-Sleep -Seconds 2
+            if ($p.HasExited) { break }
             try {
               $r = Invoke-WebRequest -Uri "http://127.0.0.1:8791/health" -UseBasicParsing -TimeoutSec 5
               if ($r.StatusCode -eq 200) { Write-Host "health: $($r.Content)"; $ok = $true; break }
             } catch {}
           }
           Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
-          if (-not $ok) { Write-Error "frozen engine never answered /health"; exit 1 }
+          if (-not $ok) {
+            Write-Error "frozen engine never answered /health"
+            if (Test-Path $stdout) { Write-Host "--- engine stdout ---"; Get-Content $stdout }
+            if (Test-Path $stderr) { Write-Host "--- engine stderr ---"; Get-Content $stderr }
+            exit 1
+          }
 
       - name: Smoke-test sidecar boot (GET /health must return 200)
         if: runner.os != 'Windows'
@@ -116,6 +128,21 @@ jobs:
       - name: Install UI dependencies
         working-directory: apps/ui
         run: pnpm install --frozen-lockfile
+
+      - name: Install Tauri v2 Linux system dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            build-essential \
+            curl \
+            wget \
+            file \
+            libxdo-dev \
+            libssl-dev \
+            libayatana-appindicator3-dev \
+            librsvg2-dev
 
       - name: Build + publish Tauri bundles
         uses: tauri-apps/tauri-action@v0
