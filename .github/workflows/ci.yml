@@ -51,7 +51,10 @@ jobs:
         if: steps.ui_exists.outputs.exists == 'true'
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          # Must match release.yml and the local toolchain. pnpm 9 rejects
+          # apps/ui/pnpm-workspace.yaml ("packages field missing or empty")
+          # because its allowBuilds key is a pnpm 10+ setting.
+          version: 10
 
       - name: Setup Node
         if: steps.ui_exists.outputs.exists == 'true'

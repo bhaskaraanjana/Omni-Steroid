@@ -98,6 +98,11 @@ select = ["E", "F", "W", "I", "UP", "B", "SIM", "C4", "RUF", "S"]
 # ---------------------------------------------------------------------------
 [tool.mypy]
 python_version = "3.11"
+# Omni is a Windows product: it uses WASAPI loopback capture, DPAPI key custody,
+# and the winsound/winreg stdlib modules. Type-check against the platform it
+# actually ships on, so Linux CI agrees with a Windows dev box instead of failing
+# on Windows-only stdlib attributes that are correct for every real user.
+platform = "win32"
 strict = true
 warn_unreachable = true
 show_error_codes = true
