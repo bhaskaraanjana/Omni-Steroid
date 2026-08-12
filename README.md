@@ -221,7 +221,11 @@ UI only (engine already up): `cd apps/ui && pnpm dev`
 
 ### Installers
 
-Tagged releases ship **Windows** (NSIS/MSI), **macOS** (DMG), and **Linux** (deb/AppImage) with signature-verified auto-update when published:
+Tagged releases ship **Windows** (NSIS/MSI) with signature-verified auto-update when published:
+
+> **Windows only for now.** Provider API keys are held in Windows DPAPI, so a macOS or Linux
+> build could not store a key. Linux is the next milestone; see
+> [`docs/progress/cross-platform-port.md`](docs/progress/cross-platform-port.md).
 
 **→ [github.com/bhaskaraanjana/Omni-Steroid/releases](https://github.com/bhaskaraanjana/Omni-Steroid/releases)**
 

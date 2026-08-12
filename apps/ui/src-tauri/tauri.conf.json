@@ -26,11 +26,11 @@
   },
   "bundle": {
     "active": true,
-    "targets": ["nsis", "msi", "dmg", "app", "deb", "appimage"],
+    "targets": ["nsis", "msi"],
     "publisher": "Omni Steroid",
     "copyright": "MIT License",
     "shortDescription": "Local-first meeting intelligence",
-    "longDescription": "Omni Steroid: local-first, bot-free meeting intelligence. On-device transcription, enhanced notes into your Obsidian vault, approval-carded actions, zero telemetry. Windows, macOS, and Linux builds.",
+    "longDescription": "Omni Steroid: local-first, bot-free meeting intelligence. On-device transcription, enhanced notes into your Obsidian vault, approval-carded actions, zero telemetry. Windows build.",
     "licenseFile": "../../../LICENSE",
     "createUpdaterArtifacts": true,
     "icon": [

@@ -18,14 +18,13 @@ jobs:
   build-and-release:
     strategy:
       fail-fast: false
+      # The matrix is Windows-only for 0.1.0 because key custody is
+      # DPAPI-only, so macOS/Linux builds can never save provider API keys.
+      # The Linux-guarded steps below are retained for the 0.2.0 Linux milestone.
       matrix:
         include:
           - os: windows-latest
             engine_binary: omni-engine.exe
-          - os: macos-latest
-            engine_binary: omni-engine
-          - os: ubuntu-latest
-            engine_binary: omni-engine
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
